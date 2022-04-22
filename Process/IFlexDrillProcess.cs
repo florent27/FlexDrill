@@ -4,81 +4,83 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
+using Kuka.FlexDrill.Process.CustomClasses;
 using System;
 using System.Collections.ObjectModel;
 
-using Kuka.FlexDrill.Process.CustomClasses;
-using KUKARoboter.KRCModel.Robot.Interpreter;
-
 namespace Kuka.FlexDrill.Process
 {
-   public interface IFlexDrillProcess
-   {
-      #region Interface
+    public interface IFlexDrillProcess
+    {
+        #region Interface
 
-      //
-      //! Properties
-      //
-      CellProgram CurrentCellProgram { get; set; }
+        //
+        //! Properties
+        //
+        CellProgram CurrentCellProgram { get; set; }
 
-      ObservableCollection<CellProgram> Programs { get; set; }
+        ObservableCollection<CellProgram> Programs { get; set; }
 
-      CellProgram GeneratedCellProgram { get; set; }
+        CellProgram GeneratedCellProgram { get; set; }
 
-      bool CellInitialized { get; set; }
+        bool CellInitialized { get; set; }
 
-      //
-      //! Production Management
-      //
-      event EventHandler CellInitializedChanged;
+        //
+        //! Production Management
+        //
+        event EventHandler CellInitializedChanged;
 
-      event EventHandler LoadNextJobChanged;
+        event EventHandler LoadNextJobChanged;
 
-      CellProgram ParseXmlFile(string AXMLFilePath);
+        CellProgram ParseXmlFile(string AXMLFilePath);
 
-      bool GenerateSrcFile(CellProgram ACellProgram, string AOutputSRCFolderPath);
+        bool GenerateSrcFile(CellProgram ACellProgram, string AOutputSRCFolderPath);
 
-      void RemoveProgram(string programName);
+        void RemoveProgram(string programName);
 
-      void AddProgram(string programPath);
+        void AddProgram(string programPath);
 
-      void RenameProgram(string oldName, string newName);
+        void RenameProgram(string oldName, string newName);
 
-      void StartCycle();
+        void StartCycle();
 
-      void PauseCycle();
+        void PauseCycle();
 
-      void AbortCycle();
-      void InitCell();
+        void AbortCycle();
 
-      //
-      //! Seti-Tec
-      //
-      void DropHead(int ARackID);
+        void InitCell();
 
-      void GraspHead(int ARackID);
-      void InitHead();
-      void RunProcess(int AProcessID);
+        //
+        //! Seti-Tec
+        //
+        void DropHead(int ARackID);
 
-      void StartVacuum(bool AStartVacuum);
+        void GraspHead(int ARackID);
 
-      void HeadChange(string AHeadToDrop, string AHeadToGrasp);
+        void InitHead();
 
-      void StartManualPositionning();
+        void RunProcess(int AProcessID);
 
-      //
-      //! Clamping
-      //
-      void TareForceSensor();
+        void StartVacuum(bool AStartVacuum);
 
-      void StartAntiSliddingCalibration();
-      void StartNormalityCalibration();
+        void HeadChange(string AHeadToDrop, string AHeadToGrasp);
 
-      //
-      //! TCP Calibration
-      //
-      void StartTCPCalibration(int ACalibrationType);
+        void StartManualPositionning();
 
-      #endregion
-   }
+        //
+        //! Clamping
+        //
+        void TareForceSensor();
+
+        void StartAntiSliddingCalibration();
+
+        void StartNormalityCalibration();
+
+        //
+        //! TCP Calibration
+        //
+        void StartTCPCalibration(int ACalibrationType);
+
+        #endregion Interface
+    }
 }

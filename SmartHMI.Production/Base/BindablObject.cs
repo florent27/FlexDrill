@@ -10,41 +10,41 @@ using System.Runtime.CompilerServices;
 
 namespace Kuka.FlexDrill.SmartHMI.Production.Base
 {
-   public class BindablObject : INotifyPropertyChanged
-   {
-      #region Constructors and Destructors
+    public class BindablObject : INotifyPropertyChanged
+    {
+        #region Constructors and Destructors
 
-      protected BindablObject()
-      {
-      }
+        protected BindablObject()
+        {
+        }
 
-      #endregion
+        #endregion Constructors and Destructors
 
-      #region Public Events
+        #region Public Events
 
-      public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
-      #endregion
+        #endregion Public Events
 
-      #region Methods
+        #region Methods
 
-      protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-      {
-         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-      }
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
-      protected bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
-      {
-         if (EqualityComparer<T>.Default.Equals(field, value))
-         {
-            return false;
-         }
+        protected bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
+        {
+            if (EqualityComparer<T>.Default.Equals(field, value))
+            {
+                return false;
+            }
 
-         field = value;
-         OnPropertyChanged(propertyName);
-         return true;
-      }
+            field = value;
+            OnPropertyChanged(propertyName);
+            return true;
+        }
 
-      #endregion
-   }
+        #endregion Methods
+    }
 }

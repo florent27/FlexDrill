@@ -70,7 +70,7 @@
             </Border>
 
             <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-                <WrapPanel Margin="0,15,0,10" > 
+                <WrapPanel Margin="0,15,0,10">
                     <TextBlock Text="{Binding Resources.Strings[SelectedWorkPointProcess]}" />
                     <TextBlock FontWeight="Bold" Margin="5,0,0,0" TextWrapping="Wrap">
                         <TextBlock.Style>
@@ -108,53 +108,46 @@
                     </Grid.RowDefinitions>
 
                     <!-- NOP-->
-                    <Button Grid.Row="0" Grid.Column="0" Content="NOP" Command="{Binding AddMacroCommand}" CommandParameter="nop"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Width="100" Text="{Binding TcpNop, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Button Grid.Row="0" Grid.Column="0" Content="NOP" Command="{Binding AddMacroCommand}" CommandParameter="nop" />
+                    <TextBox Grid.Row="0" Grid.Column="1" Width="100" Text="{Binding TcpNop, UpdateSourceTrigger=PropertyChanged}" />
 
                     <!--ClearGlobalData-->
-                    <Button Grid.Row="1" Grid.ColumnSpan="2" Content="Clear Global Data" Margin="0,10,0,0" Command="{Binding AddMacroCommand}" CommandParameter="clear_global_reloc_data"/>
+                    <Button Grid.Row="1" Grid.ColumnSpan="2" Content="Clear Global Data" Margin="0,10,0,0" Command="{Binding AddMacroCommand}" CommandParameter="clear_global_reloc_data" />
 
                     <!--ClearLocalData-->
-                    <Button Grid.Row="2" Grid.ColumnSpan="2" Content="Clear Local Data" Margin="0,10,0,0" Command="{Binding AddMacroCommand}" CommandParameter="clear_local_reloc_data"/>
+                    <Button Grid.Row="2" Grid.ColumnSpan="2" Content="Clear Local Data" Margin="0,10,0,0" Command="{Binding AddMacroCommand}" CommandParameter="clear_local_reloc_data" />
 
                     <!--StoreGlobalData-->
-                    <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Store Global Data" Margin="0,10,0,0" Command="{Binding AddMacroCommand}" CommandParameter="store_global_data"/>
+                    <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Store Global Data" Margin="0,10,0,0" Command="{Binding AddMacroCommand}" CommandParameter="store_global_data" />
 
                     <!--StoreLocalData-->
-                    <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Store Local Data" Margin="0,10,0,0" Command="{Binding AddMacroCommand}" CommandParameter="store_local_data"/>
-
+                    <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Store Local Data" Margin="0,10,0,0" Command="{Binding AddMacroCommand}" CommandParameter="store_local_data" />
 
                     <!--ComputeObjectFrame-->
-                    <Button Grid.Row="5" Grid.ColumnSpan="2" Content="Compute Object Frame" Margin="0,10,0,0" Command="{Binding AddMacroCommand}" CommandParameter="compute_object_frame"/>
+                    <Button Grid.Row="5" Grid.ColumnSpan="2" Content="Compute Object Frame" Margin="0,10,0,0" Command="{Binding AddMacroCommand}" CommandParameter="compute_object_frame" />
 
                     <!--LocateTarget XY-->
-                    <Button Grid.Row="6" Grid.ColumnSpan="2" Content="Locate Target XY" Margin="0,10,0,0" Command="{Binding AddMacroCommand}" CommandParameter="locate_target_xy"/>
+                    <Button Grid.Row="6" Grid.ColumnSpan="2" Content="Locate Target XY" Margin="0,10,0,0" Command="{Binding AddMacroCommand}" CommandParameter="locate_target_xy" />
 
                     <!--LocateTarget RxRyZ-->
-                    <Button Grid.Row="7" Grid.ColumnSpan="2" Content="Locate Target Rx Ry Z" Margin="0,10,0,0" Command="{Binding AddMacroCommand}" CommandParameter="locate_target_zrxry"/>
+                    <Button Grid.Row="7" Grid.ColumnSpan="2" Content="Locate Target Rx Ry Z" Margin="0,10,0,0" Command="{Binding AddMacroCommand}" CommandParameter="locate_target_zrxry" />
 
                     <!-- Drill-->
-                    <Button Grid.Row="8" Grid.Column="0" Content="Drill" Margin="0,10,0,0" Command="{Binding AddMacroCommand}" CommandParameter="drill"/>
-                    <TextBox Grid.Row="8" Grid.Column="1" Width="100" Margin="0,10,0,0" Text="{Binding PSet, UpdateSourceTrigger=PropertyChanged, StringFormat=D3 }"/>
+                    <Button Grid.Row="8" Grid.Column="0" Content="Drill" Margin="0,10,0,0" Command="{Binding AddMacroCommand}" CommandParameter="drill" />
+                    <TextBox Grid.Row="8" Grid.Column="1" Width="100" Margin="0,10,0,0" Text="{Binding PSet, UpdateSourceTrigger=PropertyChanged, StringFormat=D3 }" />
 
                     <!--Clamp-->
-                    <Button Grid.Row="9" Grid.ColumnSpan="2" Content="Clamp" Margin="0,10,0,0" Command="{Binding AddMacroCommand}" CommandParameter="clamp"/>
+                    <Button Grid.Row="9" Grid.ColumnSpan="2" Content="Clamp" Margin="0,10,0,0" Command="{Binding AddMacroCommand}" CommandParameter="clamp" />
 
                     <!--Unlamp-->
-                    <Button Grid.Row="10" Grid.ColumnSpan="2" Content="Unclamp" Margin="0,10,0,0" Command="{Binding AddMacroCommand}" CommandParameter="unclamp"/>
+                    <Button Grid.Row="10" Grid.ColumnSpan="2" Content="Unclamp" Margin="0,10,0,0" Command="{Binding AddMacroCommand}" CommandParameter="unclamp" />
                 </Grid>
-
-
             </Border>
 
             <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
                 <Button Content="{Binding Resources.Strings[RemoveLastMacro]}" Command="{Binding RemoveLastMacroCommand}" Margin="0,10,0,10"
-                        Height="40" Width="150" HorizontalAlignment="Right"/>
+                        Height="40" Width="150" HorizontalAlignment="Right" />
             </Border>
-
-
-
-
         </Grid>
     </ScrollViewer>
 </UserControl>

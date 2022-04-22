@@ -82,7 +82,6 @@
                <TextBox Grid.Row="5" Grid.Column="1"
                         Text="{Binding CurrentClampingParameters.GainTx, UpdateSourceTrigger=PropertyChanged}" />
 
-
                <!--Gain Ty-->
                <TextBlock Grid.Row="6" Grid.Column="0" Text="{Binding Resources.Strings[ClampingGainTy]}" />
                <TextBox Grid.Row="6" Grid.Column="1"
@@ -95,9 +94,7 @@
                <Button DockPanel.Dock="Right" Content="{Binding Resources.Strings[Save]}"
                   Command="{Binding SaveCommand}" />
             </DockPanel>
-
          </StackPanel>
       </GroupBox>
    </StackPanel>
-
 </UserControl>

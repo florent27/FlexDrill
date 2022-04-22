@@ -33,7 +33,7 @@
                </Grid.RowDefinitions>
                <Grid.ColumnDefinitions>
                   <ColumnDefinition Width="Auto" />
-                  <ColumnDefinition Width="Auto"/>
+                  <ColumnDefinition Width="Auto" />
                   <ColumnDefinition />
                </Grid.ColumnDefinitions>
 
@@ -70,10 +70,10 @@
                   Style="{StaticResource ParamNameStyle}" />
                <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Amplitude}"
                   DataContext="{Binding ElementName=HeadComboBox, Path=SelectedItem}"
-                  Style="{StaticResource TextValueStyle}" HorizontalAlignment="Right"/>
+                  Style="{StaticResource TextValueStyle}" HorizontalAlignment="Right" />
                <TextBlock Grid.Row="4" Grid.Column="2" Text="[mm]"
                   DataContext="{Binding ElementName=HeadComboBox, Path=SelectedItem}"
-                  Style="{StaticResource ParamNameStyle}" HorizontalAlignment="Left"/>
+                  Style="{StaticResource ParamNameStyle}" HorizontalAlignment="Left" />
 
                <!--Gear box feed-->
                <TextBlock Grid.Row="5" Grid.Column="0" Text="{Binding Resources.Strings[HeadGearBoxFeed]}"
@@ -81,10 +81,10 @@
                <TextBlock Grid.Row="5" Grid.Column="1"
                   Text="{Binding GearBoxFeed}"
                   DataContext="{Binding ElementName=HeadComboBox, Path=SelectedItem}"
-                  Style="{StaticResource TextValueStyle}" HorizontalAlignment="Right"/>
+                  Style="{StaticResource TextValueStyle}" HorizontalAlignment="Right" />
                <TextBlock Grid.Row="5" Grid.Column="2" Text="[mm/s]"
                   DataContext="{Binding ElementName=HeadComboBox, Path=SelectedItem}"
-                  Style="{StaticResource ParamNameStyle}" HorizontalAlignment="Left"/>
+                  Style="{StaticResource ParamNameStyle}" HorizontalAlignment="Left" />
 
                <!--Gear box speed-->
                <TextBlock Grid.Row="6" Grid.Column="0" Text="{Binding Resources.Strings[HeadGearBoxSpeed]}"
@@ -92,11 +92,10 @@
                <TextBlock Grid.Row="6" Grid.Column="1"
                   Text="{Binding GearBoxSpeed}"
                   DataContext="{Binding ElementName=HeadComboBox, Path=SelectedItem}"
-                  Style="{StaticResource TextValueStyle}" HorizontalAlignment="Right"/>
+                  Style="{StaticResource TextValueStyle}" HorizontalAlignment="Right" />
                <TextBlock Grid.Row="6" Grid.Column="2" Text="[rpm]"
                   DataContext="{Binding ElementName=HeadComboBox, Path=SelectedItem}"
-                  Style="{StaticResource ParamNameStyle}" HorizontalAlignment="Left"/>
-
+                  Style="{StaticResource ParamNameStyle}" HorizontalAlignment="Left" />
             </Grid>
          </GroupBox>
       </StackPanel>

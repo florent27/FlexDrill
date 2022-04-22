@@ -1,75 +1,62 @@
 ﻿using Kuka.FlexDrill.SmartHMI.Production.TcpCalibration.ViewModel;
 using KukaRoboter.Common.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Kuka.FlexDrill.SmartHMI.Production.TcpCalibration.View
 {
-   /// <summary>Interaction logic for TextBoxTestView.xaml</summary>
-   [ViewModelType(typeof(TcpCalibrationViewModel))]
-   public partial class TcpCalibrationView
-   {
-      #region Constants and Fields
+    /// <summary>Interaction logic for TextBoxTestView.xaml</summary>
+    [ViewModelType(typeof(TcpCalibrationViewModel))]
+    public partial class TcpCalibrationView
+    {
+        #region Constants and Fields
 
-      private TcpCalibrationViewModel viewModel;
+        private TcpCalibrationViewModel viewModel;
 
-      #endregion
+        #endregion Constants and Fields
 
-      #region Constructors and Destructor
+        #region Constructors and Destructor
 
-      public TcpCalibrationView()
-         : base(true)
-      {
-         InitializeComponent();
+        public TcpCalibrationView()
+           : base(true)
+        {
+            InitializeComponent();
 
-         Loaded += OnLoaded;
-      }
+            Loaded += OnLoaded;
+        }
 
-      #endregion
+        #endregion Constructors and Destructor
 
-      #region Interface
+        #region Interface
 
-      /// <summary>Gets the view model.</summary>
-      public TcpCalibrationViewModel ViewModel
-      {
-         get
-         {
-            if (viewModel == null)
+        /// <summary>Gets the view model.</summary>
+        public TcpCalibrationViewModel ViewModel
+        {
+            get
             {
-               viewModel = DataContext as TcpCalibrationViewModel;
+                if (viewModel == null)
+                {
+                    viewModel = DataContext as TcpCalibrationViewModel;
+                }
+
+                return viewModel;
             }
+        }
 
-            return viewModel;
-         }
-      }
- 
-      public override void RequestClose()
-      {
-         ViewModel.ReleaseEvents();
-         base.RequestClose();
-      }
+        public override void RequestClose()
+        {
+            ViewModel.ReleaseEvents();
+            base.RequestClose();
+        }
 
-      #endregion
+        #endregion Interface
 
-      #region Methods
+        #region Methods
 
-      private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
-      {
-         ViewModel.InitializePlugin();
-      }
+        private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
+        {
+            ViewModel.InitializePlugin();
+        }
 
-      #endregion
-   }
+        #endregion Methods
+    }
 }

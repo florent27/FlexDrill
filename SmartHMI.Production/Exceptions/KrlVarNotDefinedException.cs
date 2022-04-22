@@ -8,22 +8,22 @@ using System;
 
 namespace Kuka.FlexDrill.SmartHMI.Production.Exceptions
 {
-   public class KrlVarNotDefinedException : Exception
-   {
-      #region Constructors and Destructor
+    public class KrlVarNotDefinedException : Exception
+    {
+        #region Constructors and Destructor
 
-      public KrlVarNotDefinedException(string krlVariableName)
-         : base($"The KRL variable \'{krlVariableName}\' is not defined.")
-      {
-         VariableName = krlVariableName;
-      }
+        public KrlVarNotDefinedException(string krlVariableName)
+           : base($"The KRL variable \'{krlVariableName}\' is not defined.")
+        {
+            VariableName = krlVariableName;
+        }
 
-      #endregion
+        #endregion Constructors and Destructor
 
-      #region Interface
+        #region Interface
 
-      public string VariableName { get; }
+        public string VariableName { get; }
 
-      #endregion
-   }
+        #endregion Interface
+    }
 }

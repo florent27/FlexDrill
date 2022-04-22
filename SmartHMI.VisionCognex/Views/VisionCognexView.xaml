@@ -5,7 +5,7 @@
         xmlns:KukaUI="clr-namespace:KukaRoboter.SmartHMI.UIFramework.ViewModel;assembly=KukaRoboter.SmartHMI.UIFrameworkServices"
         xmlns:KukaVM="clr-namespace:KukaRoboter.Common.ViewModel;assembly=KukaRoboter.Common.ViewModelBase"
         xmlns:KukaValidation="clr-namespace:KukaRoboter.Common.ComponentModel.Validation;assembly=KukaRoboter.Common.ComponentModel"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:cognex="clr-namespace:Cognex.InSight.Controls.Display;assembly=Cognex.InSight.Controls.Display"
         xmlns:kukacontrols="clr-namespace:KukaRoboter.Common.Controls;assembly=KukaRoboter.Common.Controls"
         xmlns:ivtb="clr-namespace:KukaRoboter.Common.Controls;assembly=KukaRoboter.Common.ViewModelBase"
@@ -15,7 +15,7 @@
     <KukaUI:TouchViewBase.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Kuka.FlexDrill.SmartHMI.VisionCognex;component/Resources/VisionCognexResources.xaml"/>
+                <ResourceDictionary Source="/Kuka.FlexDrill.SmartHMI.VisionCognex;component/Resources/VisionCognexResources.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </KukaUI:TouchViewBase.Resources>
@@ -27,37 +27,37 @@
 
                     <StackPanel Name="stckCtrlCognex" Height="370"  Margin="10,10,10,0">
                         <WindowsFormsHost Name="ctrlCognex" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                            <cognex:CvsInSightDisplay x:Name="cvsInSightDisp" ShowGraphics="True" ShowCustomView="True" ImageZoomMode="Fit" AutoScrollMinSize="0, 0"/>
+                            <cognex:CvsInSightDisplay x:Name="cvsInSightDisp" ShowGraphics="True" ShowCustomView="True" ImageZoomMode="Fit" AutoScrollMinSize="0, 0" />
                         </WindowsFormsHost>
                     </StackPanel>
 
                     <StackPanel Name="stckPictureAction" Height="140">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <GroupBox x:Name="grbReticule" Header="{Binding Resources.Strings[gbPixel]}" Style="{StaticResource KukaCroupBoxStyle}" Width="200" Height="140">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="10"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="10" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
-                                    <TextBox Name="txtPixel" Text="{KukaValidation:ValidationBinding Path=NbPixel, ForceValidation=True, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="3" Tag="NumericUFloat" Height="30" Width="72" TextAlignment="Center" TextChanged="TextBox_TextChanged"/>
+                                    <TextBox Name="txtPixel" Text="{KukaValidation:ValidationBinding Path=NbPixel, ForceValidation=True, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="3" Tag="NumericUFloat" Height="30" Width="72" TextAlignment="Center" TextChanged="TextBox_TextChanged" />
                                     <Button x:Name="btRight" Command="{Binding Path=RightReticule}" Grid.Column="5" Grid.Row="3" Height="30" Width="30">
                                         <Path Data="{DynamicResource Arrow}" Fill="#FF44A6D1" Stretch="Fill" />
                                     </Button>
@@ -65,7 +65,7 @@
                                         <Path Data="{DynamicResource Arrow}" Fill="#FF44A6D1" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                                             <Path.RenderTransform>
                                                 <TransformGroup>
-                                                    <RotateTransform Angle="180"/>
+                                                    <RotateTransform Angle="180" />
                                                 </TransformGroup>
                                             </Path.RenderTransform>
                                         </Path>
@@ -74,7 +74,7 @@
                                         <Path Data="{DynamicResource Arrow}" Fill="#FF44A6D1" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                                             <Path.RenderTransform>
                                                 <TransformGroup>
-                                                    <RotateTransform Angle="-90"/>
+                                                    <RotateTransform Angle="-90" />
                                                 </TransformGroup>
                                             </Path.RenderTransform>
                                         </Path>
@@ -83,7 +83,7 @@
                                         <Path Data="{DynamicResource Arrow}" Fill="#FF44A6D1" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                                             <Path.RenderTransform>
                                                 <TransformGroup>
-                                                    <RotateTransform Angle="90"/>
+                                                    <RotateTransform Angle="90" />
                                                 </TransformGroup>
                                             </Path.RenderTransform>
                                         </Path>
@@ -91,51 +91,51 @@
                                 </Grid>
                             </GroupBox>
                             <StackPanel Name="stckZoomGridGraph" Grid.Column="1">
-                                <Grid >
+                                <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="15"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="30"/>
-                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="15" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
                                     <StackPanel Grid.Row="3">
                                         <Grid>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
                                             <Button x:Name="btZoomPlus" Grid.Column="5" Height="40" Width="40" Click="btZoomPlus_Click">
-                                                <Path Grid.Column="1" Data="{DynamicResource ZoomPlus}" Fill="Black" Stretch="Fill"/>
+                                                <Path Grid.Column="1" Data="{DynamicResource ZoomPlus}" Fill="Black" Stretch="Fill" />
                                             </Button>
                                             <Button x:Name="btZoomMinus" Grid.Column="1" Height="40" Width="40" Click="btZoomMinus_Click">
-                                                <Path Grid.Column="1" Data="{DynamicResource ZoomMoins}" Fill="Black" Stretch="Fill"/>
+                                                <Path Grid.Column="1" Data="{DynamicResource ZoomMoins}" Fill="Black" Stretch="Fill" />
                                             </Button>
                                             <Button x:Name="btZommFit" Grid.Column="3" Height="40" Width="40" Click="btZommFit_Click">
-                                                <Path Grid.Column="1" Data="{DynamicResource ZoomFit}" Fill="Black" Stretch="Fill"/>
+                                                <Path Grid.Column="1" Data="{DynamicResource ZoomFit}" Fill="Black" Stretch="Fill" />
                                             </Button>
                                         </Grid>
                                     </StackPanel>
                                     <StackPanel Grid.Row="1">
                                         <Grid>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
                                             <CheckBox x:Name="chkShowGrid" Grid.Column="1" HorizontalAlignment="Left" Height="40" Width="64" Checked="chkShowGrid_Checked" Unchecked="chkShowGrid_Unchecked">
-                                                <Path Grid.Column="1" Data="{DynamicResource Grid}" Fill="Black" Stretch="Fill"/>
+                                                <Path Grid.Column="1" Data="{DynamicResource Grid}" Fill="Black" Stretch="Fill" />
                                             </CheckBox>
                                             <CheckBox x:Name="chkShoxGraph" Grid.Column="3" HorizontalAlignment="Left" Height="40" Width="64" Unchecked="chkShoxGraph_Unchecked" Checked="chkShoxGraph_Checked">
-                                                <Path Grid.Column="1" Data="{DynamicResource Graphic}" Fill="Black" Stretch="Fill"/>
+                                                <Path Grid.Column="1" Data="{DynamicResource Graphic}" Fill="Black" Stretch="Fill" />
                                             </CheckBox>
                                         </Grid>
                                     </StackPanel>
@@ -150,11 +150,11 @@
                                     HorizontalContentAlignment="Stretch" MinWidth="44">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="35"/>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="35" />
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock Text="{Binding Resources.Strings[btManualAcquire], FallbackValue=btManualAcquire}" TextWrapping="Wrap" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                    <Path Grid.Column="1" Data="{DynamicResource Camera}" Fill="Black" Stretch="Fill" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="{Binding Resources.Strings[btManualAcquire], FallbackValue=btManualAcquire}" TextWrapping="Wrap" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                    <Path Grid.Column="1" Data="{DynamicResource Camera}" Fill="Black" Stretch="Fill" HorizontalAlignment="Left" />
                                 </Grid>
                             </Button>
 
@@ -162,11 +162,11 @@
                                     HorizontalContentAlignment="Stretch" MinWidth="44">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="35"/>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="35" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Content="{Binding Resources.Strings[btSkip], FallbackValue=btSkip}"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="10"/>
-                                    <Path Grid.Column="1" Data="{DynamicResource Skip}" Fill="Orange" Stretch="Fill" HorizontalAlignment="Left"/>
+                                    <Label Content="{Binding Resources.Strings[btSkip], FallbackValue=btSkip}"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="10" />
+                                    <Path Grid.Column="1" Data="{DynamicResource Skip}" Fill="Orange" Stretch="Fill" HorizontalAlignment="Left" />
                                 </Grid>
                             </Button>
 
@@ -174,11 +174,11 @@
                                     HorizontalContentAlignment="Stretch" MinWidth="44">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="35"/>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="35" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Content="{Binding Resources.Strings[btOk], FallbackValue=btOk}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="10"/>
-                                    <Path Grid.Column="1"  Data="{DynamicResource OK}" Fill="Green" Stretch="Fill" HorizontalAlignment="Left"/>
+                                    <Label Content="{Binding Resources.Strings[btOk], FallbackValue=btOk}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="10" />
+                                    <Path Grid.Column="1"  Data="{DynamicResource OK}" Fill="Green" Stretch="Fill" HorizontalAlignment="Left" />
                                 </Grid>
                             </Button>
 
@@ -186,11 +186,11 @@
                                     HorizontalContentAlignment="Stretch" MinWidth="44">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="35"/>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="35" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Content="{Binding Resources.Strings[btNok], FallbackValue=btNok}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="10"/>
-                                    <Path Grid.Column="1" Data="{DynamicResource NOK}" Fill="Red" Stretch="Fill" HorizontalAlignment="Left"/>
+                                    <Label Content="{Binding Resources.Strings[btNok], FallbackValue=btNok}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="10" />
+                                    <Path Grid.Column="1" Data="{DynamicResource NOK}" Fill="Red" Stretch="Fill" HorizontalAlignment="Left" />
                                 </Grid>
                             </Button>
                         </WrapPanel>
@@ -199,42 +199,41 @@
                     <StackPanel Name="stckConnectionAction" Height="50">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="256"/>
-                                <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="70"/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
+                                <ColumnDefinition Width="256" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
 
                             <WrapPanel VerticalAlignment="Center">
                                 <Button Name="btConnection" Command="{Binding Path=ConnectionCommand}" Style="{StaticResource ParamButton}" IsEnabled="{Binding CamIsDisconnected}"
-                                    Content="{Binding Resources.Strings[btconnection], FallbackValue=btconnection}"/>
+                                    Content="{Binding Resources.Strings[btconnection], FallbackValue=btconnection}" />
                                 <Button Name="btDeconnection" Command="{Binding Path=DisconnectionCommand}" Style="{StaticResource ParamButton}" IsEnabled="{Binding CamIsConnected}"
-                                    Content="{Binding Resources.Strings[btdisconnection], FallbackValue=btdisconnection}"/>
+                                    Content="{Binding Resources.Strings[btdisconnection], FallbackValue=btdisconnection}" />
                             </WrapPanel>
-                            <Label Grid.Column="2" Content="{Binding Resources.Strings[lblOnLine], FallbackValue=lblOnLine}" HorizontalAlignment="Right"  VerticalAlignment="Center"/>
-                            <kukacontrols:LEDControl Grid.Column="3" IsActive="{Binding CamIsOnLine}" Height="40"  VerticalAlignment="Center"/>
+                            <Label Grid.Column="2" Content="{Binding Resources.Strings[lblOnLine], FallbackValue=lblOnLine}" HorizontalAlignment="Right"  VerticalAlignment="Center" />
+                            <kukacontrols:LEDControl Grid.Column="3" IsActive="{Binding CamIsOnLine}" Height="40"  VerticalAlignment="Center" />
                         </Grid>
                     </StackPanel>
-
                 </WrapPanel>
             </TabItem>
 
-            <TabItem Header="{Binding Resources.Strings[tabCameraCalibration]}" >
+            <TabItem Header="{Binding Resources.Strings[tabCameraCalibration]}">
                 <StackPanel>
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
                         <GroupBox Grid.Row="1" Grid.Column="1" Header="{Binding Resources.Strings[CalibrateVision]}">
@@ -246,10 +245,10 @@
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <kukacontrols:LEDControl Grid.Column="1" IsActive="{Binding VisionCalibrationOk}" Height="40" />
-                                <Button Grid.Column="3" Command="{Binding Path=CalibrateVisionCommand}" 
-                                        Content="{Binding Resources.Strings[btCalibrate],   FallbackValue=btCalibrate}" 
+                                <Button Grid.Column="3" Command="{Binding Path=CalibrateVisionCommand}"
+                                        Content="{Binding Resources.Strings[btCalibrate],   FallbackValue=btCalibrate}"
                                         Style="{StaticResource ParamButton}"
-                                        IsEnabled="{Binding CalibrateVisionNotRunning}"/>
+                                        IsEnabled="{Binding CalibrateVisionNotRunning}" />
                             </Grid>
                         </GroupBox>
 
@@ -262,13 +261,12 @@
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <kukacontrols:LEDControl Grid.Column="1" IsActive="{Binding NormalityCalibrationOk}" Height="40" />
-                                <Button Grid.Column="3" Command="{Binding Path=CalibrateNormalityCommand}" 
+                                <Button Grid.Column="3" Command="{Binding Path=CalibrateNormalityCommand}"
                                         Content="{Binding Resources.Strings[btCalibrate], FallbackValue=btCalibrate}"
                                         Style="{StaticResource ParamButton}"
-                                        IsEnabled="{Binding CalibrateVisionNormalityNotRunning}"/>
+                                        IsEnabled="{Binding CalibrateVisionNormalityNotRunning}" />
                             </Grid>
                         </GroupBox>
-
                     </Grid>
                 </StackPanel>
             </TabItem>

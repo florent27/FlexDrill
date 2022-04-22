@@ -4,66 +4,64 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System.Windows;
-
 using Kuka.FlexDrill.SmartHMI.Production.Clamping.ViewModel;
-
 using KukaRoboter.Common.Attributes;
+using System.Windows;
 
 namespace Kuka.FlexDrill.SmartHMI.Production.Clamping.View
 {
-   /// <inheritdoc cref="ClampingView" />
-   [ViewModelType(typeof(ClampingViewModel))]
-   public partial class ClampingView
-   {
-      #region Constants and Fields
+    /// <inheritdoc cref="ClampingView" />
+    [ViewModelType(typeof(ClampingViewModel))]
+    public partial class ClampingView
+    {
+        #region Constants and Fields
 
-      private ClampingViewModel viewModel;
+        private ClampingViewModel viewModel;
 
-      #endregion
+        #endregion Constants and Fields
 
-      #region Constructors and Destructor
+        #region Constructors and Destructor
 
-      public ClampingView() : base(true)
-      {
-         InitializeComponent();
-         Loaded += OnLoaded;
-      }
+        public ClampingView() : base(true)
+        {
+            InitializeComponent();
+            Loaded += OnLoaded;
+        }
 
-      #endregion
+        #endregion Constructors and Destructor
 
-      #region Interface
+        #region Interface
 
-      public ClampingViewModel ViewModel
-      {
-         get
-         {
-            if (viewModel == null)
+        public ClampingViewModel ViewModel
+        {
+            get
             {
-               viewModel = DataContext as ClampingViewModel;
+                if (viewModel == null)
+                {
+                    viewModel = DataContext as ClampingViewModel;
+                }
+
+                return viewModel;
             }
+        }
 
-            return viewModel;
-         }
-      }
+        public override void RequestClose()
+        {
+            if (ViewModel.CanClose())
+            {
+                base.RequestClose();
+            }
+        }
 
-      public override void RequestClose()
-      {
-         if (ViewModel.CanClose())
-         {
-            base.RequestClose();
-         }
-      }
+        #endregion Interface
 
-      #endregion
+        #region Methods
 
-      #region Methods
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            ViewModel.InitializePlugin();
+        }
 
-      private void OnLoaded(object sender, RoutedEventArgs e)
-      {
-         ViewModel.InitializePlugin();
-      }
-
-      #endregion
-   }
+        #endregion Methods
+    }
 }

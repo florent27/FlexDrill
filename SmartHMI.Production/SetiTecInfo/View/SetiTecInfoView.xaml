@@ -12,16 +12,15 @@
     <TabControl>
 
         <TabItem Header="{Binding Resources.Strings[Status]}">
-            <tabs:StatusTab DataContext="{Binding Path=DataContext, ElementName=Root}"/>
+            <tabs:StatusTab DataContext="{Binding Path=DataContext, ElementName=Root}" />
         </TabItem>
 
         <TabItem Header="{Binding Resources.Strings[LastCycleGlobalInfo]}">
-            <tabs:LastCycleGlobalInfoTab DataContext="{Binding Path=DataContext, ElementName=Root}"/>
+            <tabs:LastCycleGlobalInfoTab DataContext="{Binding Path=DataContext, ElementName=Root}" />
         </TabItem>
 
         <TabItem Header="{Binding Resources.Strings[LastCycleData]}">
-            <tabs:LastCycleDataTab DataContext="{Binding Path=DataContext, ElementName=Root}"/>
+            <tabs:LastCycleDataTab DataContext="{Binding Path=DataContext, ElementName=Root}" />
         </TabItem>
-
     </TabControl>
 </kukaUi:TouchViewBase>

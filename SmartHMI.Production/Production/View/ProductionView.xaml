@@ -13,21 +13,21 @@
    <TabControl Style="{StaticResource KukaTabControlStyle}">
       <TabControl.Resources>
          <Style TargetType="ListView" BasedOn="{StaticResource KukaListViewStyle}">
-            <Setter Property="SelectionMode" Value="Single"/>
+            <Setter Property="SelectionMode" Value="Single" />
          </Style>
       </TabControl.Resources>
-      
-      <TabItem Header="{Binding Resources.Strings[Programs]}" >        
-         <tabs:ProgramTabView DataContext="{Binding Path=DataContext, ElementName=Root}"/>
+
+      <TabItem Header="{Binding Resources.Strings[Programs]}">
+         <tabs:ProgramTabView DataContext="{Binding Path=DataContext, ElementName=Root}" />
       </TabItem>
-       <TabItem Header="{Binding Resources.Strings[JobList]}" >
-           <tabs:JobListTabView DataContext="{Binding Path=DataContext, ElementName=Root}"/>
+       <TabItem Header="{Binding Resources.Strings[JobList]}">
+           <tabs:JobListTabView DataContext="{Binding Path=DataContext, ElementName=Root}" />
       </TabItem>
-      <TabItem Header="{Binding Resources.Strings[Operations]}" >
-         <tabs:OperationTabView DataContext="{Binding Path=DataContext, ElementName=Root}"/>
+      <TabItem Header="{Binding Resources.Strings[Operations]}">
+         <tabs:OperationTabView DataContext="{Binding Path=DataContext, ElementName=Root}" />
       </TabItem>
-      <TabItem Header="{Binding Resources.Strings[WorkPoints]}" >
-         <tabs:PointTabView DataContext="{Binding Path=DataContext, ElementName=Root}"/>
+      <TabItem Header="{Binding Resources.Strings[WorkPoints]}">
+         <tabs:PointTabView DataContext="{Binding Path=DataContext, ElementName=Root}" />
       </TabItem>
    </TabControl>
 </KukaUI:TouchViewBase>

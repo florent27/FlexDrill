@@ -4,73 +4,68 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Controls;
 using Kuka.FlexDrill.Process.CustomClasses;
 using Kuka.FlexDrill.SmartHMI.Production.Production.ViewModel;
-using KukaRoboter.Controls.CodeCompletion;
+using System.Windows;
 
 namespace Kuka.FlexDrill.SmartHMI.Production.Production.View.Tabs
 {
-   /// <summary>Interaction logic for TextBoxTestView.xaml</summary>
-   public partial class OperationTabView
-   {
-      private ProductionViewModel viewModel;
+    /// <summary>Interaction logic for TextBoxTestView.xaml</summary>
+    public partial class OperationTabView
+    {
+        private ProductionViewModel viewModel;
 
-      #region Constructors and Destructor
+        #region Constructors and Destructor
 
-      public OperationTabView()
-      {
-         InitializeComponent();
+        public OperationTabView()
+        {
+            InitializeComponent();
 
-         Root.SizeChanged += WindowSizeChanged;
+            Root.SizeChanged += WindowSizeChanged;
 
-         Loaded += OnLoaded;
+            Loaded += OnLoaded;
+        }
 
-      }
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            ViewModel.SelectedOperationChangedEvent += SelectedOperationChanged;
+        }
 
-      private void OnLoaded(object sender, RoutedEventArgs e)
-      {
-         ViewModel.SelectedOperationChangedEvent += SelectedOperationChanged;
-      }
+        ~OperationTabView()
+        {
+            Root.SizeChanged -= WindowSizeChanged;
+        }
 
-      ~OperationTabView()
-      {
-         Root.SizeChanged -= WindowSizeChanged;
-      }
-
-      public ProductionViewModel ViewModel
-      {
-         get
-         {
-            if (viewModel == null)
+        public ProductionViewModel ViewModel
+        {
+            get
             {
-               viewModel = DataContext as ProductionViewModel;
-               
+                if (viewModel == null)
+                {
+                    viewModel = DataContext as ProductionViewModel;
+                }
+
+                return viewModel;
             }
+        }
 
-            return viewModel;
-         }
-      }
+        private void SelectedOperationChanged(Operation Operation)
+        {
+            if (Operation != null)
+            {
+                OperationListView.ScrollIntoView(ViewModel.SelectedOperation);
+            }
+        }
 
-      private void SelectedOperationChanged(Operation Operation)
-      {
-         if (Operation != null)
-         {
-            OperationListView.ScrollIntoView(ViewModel.SelectedOperation);
-         }
-      }
-      #endregion
+        #endregion Constructors and Destructor
 
-      #region Methods
+        #region Methods
 
-      private void WindowSizeChanged(object sender, SizeChangedEventArgs e)
-      {
-         OperationListView.Height = Root.ActualHeight - TopPanel.ActualHeight - BottomPanel.ActualHeight;
-      }
-      #endregion
+        private void WindowSizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            OperationListView.Height = Root.ActualHeight - TopPanel.ActualHeight - BottomPanel.ActualHeight;
+        }
 
-   }
+        #endregion Methods
+    }
 }

@@ -164,7 +164,6 @@
                 </StackPanel>
             </Border>
 
-
             <!--Service-->
             <Border Grid.Row="0" Grid.Column="1" Margin="0,10,10,0">
                 <StackPanel>
@@ -214,7 +213,6 @@
                     </Grid>
                 </StackPanel>
             </Border>
-
         </Grid>
     </ScrollViewer>
 </UserControl>

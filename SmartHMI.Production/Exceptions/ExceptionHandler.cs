@@ -8,26 +8,26 @@ using System;
 
 namespace Kuka.FlexDrill.SmartHMI.Production.Exceptions
 {
-   public static class ExceptionHandler
-   {
-      #region Interface
+    public static class ExceptionHandler
+    {
+        #region Interface
 
-      public static string ExtractExceptionArgument(string message)
-      {
-         if (string.IsNullOrEmpty(message))
-         {
-            return string.Empty;
-         }
+        public static string ExtractExceptionArgument(string message)
+        {
+            if (string.IsNullOrEmpty(message))
+            {
+                return string.Empty;
+            }
 
-         int pathBeginIndex = message.IndexOf("'", 0, StringComparison.CurrentCulture);
-         int pathEndIndex = message.IndexOf("'", pathBeginIndex + 1, StringComparison.CurrentCulture);
+            int pathBeginIndex = message.IndexOf("'", 0, StringComparison.CurrentCulture);
+            int pathEndIndex = message.IndexOf("'", pathBeginIndex + 1, StringComparison.CurrentCulture);
 
-         const int numberOfQuotationMarks = 2;
-         int argumentLength = pathEndIndex - pathBeginIndex - numberOfQuotationMarks;
+            const int numberOfQuotationMarks = 2;
+            int argumentLength = pathEndIndex - pathBeginIndex - numberOfQuotationMarks;
 
-         return message.Substring(pathBeginIndex + 1, argumentLength);
-      }
+            return message.Substring(pathBeginIndex + 1, argumentLength);
+        }
 
-      #endregion
-   }
+        #endregion Interface
+    }
 }

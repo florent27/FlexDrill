@@ -4,53 +4,52 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
+using Kuka.FlexDrill.SmartHMI.Production.Exceptions;
 using System;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 
-using Kuka.FlexDrill.SmartHMI.Production.Exceptions;
-
 namespace Kuka.FlexDrill.SmartHMI.Production.Production.Config
 {
-   public static class XmlHandler
-   {
-      #region Interface
+    public static class XmlHandler
+    {
+        #region Interface
 
-      public static T Deserialize<T>(string configPath) where T : class
-      {
-         if (!File.Exists(configPath))
-         {
-            throw new FileNotFoundException("File not found: \"" + Path.GetFullPath(configPath) + "\".",
-               Path.GetFullPath(configPath));
-         }
-
-         T config;
-
-         try
-         {
-            XmlSerializer deserializer = new XmlSerializer(typeof(T));
-
-            using (var myFileStream = new FileStream(configPath, FileMode.Open))
+        public static T Deserialize<T>(string configPath) where T : class
+        {
+            if (!File.Exists(configPath))
             {
-               config = (T)deserializer.Deserialize(myFileStream);
-            }
-         }
-         catch (InvalidOperationException e)
-         {
-            if (e.InnerException is XmlException)
-            {
-               throw new InvalidXmlSyntaxException("Error in file: \"" + Path.GetFullPath(configPath) + "\". " +
-                                                   e.InnerException.Message);
+                throw new FileNotFoundException("File not found: \"" + Path.GetFullPath(configPath) + "\".",
+                   Path.GetFullPath(configPath));
             }
 
-            throw new InvalidXmlSyntaxException("Error in file: \"" + Path.GetFullPath(configPath) + "\". " +
-                                                e.Message);
-         }
+            T config;
 
-         return config;
-      }
+            try
+            {
+                XmlSerializer deserializer = new XmlSerializer(typeof(T));
 
-      #endregion
-   }
+                using (var myFileStream = new FileStream(configPath, FileMode.Open))
+                {
+                    config = (T)deserializer.Deserialize(myFileStream);
+                }
+            }
+            catch (InvalidOperationException e)
+            {
+                if (e.InnerException is XmlException)
+                {
+                    throw new InvalidXmlSyntaxException("Error in file: \"" + Path.GetFullPath(configPath) + "\". " +
+                                                        e.InnerException.Message);
+                }
+
+                throw new InvalidXmlSyntaxException("Error in file: \"" + Path.GetFullPath(configPath) + "\". " +
+                                                    e.Message);
+            }
+
+            return config;
+        }
+
+        #endregion Interface
+    }
 }

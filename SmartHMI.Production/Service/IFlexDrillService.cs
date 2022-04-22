@@ -4,137 +4,137 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using Kuka.FlexDrill.Process;
 using Kuka.FlexDrill.Process.CustomClasses;
 using Kuka.FlexDrill.SmartHMI.Production.Log;
 using Kuka.FlexDrill.SmartHMI.Production.Messages;
 using KUKARoboter.KRCModel.Robot;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Kuka.FlexDrill.SmartHMI.Production.Service
 {
-   public interface IFlexDrillService
-   {
-      #region UI
+    public interface IFlexDrillService
+    {
+        #region UI
 
-      /// <summary>
-      /// This event will be triggered if the job list has changed
-      /// </summary>
-      event EventHandler JobListChanged;
+        /// <summary>
+        /// This event will be triggered if the job list has changed
+        /// </summary>
+        event EventHandler JobListChanged;
 
-      /// <summary>
-      /// This event will be triggered if a program is loaded.
-      /// </summary>
-      event EventHandler ProgramLoadedChanged;
+        /// <summary>
+        /// This event will be triggered if a program is loaded.
+        /// </summary>
+        event EventHandler ProgramLoadedChanged;
 
-      ///
-      /// This event will be triggered when a job is loaded
-      event EventHandler<CellProgram> JobLoadedChanged;
+        ///
+        /// This event will be triggered when a job is loaded
+        event EventHandler<CellProgram> JobLoadedChanged;
 
-      /// <summary>
-      /// Get the logger object to log information and errors in a text file.
-      /// </summary>
-      Logger Log { get; }
+        /// <summary>
+        /// Get the logger object to log information and errors in a text file.
+        /// </summary>
+        Logger Log { get; }
 
-      /// <summary>
-      /// Gets the initialization flag. It returns 'true' if the initialization succeeded.
-      /// </summary>
-      bool InitSucceeded { get; }
+        /// <summary>
+        /// Gets the initialization flag. It returns 'true' if the initialization succeeded.
+        /// </summary>
+        bool InitSucceeded { get; }
 
-      /// <summary>
-      /// Gets the Job List
-      /// </summary>
-      ObservableCollection<CellProgram> JobList { get; set; }
+        /// <summary>
+        /// Gets the Job List
+        /// </summary>
+        ObservableCollection<CellProgram> JobList { get; set; }
 
-      /// <summary>
-      /// Returns the error kxr key and the error parameters
-      /// </summary>
-      KeyValuePair<FlexDrillMessages, string[]> Error { get; }
+        /// <summary>
+        /// Returns the error kxr key and the error parameters
+        /// </summary>
+        KeyValuePair<FlexDrillMessages, string[]> Error { get; }
 
-      void RetryInitialization();
+        void RetryInitialization();
 
-      /// <summary>
-      /// IRobot Paremeter
-      /// /// </summary>
-      IRobot Robot { get; set; }
+        /// <summary>
+        /// IRobot Paremeter
+        /// /// </summary>
+        IRobot Robot { get; set; }
 
-      /// <summary>
-      /// Msg Handler
-      /// </summary>
-      MsgHandler Message { get; set; }
-      #endregion
+        /// <summary>
+        /// Msg Handler
+        /// </summary>
+        MsgHandler Message { get; set; }
 
-      #region Production
+        #endregion UI
 
-      IFlexDrillProcess Process { get; }
+        #region Production
 
-      event EventHandler CellInitializedChanged;
+        IFlexDrillProcess Process { get; }
 
-      void InitializeCell();
+        event EventHandler CellInitializedChanged;
 
-      void StartProgram();
+        void InitializeCell();
 
-      void StopProgram();
+        void StartProgram();
 
-      void PauseProgram();
+        void StopProgram();
 
-      #endregion
+        void PauseProgram();
 
-      #region Clamping
+        #endregion Production
 
-      void CalibrateAntiSliding();
+        #region Clamping
 
-      void CalibrateNormality();
+        void CalibrateAntiSliding();
 
-      void TareForceSensor();
+        void CalibrateNormality();
 
-      #endregion
+        void TareForceSensor();
 
-      #region Head management
+        #endregion Clamping
 
-      /// <summary>
-      /// Grasp a head from a given slot.
-      /// </summary>
-      /// <param name="slotIndex">The 1-based slot index.</param>
-      void GraspHead(int slotIndex);
+        #region Head management
 
-      /// <summary>
-      /// Drop a head in a given slot.
-      /// </summary>
-      /// <param name="slotIndex">The 1-based slot index.</param>
-      void DropHead(int slotIndex);
+        /// <summary>
+        /// Grasp a head from a given slot.
+        /// </summary>
+        /// <param name="slotIndex">The 1-based slot index.</param>
+        void GraspHead(int slotIndex);
 
-      /// <summary>
-      /// Turn on or off the vacuum.
-      /// </summary>
-      /// <param name="vacuumOn">True will activate the vacuum.</param>
-      void ToggleVacuum(bool vacuumOn);
+        /// <summary>
+        /// Drop a head in a given slot.
+        /// </summary>
+        /// <param name="slotIndex">The 1-based slot index.</param>
+        void DropHead(int slotIndex);
 
-      void InitHead();
+        /// <summary>
+        /// Turn on or off the vacuum.
+        /// </summary>
+        /// <param name="vacuumOn">True will activate the vacuum.</param>
+        void ToggleVacuum(bool vacuumOn);
 
-      /// <summary>
-      /// Start active head process.
-      /// </summary>
-      /// <param name="processIndex">The 0-based process index.</param>
-      void RunHeadProcess(int processIndex);
+        void InitHead();
 
-      /// <summary>
-      /// Start Head Change
-      /// </summary>
-      
-      void HeadChange(string AHeadToDrop, string AHeadToGrasp);
+        /// <summary>
+        /// Start active head process.
+        /// </summary>
+        /// <param name="processIndex">The 0-based process index.</param>
+        void RunHeadProcess(int processIndex);
 
-      void StartManualPositionning();
+        /// <summary>
+        /// Start Head Change
+        /// </summary>
 
-      #endregion
+        void HeadChange(string AHeadToDrop, string AHeadToGrasp);
 
-      #region TCPCalibration
+        void StartManualPositionning();
 
-      void StartTCPCalibration(int ACalibrationType);
+        #endregion Head management
 
-      #endregion
+        #region TCPCalibration
 
-   }
+        void StartTCPCalibration(int ACalibrationType);
+
+        #endregion TCPCalibration
+    }
 }

@@ -6,145 +6,145 @@
 
 using Kuka.FlexDrill.Process.KRLGenerator;
 using Kuka.FlexDrill.Process.OLPParser;
-using KukaRoboter.Common.Technology.AbstractionLayer.IlfAbstractionLayer;
-using System.Collections.ObjectModel;
 
 namespace Kuka.FlexDrill.Process.CustomClasses
 {
-   public class CellProgram : CellProgramXSD
-   {
-      #region Constants and Fields
+    public class CellProgram : CellProgramXSD
+    {
+        #region Constants and Fields
 
-      private string name;
+        private string name;
 
-      private string xmlFilePath;
+        private string xmlFilePath;
 
-      private bool isLoaded;
-      #endregion
+        private bool isLoaded;
 
-      #region Constructors and Destructor
+        #endregion Constants and Fields
 
-      /// <summary>
-      /// Constructor : Call Parent
-      /// </summary>
-      public CellProgram()
-      {
-      }
+        #region Constructors and Destructor
 
-      public CellProgram(string name, string filePath)
-      {
-         Name = name;
-         XmlFilePath = filePath;
-      }
+        /// <summary>
+        /// Constructor : Call Parent
+        /// </summary>
+        public CellProgram()
+        {
+        }
 
-      #endregion
+        public CellProgram(string name, string filePath)
+        {
+            Name = name;
+            XmlFilePath = filePath;
+        }
 
-      #region Interface
+        #endregion Constructors and Destructor
 
-      public string Name
-      {
-         get
-         {
-            return name;
-         }
+        #region Interface
 
-         set
-         {
-            if (name == value)
+        public string Name
+        {
+            get
             {
-               return;
+                return name;
             }
 
-            name = value;
-            RaisePropertyChanged("Name");
-         }
-      }
-
-      public string XmlFilePath
-      {
-         get
-         {
-            return xmlFilePath;
-         }
-
-         set
-         {
-            if (name == value)
+            set
             {
-               return;
+                if (name == value)
+                {
+                    return;
+                }
+
+                name = value;
+                RaisePropertyChanged("Name");
+            }
+        }
+
+        public string XmlFilePath
+        {
+            get
+            {
+                return xmlFilePath;
             }
 
-            xmlFilePath = value;
-            RaisePropertyChanged("XmlFilePath");
-         }
-      }
-
-      public void Load()
-      {
-         CellProgram program = DoReadDataFromXml();
-
-         CellConfiguration = program.CellConfiguration;
-         Informations = program.Informations;
-         CustomerInfo = program.CustomerInfo;
-         CellConfiguration = program.CellConfiguration;
-         WorkSequence = program.WorkSequence;
-         SchemaVersion = program.SchemaVersion;
-
-         // Don't remove this tag, it's needed for the UI
-         IsLoaded = true;
-      }
-
-      // This function is needed for the UI
-      public void Unload()
-      {
-         // Release the resources
-         if (WorkSequence?.LOperation != null)
-         {
-            foreach (Operation operation in WorkSequence.LOperation)
+            set
             {
-               operation.RobotPoints?.LRobotPoint?.Clear();
+                if (name == value)
+                {
+                    return;
+                }
+
+                xmlFilePath = value;
+                RaisePropertyChanged("XmlFilePath");
+            }
+        }
+
+        public void Load()
+        {
+            CellProgram program = DoReadDataFromXml();
+
+            CellConfiguration = program.CellConfiguration;
+            Informations = program.Informations;
+            CustomerInfo = program.CustomerInfo;
+            CellConfiguration = program.CellConfiguration;
+            WorkSequence = program.WorkSequence;
+            SchemaVersion = program.SchemaVersion;
+
+            // Don't remove this tag, it's needed for the UI
+            IsLoaded = true;
+        }
+
+        // This function is needed for the UI
+        public void Unload()
+        {
+            // Release the resources
+            if (WorkSequence?.LOperation != null)
+            {
+                foreach (Operation operation in WorkSequence.LOperation)
+                {
+                    operation.RobotPoints?.LRobotPoint?.Clear();
+                }
+
+                WorkSequence.LOperation?.Clear();
             }
 
-            WorkSequence.LOperation?.Clear();
-         }
+            IsLoaded = false;
+        }
 
-         IsLoaded = false;
-      }
-
-      public void ResetStatus()
-      {
-         if (WorkSequence?.LOperation != null)
-         {
-            foreach (Operation operation in WorkSequence.LOperation)
+        public void ResetStatus()
+        {
+            if (WorkSequence?.LOperation != null)
             {
-               operation?.ResetStatus();
+                foreach (Operation operation in WorkSequence.LOperation)
+                {
+                    operation?.ResetStatus();
+                }
             }
-         }
-      }
+        }
 
-      /// <remarks />
-      public bool IsLoaded
-      {
-         get
-         {
-            return isLoaded;
-         }
-         set
-         {
-            isLoaded = value;
-            RaisePropertyChanged("IsLoaded");
-         }
-      }
-      #endregion
+        /// <remarks />
+        public bool IsLoaded
+        {
+            get
+            {
+                return isLoaded;
+            }
+            set
+            {
+                isLoaded = value;
+                RaisePropertyChanged("IsLoaded");
+            }
+        }
 
-      #region Methods
+        #endregion Interface
 
-      public CellProgram DoReadDataFromXml()
-      {
-         CellProgram program = KrlGeneratorUtils.GetOlpData(xmlFilePath);
-         return program;
-      }
+        #region Methods
 
-      #endregion
-   }
+        public CellProgram DoReadDataFromXml()
+        {
+            CellProgram program = KrlGeneratorUtils.GetOlpData(xmlFilePath);
+            return program;
+        }
+
+        #endregion Methods
+    }
 }
