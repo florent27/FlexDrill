@@ -1,0 +1,13 @@
+﻿
+
+FC:\_Dev\Pluggins\SmartHMI.Production\Clamping\View\ClampingView.xaml;;
+FC:\_Dev\Pluggins\SmartHMI.Production\HeadManagement\View\HeadManagementView.xaml;;
+FC:\_Dev\Pluggins\SmartHMI.Production\OlpGenerator\View\OlpGeneratorView.xaml;;
+FC:\_Dev\Pluggins\SmartHMI.Production\OlpGenerator\View\Tabs\TabPatternTeachView.xaml;;
+FC:\_Dev\Pluggins\SmartHMI.Production\Production\View\Tabs\PointTabView.xaml;;
+FC:\_Dev\Pluggins\SmartHMI.Production\Production\View\Tabs\OperationTabView.xaml;;
+FC:\_Dev\Pluggins\SmartHMI.Production\Production\View\ProductionView.xaml;;
+FC:\_Dev\Pluggins\SmartHMI.Production\SetiTecInfo\View\SetiTecInfoView.xaml;;
+FC:\_Dev\Pluggins\SmartHMI.Production\TcpCalibration\View\Tabs\TabTcpCalibSettings.xaml;;
+FC:\_Dev\Pluggins\SmartHMI.Production\TcpCalibration\View\TcpcalibrationView.xaml;;
+

@@ -1,0 +1,161 @@
+﻿<UserControl
+   x:Class="Kuka.FlexDrill.SmartHMI.Production.Production.View.Tabs.OperationTabView"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   xmlns:uIcontrols="clr-namespace:KukaRoboter.SmartHMI.UIFramework.Controls;assembly=KukaRoboter.SmartHMI.UIFrameworkServices"
+   xmlns:controls="clr-namespace:KukaRoboter.Common.Controls;assembly=KukaRoboter.Common.Controls"
+   xmlns:converters="clr-namespace:Kuka.FlexDrill.SmartHMI.Production.Production.Converters"
+   mc:Ignorable="d"
+   d:DesignHeight="700"
+   d:DesignWidth="500"
+   x:Name="RootControl">
+   <UserControl.Resources>
+      <ResourceDictionary>
+         <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="../../../Resources/Styles/MiniComboBoxStyle.xaml" />
+         </ResourceDictionary.MergedDictionaries>
+      </ResourceDictionary>
+   </UserControl.Resources>
+
+   <DockPanel x:Name="Root" Margin="10,0,10,10" LastChildFill="True">
+
+      <!--Don't remove stackPanel. It is used to auto-calculate the listView's height.-->
+      <StackPanel x:Name="TopPanel" DockPanel.Dock="Top">
+         <WrapPanel Margin="0,15,0,10">
+            <TextBlock Text="{Binding Resources.Strings[LoadedProgramName]}" />
+            <TextBlock FontWeight="Bold" Margin="5,0,0,0">
+               <TextBlock.Style>
+                  <Style TargetType="TextBlock">
+                     <Setter Property="Text" Value="{Binding SelectedJob.Name}" />
+                     <Style.Triggers>
+                        <DataTrigger Binding="{Binding FlexDrillService.Process.CurrentCellProgram}" Value="{x:Null}">
+                           <Setter Property="Text" Value="{Binding Resources.Strings[None]}" />
+                        </DataTrigger>
+                     </Style.Triggers>
+                  </Style>
+               </TextBlock.Style>
+            </TextBlock>
+         </WrapPanel>
+
+         <DockPanel Margin="0,0,0,15">
+            <TextBlock DockPanel.Dock="Left" Text="{Binding Resources.Strings[OperationSelection]}"
+               Margin="0,10,0,0" />
+            <Button DockPanel.Dock="Right" Command="{Binding ResetAllOperationsStatusCmd}"
+               Content="{Binding Resources.Strings[ResetAll]}"
+               Height="40" Width="{Binding ElementName=StateColumn, Path=Width}" HorizontalAlignment="Right" />
+         </DockPanel>
+      </StackPanel>
+
+      <!--Buttons-->
+      <StackPanel x:Name="BottomPanel" DockPanel.Dock="Bottom">
+         <Grid Margin="0,10,0,0">
+            <Grid.Resources>
+               <Style TargetType="Button" BasedOn="{StaticResource KukaButtonStyle}">
+                  <Setter Property="Height" Value="40" />
+                  <Setter Property="Width" Value="Auto" />
+               </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="*" />
+               <ColumnDefinition Width="10" />
+               <ColumnDefinition Width="*" />
+               <ColumnDefinition Width="10" />
+               <ColumnDefinition Width="*" />
+               <ColumnDefinition Width="10" />
+               <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Content="{Binding Resources.Strings[RunAll]}" Command="{Binding RunAllOperationsCommand}" />
+
+            <Button Grid.Column="2" Content="{Binding Resources.Strings[SkipAll]}"
+               Command="{Binding SkipAllOperationsCommand}" />
+
+            <Button Grid.Column="4" Command="{Binding RunAndHaltAllOperationsCmd}">
+               <TextBlock Text="{Binding Resources.Strings[RunAndHaltAll]}" TextWrapping="Wrap" />
+            </Button>
+
+            <Button Grid.Column="6" Command="{Binding HaltAndRunAllOperationsCmd}">
+               <TextBlock Text="{Binding Resources.Strings[HaltAndRunAll]}" TextWrapping="Wrap" />
+            </Button>
+         </Grid>
+      </StackPanel>
+
+      <!--Program list-->
+      <ListView x:Name="OperationListView" DockPanel.Dock="Top"
+         ItemsSource="{Binding SelectedJob.WorkSequence.LOperation}"
+         SelectedItem="{Binding SelectedOperation}" SelectedIndex="0"
+         controls:ListViewLayoutManager.Enabled="true">
+         <ListView.Resources>
+            <converters:StateToFullTextConverter x:Key="StateToFullTextConverter" />
+            <converters:StateToFullPicResourceConverter x:Key="StateToFullPicResourceConverter" />
+         </ListView.Resources>
+         <ListView.View>
+            <GridView>
+
+               <!--Name column-->
+               <GridViewColumn x:Name="NameColumn" Header="{Binding Resources.Strings[Name]}"
+                  controls:ProportionalColumn.Width="2">
+                  <GridViewColumn.CellTemplate>
+                     <DataTemplate>
+                        <TextBlock Text="{Binding Name}" TextWrapping="Wrap" VerticalAlignment="Center" />
+                     </DataTemplate>
+                  </GridViewColumn.CellTemplate>
+               </GridViewColumn>
+
+               <!--Work mode column-->
+               <GridViewColumn x:Name="ActionColumn" Header="{Binding Resources.Strings[Mode]}"
+                  controls:ProportionalColumn.Width="2">
+                  <GridViewColumn.CellTemplate>
+                     <DataTemplate>
+                        <ComboBox x:Name="StateComboBox" DockPanel.Dock="Top"
+                           ItemsSource="{Binding ElementName=RootControl, Path=DataContext.OperationWorkModes}"
+                           SelectedValue="{Binding WorkMode}"
+                           SelectedValuePath="Key" DisplayMemberPath="Value"
+                           Height="40" Margin="0,5,0,5">
+                           <ComboBox.Style>
+                              <Style TargetType="ComboBox" BasedOn="{StaticResource KukaMiniComboBoxStyle}">
+                                 <Style.Triggers>
+                                    <DataTrigger
+                                       Binding="{Binding ElementName=RootControl, Path=DataContext.UserActionAllowed}"
+                                       Value="True">
+                                       <Setter Property="IsEnabled" Value="True" />
+                                    </DataTrigger>
+                                    <DataTrigger
+                                       Binding="{Binding ElementName=RootControl, Path=DataContext.UserActionAllowed}"
+                                       Value="False">
+                                       <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                 </Style.Triggers>
+                              </Style>
+                           </ComboBox.Style>
+                        </ComboBox>
+                     </DataTemplate>
+                  </GridViewColumn.CellTemplate>
+               </GridViewColumn>
+
+               <!--State column-->
+               <GridViewColumn x:Name="StateColumn" Header="{Binding Resources.Strings[State]}"
+                  controls:ProportionalColumn.Width="1">
+                  <GridViewColumn.CellTemplate>
+                     <DataTemplate>
+                        <TextBlock Margin="5,5,5,5" Width="60" VerticalAlignment="Center" HorizontalAlignment="Center"
+                           TextAlignment="Center">
+                           <uIcontrols:ToolTip.Text>
+                              <MultiBinding Converter="{StaticResource StateToFullTextConverter}">
+                                 <Binding Path="WorkStatus" />
+                                 <Binding Path="DataContext.Resources" ElementName="RootControl" />
+                              </MultiBinding>
+                           </uIcontrols:ToolTip.Text>
+                           <Image VerticalAlignment="Center" HorizontalAlignment="Center" Width="27" Height="27"
+                              Source="{Binding Path=WorkStatus, Converter={StaticResource StateToFullPicResourceConverter}}" />
+                        </TextBlock>
+                     </DataTemplate>
+                  </GridViewColumn.CellTemplate>
+               </GridViewColumn>
+            </GridView>
+         </ListView.View>
+      </ListView>
+   </DockPanel>
+</UserControl>

@@ -1,0 +1,11 @@
+{
+  "ServerUri": "http://pcrcsonarqube.kuka.int.kuka.com:8080/sonar/",
+  "Organization": null,
+  "ProjectKey": "com.kuka.industries.ready2use.ready2_flexdrill:ready2_flexdrill",
+  "Profiles": {
+    "CSharp": {
+      "ProfileKey": "AWPvVZlfWcixSarirlwB",
+      "ProfileTimestamp": "2018-12-06T11:26:45+01:00"
+    }
+  }
+}

@@ -1,0 +1,183 @@
+﻿<UserControl x:Class="Kuka.FlexDrill.SmartHMI.Production.HeadManagement.View.Tabs.ManagementTabView"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   xmlns:controls="clr-namespace:KukaRoboter.Common.Controls;assembly=KukaRoboter.Common.Controls"
+   mc:Ignorable="d"
+   d:DesignHeight="700" d:DesignWidth="500">
+   <UserControl.Resources>
+      <ResourceDictionary>
+         <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="HeadManagementStyles.xaml" />
+         </ResourceDictionary.MergedDictionaries>
+      </ResourceDictionary>
+   </UserControl.Resources>
+
+    <DockPanel x:Name="Root" Margin="10,0,10,0" LastChildFill="True">
+        <!--Active head-->
+        <GroupBox Header="{Binding Resources.Strings[ActiveHead]}" DockPanel.Dock="Top">
+            <StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="20" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--Head name-->
+                    <TextBlock Text="{Binding Resources.Strings[HeadName]}" Style="{StaticResource ParamNameStyle}" />
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding ActiveHead.Name}"
+                               Style="{StaticResource TextValueStyle}" />
+
+                    <!--Head type-->
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Resources.Strings[HeadType]}"
+                               Style="{StaticResource ParamNameStyle}" />
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding ActiveHead.Type}"
+                               Style="{StaticResource TextValueStyle}" />
+                </Grid>
+
+                <!--Initialize button-->
+                <Button Content="{Binding Resources.Strings[InitializeHead]}" Command="{Binding InitHeadCommand}"
+                        HorizontalAlignment="Right" />
+            </StackPanel>
+        </GroupBox>
+
+        <!--Vacuum-->
+        <GroupBox Header="{Binding Resources.Strings[Vacuum]}" DockPanel.Dock="Top">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding Resources.Strings[EnableVacuum]}" />
+                <CheckBox Grid.Column="1" Content="{Binding Resources.Strings[VacuumOn]}"
+                          Command="{Binding VacuumCommand}" IsChecked="{Binding VacuumIsActive}"
+                          HorizontalAlignment="Right" />
+            </Grid>
+        </GroupBox>
+
+        <!--Head process-->
+        <GroupBox Header="{Binding Resources.Strings[HeadProcess]}" DockPanel.Dock="Top">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <ComboBox Grid.Column="0" ItemsSource="{Binding HeadProcesses}"
+                          SelectedIndex="{Binding SelectedHeadProcess}" Margin="5,0,10,0" HorizontalAlignment="Stretch" />
+                <Button Grid.Column="1" Content="{Binding Resources.Strings[RunHeadProcess]}"
+                        Command="{Binding RunProcessCommand}"
+                        HorizontalAlignment="Right" Margin="0" />
+            </Grid>
+        </GroupBox>
+
+        <!--Slots-->
+        <StackPanel DockPanel.Dock="Top">
+            <ListView x:Name="SlotListView" ItemsSource="{Binding Slots}"
+                  SelectedItem="{Binding SelectedSlot}" 
+                  controls:ListViewLayoutManager.Enabled="true">
+                    <ListView.View>
+                    <GridView>
+                        <!--Slot index-->
+                        <GridViewColumn Header="{Binding Resources.Strings[Slot]}" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Index}" TextWrapping="Wrap" VerticalAlignment="Center"
+                                    TextAlignment="Center" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <!--Is occupied-->
+                        <GridViewColumn Header="{Binding Resources.Strings[Occupied]}" Width="70">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <controls:LEDControl IsActive="{Binding Occupied}" Height="40" Width="40" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <!--Head name-->
+                        <GridViewColumn Header="{Binding Resources.Strings[HeadNameHeader]}"
+                           controls:ProportionalColumn.Width="1">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Head.Name}" TextWrapping="Wrap"
+                                    VerticalAlignment="Center" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <!--Head Type-->
+                        <GridViewColumn Header="{Binding Resources.Strings[HeadTypeHeader]}"
+                           controls:ProportionalColumn.Width="1">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Head.Type}" TextWrapping="Wrap"
+                                    VerticalAlignment="Center" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <!--Grasp/Drop buttons-->
+            <!--WrapPanel HorizontalAlignment="Right">
+                    <Button Content="{Binding Resources.Strings[Grasp]}" Command="{Binding GraspCommand}" />
+                    <Button Content="{Binding Resources.Strings[Drop]}" Command="{Binding DropCommand}" />
+
+                </-->
+        </StackPanel>
+
+
+        <GroupBox Header="{Binding Resources.Strings[HeadChange]}"  DockPanel.Dock="Top" Margin="0,10,0,30">
+
+            <StackPanel>
+                <WrapPanel Margin="0,5,0,10">
+                    <TextBlock Text="{Binding Resources.Strings[HeadToDrop]}" />
+                    <TextBlock FontWeight="Bold" Margin="5,0,0,0">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value="{Binding ActiveHead.Name}" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ActiveHead}" Value="{x:Null}">
+                                        <Setter Property="Text" Value="{Binding Resources.Strings[None]}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </WrapPanel>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <WrapPanel Margin="0,5,0,10" Grid.Column="0">
+                        <TextBlock Text="{Binding Resources.Strings[HeadToGrasp]}" />
+                        <TextBlock FontWeight="Bold" Margin="5,0,0,0">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Text" Value="{Binding SelectedSlot.Head.Name}" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedSlot.Head}" Value="{x:Null}">
+                                            <Setter Property="Text" Value="{Binding Resources.Strings[None]}" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </WrapPanel>
+
+                    <Button Content="{Binding Resources.Strings[Start]}" Command="{Binding HeadChangeCommand}" HorizontalAlignment="Right"/>
+
+                </Grid>
+            </StackPanel>
+        </GroupBox>
+    </DockPanel>
+</UserControl>

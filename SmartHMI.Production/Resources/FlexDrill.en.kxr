@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<resources xml:lang="en" xmlns="http://www.kuka.com/schemas/kxr/2009">
+   <module name="FlexDrill">
+
+      <!--**** SmartHMI Captions ****-->
+      <uiText key="ProductionCaption">
+         <text>FlexDrill - Production</text>
+      </uiText>
+      <uiText key="ClampingCaption">
+         <text>FlexDrill - Clamping</text>
+      </uiText>
+      <uiText key="HeadManagementCaption">
+         <text>FlexDrill - Head Management</text>
+      </uiText>
+      <uiText key="SetiTecInfoCaption">
+         <text>FlexDrill - Seti-Tec Information</text>
+      </uiText>
+      <uiText key="OlpGeneratorCaption">
+        <text>FlexDrill - OLP Generator</text>
+      </uiText>
+      <uiText key="TcpCalibrationCaption">
+        <text>FlexDrill - TCP Calibration</text>
+      </uiText>
+      
+      <!--**** SmartHMI Menus ****-->
+      <uiText key="FlexDrillMenu">
+         <text>FlexDrill</text>
+      </uiText>
+      <uiText key="ProductionMenu">
+         <text>Production</text>
+      </uiText>
+      <uiText key="ClampingMenu">
+         <text>Clamping</text>
+      </uiText>
+      <uiText key="HeadManagementMenu">
+         <text>Head management</text>
+      </uiText>
+      <uiText key="SetiTecInfoMenu">
+         <text>Seti-Tec information</text>
+      </uiText>
+      <uiText key="OlpGeneratorMenu">
+        <text>OLP Generator</text>
+      </uiText>
+      <uiText key="TcpCalibrationMenu">
+        <text>TCP Calibration</text>
+      </uiText>
+
+      <!--**** Dialogs ****-->
+      <uiText key="SaveChangesQuestion">
+         <text>Parameters have been modified. Save changes?</text>
+      </uiText>
+
+      <!--**** Production View Messages****-->
+      <message key="UnexpectedError" number="0">
+         <text>An unexpected error occurred. See details in: '{0}'.</text>
+      </message>
+      <message key="NoProgramInFolder" number="1">
+         <text>No FlexDrill xml program file found in: '{0}'.</text>
+      </message>
+      <message key="ProgramFolderNotFound" number="2">
+         <text>FlexDrill program directory not found: '{0}'.</text>
+      </message>
+      <message key="ConfigFileNotFound" number="3">
+         <text>FlexDrill configuration file not found: '{0}'.</text>
+      </message>
+      <message key="FolderNameEmpty" number="4">
+         <text>No program folder configured in: '{0}'.</text>
+      </message>
+      <message key="LoadProrgamListFailed" number="5">
+         <text>Can not load FlexDrill programs. '{0}' Source: '{1}'</text>
+      </message>
+      <message key="LoadCellProgramFailed" number="6">
+         <text>Can not load cell program. '{0}'</text>
+      </message>
+      <message key="StartCycleFailed" number="7">
+         <text>Start cycle failed. '{0}'</text>
+      </message>
+      <message key="PauseCyleFiled" number="8">
+         <text>Pause cycle failed. '{0}'</text>
+      </message>
+      <message key="StopCycleFailed" number="9">
+         <text>Stop cycle failed. '{0}'</text>
+      </message>
+      <message key="CellInitFailed" number="10">
+         <text>Cell initialization failed. '{0}'</text>
+      </message>
+      <message key="NoProgranLoadedInfo" number="11">
+         <text>Function not available: no program is loaded.</text>
+      </message>
+      <message key="ProgramRunningInfo" number="12">
+         <text>Function not available: program is running.</text>
+      </message>
+      <message key="ProgramNotRunningInfo" number="13">
+         <text>Function not available: no program is running.</text>
+      </message> 
+      <message key="CellInitSucceeded" number="14">
+         <text>Cell initialization completed!</text>
+      </message>
+      <message key="CommissioningNotDone" number="15">
+        <text>Function not available: Commissioning is not done</text>
+      </message>
+      <message key="AllStatusReseted" number="16">
+        <text>All Status have been reseted !</text>
+      </message>
+      <message key="OperationsStatusReseted" number="17">
+        <text>Status of the operations have been reseted !</text>
+      </message>
+      <message key="WorkingPointsStatusReseted" number="18">
+        <text>Status of the working points have been reseted !</text>
+      </message>
+      <message key="TcpVisionSelected" number="19">
+        <text>TCP Vision has been selected !</text>
+      </message>
+      <message key="InitIsAlreadyRunning" number="20">
+        <text>Function not available: Init is already running.</text>
+      </message>
+      <message key="NoJobTobeDone" number="21">
+        <text>No Job to be done !</text>
+      </message>
+      <message key="ProgramIsBeingLoaded" number="22">
+        <text>Please wait While program is being loaded !</text>
+      </message>
+      <message key="TcpMachiningSelected" number="23">
+        <text>TCP Machining Selected !</text>
+      </message>      
+      <!--**** Head Management Messages ****-->
+      <message key="GraspHeadFailed" number="30">
+         <text>Grasp head failed. '{0}'</text>
+      </message> 
+      <message key="DropHeadFailed" number="31">
+         <text>Drop head failed. '{0}'</text>
+      </message> 
+      <message key="ToggleVacuumFailed" number="32">
+         <text>Toggle vacuum failed. '{0}</text>
+      </message>
+      <message key="InitHeadFailed" number="33">
+         <text>Head initialization failed. '{0}'</text>
+      </message>
+      <message key="RunHeadProcessFailed" number="34">
+         <text>Run head process failed. '{0}'</text>
+      </message>
+
+      <!--**** Clamping Messages ****-->
+      <message key="ForceCalibrationSucceeded" number="40">
+         <text>Force calibration succeeded!</text>
+      </message>
+      <message key="SlidingCalibrationSucceeded" number="41">
+         <text>Sliding calibration succeeded!</text>
+      </message>
+      <message key="NormalityCalibrationSucceeded" number="42">
+         <text>Normality calibration succeeded!</text>
+      </message>
+      <message key="ForceCalibrationFailed" number="43">
+         <text>Force calibration failed!</text>
+      </message>
+      <message key="SlidingCalibrationFailed" number="44">
+         <text>Sliding calibration failed!</text>
+      </message>
+      <message key="NormalityCalibrationFailed" number="45">
+         <text>Normality calibration failed!</text>
+      </message>
+      <message key="ForceCalibrationRunning" number="46">
+         <text>Force calibration running...</text>
+      </message>
+      <message key="SlidingCalibrationRunning" number="47">
+         <text>Sliding calibration running...</text>
+      </message>
+      <message key="NormalityCalibrationRunning" number="48">
+         <text>Normality calibration running...</text>
+      </message>
+
+      <!--**** Common messages ****-->
+      <message key="KrlVariableNotDefined" number="100">
+         <text>KRL variable not defined: '{0}'.</text>
+      </message>
+
+   
+</module>
+</resources>

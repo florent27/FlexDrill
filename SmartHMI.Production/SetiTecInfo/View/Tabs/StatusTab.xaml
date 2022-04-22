@@ -1,0 +1,220 @@
+﻿<UserControl x:Class="Kuka.FlexDrill.SmartHMI.Production.SetiTecInfo.View.Tabs.StatusTab"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   xmlns:controls="clr-namespace:KukaRoboter.Common.Controls;assembly=KukaRoboter.Common.Controls"
+   mc:Ignorable="d"
+   d:DesignHeight="520" d:DesignWidth="684">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+               Source="/KukaRoboter.SmartHMI.UIFrameworkServices;component/Resources/DefaultStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.Resources>
+                <Style x:Key="ParamStyle" TargetType="TextBlock">
+                    <Setter Property="Margin" Value="10,0,0,0" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="TextWrapping" Value="Wrap" />
+                </Style>
+                <Style x:Key="TitleStyle" TargetType="TextBlock">
+                    <Setter Property="Margin" Value="0,0,0,5" />
+                </Style>
+                <Style TargetType="Border">
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="BorderBrush" Value="#646464" />
+                    <Setter Property="Padding" Value="10,10,10,5" />
+                    <Setter Property="Margin" Value="10,10,10,0" />
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!--Initialization-->
+            <Border Grid.Row="0" Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[Initialization]}" Style="{StaticResource TitleStyle}" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="35" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="35" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <controls:LEDControl IsActive="{Binding InitializationDone}" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Resources.Strings[InitializationDone]}"
+                     Style="{StaticResource ParamStyle}" />
+
+                        <controls:LEDControl Grid.Row="1" Grid.Column="0" IsActive="{Binding PsetLoaded}" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Resources.Strings[PsetLoaded]}"
+                     Style="{StaticResource ParamStyle}" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!--Motor-->
+            <Border Grid.Row="1" Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[Motor]}" Style="{StaticResource TitleStyle}" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="35" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="35" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <controls:LEDControl IsActive="{Binding MotorConnected}" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Resources.Strings[MotorConnected]}"
+                     Style="{StaticResource ParamStyle}" />
+
+                        <controls:LEDControl Grid.Row="1" Grid.Column="0" IsActive="{Binding NoMotorConnected}" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Resources.Strings[NoMotorConnected]}"
+                     Style="{StaticResource ParamStyle}" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!--Cycle-->
+            <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[Cycle]}" Style="{StaticResource TitleStyle}" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="35" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="35" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <controls:LEDControl IsActive="{Binding CycleCompleted}" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Resources.Strings[CycleCompleted]}"
+                     Style="{StaticResource ParamStyle}" />
+
+                        <controls:LEDControl Grid.Row="1" Grid.Column="0" IsActive="{Binding CycleStop}" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Resources.Strings[CycleStop]}"
+                     Style="{StaticResource ParamStyle}" />
+
+                        <controls:LEDControl Grid.Row="2" Grid.Column="0" IsActive="{Binding CycleAbort}" />
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Resources.Strings[CycleAbort]}"
+                     Style="{StaticResource ParamStyle}" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!--Tool-->
+            <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[Tool]}" Style="{StaticResource TitleStyle}" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="35" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="35" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <controls:LEDControl IsActive="{Binding ToolReady}" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Resources.Strings[ToolReady]}"
+                     Style="{StaticResource ParamStyle}" />
+
+                        <controls:LEDControl Grid.Row="1" Grid.Column="0" IsActive="{Binding ToolRunning}" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Resources.Strings[ToolRunning]}"
+                     Style="{StaticResource ParamStyle}" />
+
+                        <controls:LEDControl Grid.Row="2" Grid.Column="0" IsActive="{Binding ToolLocked}" />
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Resources.Strings[ToolLocked]}"
+                     Style="{StaticResource ParamStyle}" />
+
+                        <controls:LEDControl Grid.Row="3" Grid.Column="0" IsActive="{Binding ToolConnected}" />
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Resources.Strings[ToolConnected]}"
+                     Style="{StaticResource ParamStyle}" />
+
+                        <controls:LEDControl Grid.Row="4" Grid.Column="0" IsActive="{Binding NoToolConnected}" />
+                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Resources.Strings[NoToolConnected]}"
+                     Style="{StaticResource ParamStyle}" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+
+            <!--Service-->
+            <Border Grid.Row="0" Grid.Column="1" Margin="0,10,10,0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[Service]}" Style="{StaticResource TitleStyle}" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="35" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="35" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <controls:LEDControl IsActive="{Binding LubTankEmpty}" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Resources.Strings[LubTankEmpty]}"
+                     Style="{StaticResource ParamStyle}" />
+
+                        <controls:LEDControl Grid.Row="1" Grid.Column="0" IsActive="{Binding ServiceIndicator}" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Resources.Strings[ServiceIndicator]}"
+                     Style="{StaticResource ParamStyle}" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!--Machining-->
+            <Border Grid.Row="1" Grid.Column="1" Margin="0,10,10,0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[Machining]}" Style="{StaticResource TitleStyle}" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="35" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="35" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <controls:LEDControl IsActive="{Binding MachineOk}" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Resources.Strings[MachineOk]}"
+                     Style="{StaticResource ParamStyle}" />
+
+                        <controls:LEDControl Grid.Row="1" Grid.Column="0" IsActive="{Binding MachineNotOk}" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Resources.Strings[MachineNotOk]}"
+                     Style="{StaticResource ParamStyle}" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+        </Grid>
+    </ScrollViewer>
+</UserControl>

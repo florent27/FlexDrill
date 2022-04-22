@@ -1,0 +1,219 @@
+﻿<UserControl x:Class="Kuka.FlexDrill.SmartHMI.Production.SetiTecInfo.View.Tabs.LastCycleGlobalInfoTab"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   xmlns:controls="clr-namespace:KukaRoboter.Common.Controls;assembly=KukaRoboter.Common.Controls"
+   mc:Ignorable="d"
+   d:DesignHeight="520" d:DesignWidth="684">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+               Source="/KukaRoboter.SmartHMI.UIFrameworkServices;component/Resources/DefaultStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.Resources>
+                <Style x:Key="ParamStyle" TargetType="TextBlock">
+                    <Setter Property="Margin" Value="10,0,0,0" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="TextWrapping" Value="Wrap" />
+                </Style>
+                <Style x:Key="TitleStyle" TargetType="TextBlock">
+                    <Setter Property="Margin" Value="0,0,0,5" />
+                </Style>
+                <Style TargetType="Border">
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="BorderBrush" Value="#646464" />
+                    <Setter Property="Padding" Value="10,10,10,5" />
+                    <Setter Property="Margin" Value="10,10,10,0" />
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!--Box Name-->
+            <Border Grid.Row="0" Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[TitleBoxName]}" Style="{StaticResource TitleStyle}" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding SetiTeclastCycleData.BoxName}" Style="{StaticResource ParamStyle}" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!--Box SN-->
+            <Border Grid.Row="0" Grid.Column="1">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[TitleBoxSN]}" Style="{StaticResource TitleStyle}" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding SetiTeclastCycleData.BoxSn}" Style="{StaticResource ParamStyle}" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!--Motor Name-->
+            <Border Grid.Row="1" Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[TitleMotorName]}" Style="{StaticResource TitleStyle}" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding SetiTeclastCycleData.MotorName}" Style="{StaticResource ParamStyle}" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!--Motor SN-->
+            <Border Grid.Row="1" Grid.Column="1">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[TitleMotorSN]}" Style="{StaticResource TitleStyle}" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding SetiTeclastCycleData.MotorSn}" Style="{StaticResource ParamStyle}" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!--Head UID-->
+            <Border Grid.Row="2" Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[TitleHeadUID]}" Style="{StaticResource TitleStyle}" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding SetiTeclastCycleData.HeadUid}" Style="{StaticResource ParamStyle}" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!--Head Name-->
+            <Border Grid.Row="2" Grid.Column="1">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[TitleHeadName]}" Style="{StaticResource TitleStyle}" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding SetiTeclastCycleData.HeadName}" Style="{StaticResource ParamStyle}" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!--Head Type-->
+            <Border Grid.Row="3" Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[TitleHeadType]}" Style="{StaticResource TitleStyle}" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding SetiTeclastCycleData.HeadType}" Style="{StaticResource ParamStyle}" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!--Local Counter-->
+            <Border Grid.Row="4" Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[TitleLocalCounter]}" Style="{StaticResource TitleStyle}" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding SetiTeclastCycleData.LocalCounter}" Style="{StaticResource ParamStyle}" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!--Global Counter Counter-->
+            <Border Grid.Row="4" Grid.Column="1">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[TitleGlobalCounter]}" Style="{StaticResource TitleStyle}" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding SetiTeclastCycleData.GlobalCounter}" Style="{StaticResource ParamStyle}" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!--Cycle Result-->
+            <Border Grid.Row="5" Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[TitleCycleResult]}" Style="{StaticResource TitleStyle}" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding SetiTeclastCycleData.CycleResult}" Style="{StaticResource ParamStyle}" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </ScrollViewer>
+
+
+</UserControl>

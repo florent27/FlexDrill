@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<resources xml:lang="en" xmlns="http://www.kuka.com/schemas/kxr/2009">
+   <module name="FlexDrill_Clamping">
+
+      <!--Calibration-->
+      <uiText key="ClampingActualValues">
+         <text>Clamping</text>
+      </uiText> 
+      <uiText key="ClampingForce">
+         <text>Force Z</text>
+      </uiText> 
+      <uiText key="SlidingActualValues">
+         <text>Sliding</text>
+      </uiText> 
+      <uiText key="SlidingDistanceX">
+         <text>Distance X</text>
+      </uiText> 
+      <uiText key="SlidingDistanceY">
+         <text>Distance Y</text>
+      </uiText> 
+      <uiText key="NormalityActualValues">
+         <text>Normality</text>
+      </uiText> 
+      <uiText key="NormalityAngleX">
+         <text>Angle X</text>
+      </uiText> 
+      <uiText key="NormalityAngleY">
+         <text>Angle Y</text>
+      </uiText> 
+      <uiText key="Tare">
+         <text>Tare</text>
+      </uiText> 
+      <uiText key="Calibrate">
+         <text>Calibrate</text>
+      </uiText> 
+      <uiText key="IsCalibrated">
+         <text>Calibrated</text>
+      </uiText>
+
+      <!--Settings-->
+      <uiText key="CalibrationTab">
+         <text>Calibration</text>
+      </uiText>
+      <uiText key="SettingsTab">
+         <text>Settings</text>
+      </uiText>
+      <uiText key="TargetForce">
+         <text>Target force</text>
+      </uiText>
+      <uiText key="SpeedFactor">
+         <text>Speed factor</text>
+      </uiText>
+      <uiText key="ClampingGainFz">
+         <text>Gain Fz</text>
+      </uiText>
+      <uiText key="ClampingGainFx">
+        <text>Gain Fx</text>
+      </uiText>
+      <uiText key="ClampingGainFy">
+        <text>Gain Fy</text>
+      </uiText>
+      <uiText key="ClampingGainTx">
+        <text>Gain Tx</text>
+      </uiText>
+      <uiText key="ClampingGainTy">
+        <text>Gain Ty</text>
+      </uiText>
+      <uiText key="Save">
+         <text>Save</text>
+      </uiText>
+      <uiText key="Cancel">
+         <text>Cancel</text>
+      </uiText> 
+      <uiText key="Parameters">
+         <text>Parameters</text>
+      </uiText>
+      <uiText key="NoseManagement">
+        <text>Nose Management</text>
+      </uiText>
+      <uiText key="NoseLocked">
+        <text>Nose Locked</text>
+      </uiText>
+     <uiText key="LockNose">
+        <text>Lock Nose</text>
+      </uiText>
+      <uiText key="UnlockNose">
+        <text>Unlock Nose</text>
+      </uiText>
+   </module>
+</resources>

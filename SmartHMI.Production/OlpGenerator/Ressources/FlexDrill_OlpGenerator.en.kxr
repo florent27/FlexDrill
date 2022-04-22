@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<resources xml:lang="en" xmlns="http://www.kuka.com/schemas/kxr/2009">
+   <module name="FlexDrill_OlpGenerator">
+     <uiText key="AddOperation">
+       <text>Add Operation</text>
+     </uiText>
+     <uiText key="GeneratedOperations">
+       <text>Generated Operations</text>
+     </uiText>
+     <uiText key="RemoveOperation">
+       <text>Remove Operation</text>
+     </uiText>
+     <uiText key="GenerateOlp">
+       <text>Generate Program</text>
+     </uiText>
+     <uiText key="Operations">
+       <text>Operations</text>
+     </uiText>
+     <uiText key="ApproachPoints">
+       <text>Approach Points</text>
+     </uiText>
+     <uiText key="SelectedOp">
+       <text>Selected Operation</text>
+     </uiText>
+     <uiText key="InputApproachPoint">
+       <text>Input Approach Points</text>
+     </uiText>
+     <uiText key="Name">
+       <text>Name</text>
+     </uiText>
+     <uiText key="AddPoint">
+       <text>Add Point</text>
+     </uiText>
+     <uiText key="RemovePoint">
+       <text>Remove Point</text>
+     </uiText>
+     <uiText key="OutputApproachPoint">
+       <text>Output Approach Point</text>
+     </uiText>
+     <uiText key="UseSameApproachPoints">
+       <text>Use Same Approach Points</text>
+     </uiText>
+     <uiText key="VisionTargets">
+       <text>Vision Targets</text>
+     </uiText>
+     <uiText key="FirstTarget">
+       <text>First Target</text>
+     </uiText>
+     <uiText key="Teach">
+       <text>Teach</text>
+     </uiText>
+     <uiText key="TeachAllPoints">
+       <text>Teach All Points</text>
+     </uiText>
+     <uiText key="GeneratedPoints">
+       <text>Generated Points</text>
+     </uiText>
+     <uiText key="GoToPointAndAddIt">
+       <text>Go To Point and Add it - The Robot Move Type will be a Cart Escape</text>
+     </uiText>
+     <uiText key="ProcessDefinition">
+       <text>Process Definition</text>
+     </uiText>
+     <uiText key="SelectedWorkPoint">
+       <text>Selected Work Point</text>
+     </uiText>
+     <uiText key="SelectedWorkPointProcess">
+       <text>Selected Work Point Process</text>
+     </uiText>
+     <uiText key="RemoveLastMacro">
+       <text>Remove Last Macro</text>
+     </uiText>
+     <uiText key="PatternName">
+       <text>Pattern Name</text>
+     </uiText>
+     <uiText key="ZEscapeValue">
+       <text>Z Escape Value</text>
+     </uiText>
+     <uiText key="LaunchManualPositionning">
+       <text>Start Manual Positionning</text>
+     </uiText>
+     <uiText key="ProgramName">
+       <text>Program Name</text>
+     </uiText>
+     <uiText key="ObjectFramePoints">
+       <text>Object Frame Points</text>
+     </uiText>
+     <uiText key="ObjectFrame">
+       <text>Object Frame</text>
+     </uiText>
+     <uiText key="GoToPointAndAddItObjectFrame">
+       <text>Go To Point and Add it - TCP Machining will be used !</text>
+     </uiText>
+     <uiText key="ComputeObjectFrame">
+       <text>Compute Object Frame</text>
+     </uiText>     
+     <uiText key="TeachOrigin">
+       <text>Go To Point and Teach Frame Origin</text>
+     </uiText>
+     <uiText key="TeachXAxis">
+       <text>Go To Point and Teach X Axis</text>
+     </uiText>
+     <uiText key="TeachXYPlan">
+       <text>Go To Point and Teach XY Plan</text>
+     </uiText>
+   </module>
+</resources>

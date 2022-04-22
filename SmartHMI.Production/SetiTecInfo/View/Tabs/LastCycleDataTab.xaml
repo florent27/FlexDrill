@@ -1,0 +1,599 @@
+﻿<UserControl x:Class="Kuka.FlexDrill.SmartHMI.Production.SetiTecInfo.View.Tabs.LastCycleDataTab"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   xmlns:controls="clr-namespace:KukaRoboter.Common.Controls;assembly=KukaRoboter.Common.Controls"
+   mc:Ignorable="d"
+   d:DesignHeight="520" d:DesignWidth="684">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+               Source="/KukaRoboter.SmartHMI.UIFrameworkServices;component/Resources/DefaultStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.Resources>
+                <Style x:Key="ParamStyle" TargetType="TextBlock">
+                    <Setter Property="Margin" Value="0,0,0,0" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="TextWrapping" Value="Wrap" />
+                </Style>
+                <Style x:Key="TitleStyle" TargetType="TextBlock">
+                    <Setter Property="Margin" Value="0,0,0,5" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                </Style>
+                <Style TargetType="Border">
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="BorderBrush" Value="#646464" />
+                    <Setter Property="Padding" Value="10,10,10,5" />
+                    <Setter Property="Margin" Value="10,10,10,10" />
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!--Step Number Title-->
+            <Border Grid.Row="0" Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[TitleStepNumber]}" Style="{StaticResource TitleStyle}" />
+                </StackPanel>
+            </Border>
+
+            <!--Stop code Title-->
+            <Border Grid.Row="1" Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[TitleStopCode]}" Style="{StaticResource TitleStyle}" />
+                </StackPanel>
+            </Border>
+
+            <!--Duration-->
+            <Border Grid.Row="2" Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[TitleDuration]}" Style="{StaticResource TitleStyle}" />
+                </StackPanel>
+            </Border>
+
+            <!--Distance M1-->
+            <Border Grid.Row="3" Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[TitleDistanceM1]}" Style="{StaticResource TitleStyle}" />
+                </StackPanel>
+            </Border>
+
+            <!--Distance M2-->
+            <Border Grid.Row="4" Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[TitleDistanceM2]}" Style="{StaticResource TitleStyle}" />
+                </StackPanel>
+            </Border>
+
+            <!--M1 Max Amperage-->
+            <Border Grid.Row="5" Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[TitleM1MaxAmperage]}" Style="{StaticResource TitleStyle}" />
+                </StackPanel>
+            </Border>
+
+            <!--M2 Max Amperage-->
+            <Border Grid.Row="6" Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[TitleM2MaxAmperage]}" Style="{StaticResource TitleStyle}" />
+                </StackPanel>
+            </Border>
+
+            <!--M1 No Load Amperage-->
+            <Border Grid.Row="7" Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[TitleM1NoLoadAmperage]}" Style="{StaticResource TitleStyle}" />
+                </StackPanel>
+            </Border>
+
+            <!--M2 No Load Amperage-->
+            <Border Grid.Row="8" Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Resources.Strings[TitleM2NoLoadAmperage]}" Style="{StaticResource TitleStyle}" />
+                </StackPanel>
+            </Border>
+
+            <!--Step Numbers-->
+            <Border Grid.Row="0" Grid.Column="1">
+                <StackPanel>
+                    <TextBlock Text="1" Style="{StaticResource TitleStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="2">
+                <StackPanel>
+                    <TextBlock Text="2" Style="{StaticResource TitleStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="3">
+                <StackPanel>
+                    <TextBlock Text="3" Style="{StaticResource TitleStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="4">
+                <StackPanel>
+                    <TextBlock Text="4" Style="{StaticResource TitleStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="5">
+                <StackPanel>
+                    <TextBlock Text="5" Style="{StaticResource TitleStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="6">
+                <StackPanel>
+                    <TextBlock Text="6" Style="{StaticResource TitleStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="7">
+                <StackPanel>
+                    <TextBlock Text="7" Style="{StaticResource TitleStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="8">
+                <StackPanel>
+                    <TextBlock Text="8" Style="{StaticResource TitleStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="9">
+                <StackPanel>
+                    <TextBlock Text="9" Style="{StaticResource TitleStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="10">
+                <StackPanel>
+                    <TextBlock Text="10" Style="{StaticResource TitleStyle}" />
+                </StackPanel>
+            </Border>
+
+            <!-- Step 1-->
+            <Border Grid.Row="1" Grid.Column="1">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[0].StopCode}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="1">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[0].Duration}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="1">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[0].DistanceM1}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="1">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[0].DistanceM2}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="1">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[0].M1MaxAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="1">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[0].M2MaxAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="1">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[0].M1NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="1">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[0].M2NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+
+            <!-- Step 2-->
+            <Border Grid.Row="1" Grid.Column="2">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[1].StopCode}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="2">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[1].Duration}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="2">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[1].DistanceM1}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="2">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[1].DistanceM2}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="2">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[1].M1MaxAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="2">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[1].M2MaxAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="2">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[1].M1NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="2">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[1].M2NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+
+            <!-- Step 3-->
+            <Border Grid.Row="1" Grid.Column="3">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[2].StopCode}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="3">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[2].Duration}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="3">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[2].DistanceM1}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="3">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[2].DistanceM2}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="3">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[2].M1MaxAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="3">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[2].M2MaxAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="3">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[2].M1NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="3">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[2].M2NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+
+            <!-- Step 4-->
+            <Border Grid.Row="1" Grid.Column="4">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[3].StopCode}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="4">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[3].Duration}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="4">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[3].DistanceM1}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="4">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[3].DistanceM2}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="4">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[3].M1MaxAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="4">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[3].M2MaxAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="4">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[3].M1NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="4">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[3].M2NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+
+            <!-- Step 5-->
+            <Border Grid.Row="1" Grid.Column="5">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[4].StopCode}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="5">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[4].Duration}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="5">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[4].DistanceM1}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="5">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[4].DistanceM2}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="5">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[4].M1MaxAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="5">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[4].M2MaxAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="5">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[4].M1NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="5">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[4].M2NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+
+            <!-- Step 6-->
+            <Border Grid.Row="1" Grid.Column="6">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[5].StopCode}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="6">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[5].Duration}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="6">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[5].DistanceM1}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="6">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[5].DistanceM2}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="6">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[5].M1MaxAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="6">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[5].M2MaxAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="6">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[5].M1NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="6">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[5].M2NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+
+            <!-- Step 7-->
+            <Border Grid.Row="1" Grid.Column="7">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[6].StopCode}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="7">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[6].Duration}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="7">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[6].DistanceM1}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="7">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[6].DistanceM2}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="7">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[6].M1MaxAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="7">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[6].M2MaxAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="7">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[6].M1NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="7">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[6].M2NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+
+            <!-- Step 8-->
+            <Border Grid.Row="1" Grid.Column="8">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[7].StopCode}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="8">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[7].Duration}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="8">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[7].DistanceM1}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="8">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[7].DistanceM2}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="8">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[7].M1MaxAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="8">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[7].M2MaxAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="8">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[7].M1NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="8">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[7].M2NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+
+            <!-- Step 9-->
+            <Border Grid.Row="1" Grid.Column="9">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[8].StopCode}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="9">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[8].Duration}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="9">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[8].DistanceM1}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="9">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[8].DistanceM2}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="9">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[8].M1MaxAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="9">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[8].M2MaxAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="9">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[8].M1NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="9">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[8].M2NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+
+            <!-- Step 10-->
+            <Border Grid.Row="1" Grid.Column="10">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[9].StopCode}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="10">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[9].Duration}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="10">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[9].DistanceM1}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="10">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[9].DistanceM2}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="10">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[9].M1MaxAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="10">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[9].M2MaxAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="10">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[9].M1NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="10">
+                <StackPanel>
+                    <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[9].M2NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
+                </StackPanel>
+            </Border>
+
+        </Grid>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,44 @@
+﻿<KukaUI:TouchViewBase
+   x:Class="Kuka.FlexDrill.SmartHMI.Production.OlpGenerator.View.OlpGeneratorView"
+   x:Name="Root"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:KukaUI="clr-namespace:KukaRoboter.SmartHMI.UIFramework.ViewModel;assembly=KukaRoboter.SmartHMI.UIFrameworkServices"
+   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   xmlns:tabs="clr-namespace:Kuka.FlexDrill.SmartHMI.Production.OlpGenerator.View.Tabs"
+   xmlns:converters="clr-namespace:Kuka.FlexDrill.SmartHMI.Production.OlpGenerator.Converter"
+   mc:Ignorable="d"
+   d:DesignHeight="700"
+   d:DesignWidth="500">
+    <TabControl Style="{StaticResource KukaTabControlStyle}" SelectedIndex="{Binding SelectedTabIndex}"> 
+        <TabControl.Resources>
+            <Style TargetType="ListView" BasedOn="{StaticResource KukaListViewStyle}">
+                <Setter Property="SelectionMode" Value="Single"/>
+            </Style>
+            <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        </TabControl.Resources>
+        
+        <TabItem Header="{Binding Resources.Strings[ObjectFrame]}" >
+            <tabs:TabObjectFrameView DataContext="{Binding Path=DataContext, ElementName=Root}"/>
+        </TabItem>
+        <TabItem Header="{Binding Resources.Strings[Operations]}" >
+            <tabs:TabOperationsView DataContext="{Binding Path=DataContext, ElementName=Root}"/>
+        </TabItem>
+        <TabItem Header="{Binding Resources.Strings[ApproachPoints]}" Visibility="{Binding VisibilityApproachPoints, Converter={StaticResource BoolToVisibilityConverter}}">
+            <tabs:TabApproachPointsView DataContext="{Binding Path=DataContext, ElementName=Root}"/>
+        </TabItem>
+        <TabItem Header="{Binding Resources.Strings[VisionTargets]}" Visibility="{Binding VisibilityTargets, Converter={StaticResource BoolToVisibilityConverter}}">
+            <tabs:TabVisionTargetsView DataContext="{Binding Path=DataContext, ElementName=Root}"/>
+        </TabItem>
+        <TabItem Header="{Binding Resources.Strings[TeachAllPoints]}" Visibility="{Binding VisibilityAllPoints, Converter={StaticResource BoolToVisibilityConverter}}">
+            <tabs:TabTeachAllPointsView DataContext="{Binding Path=DataContext, ElementName=Root}" />
+        </TabItem>
+        <TabItem Header="{Binding Resources.Strings[PatternTeach]}" Visibility="{Binding VisibilityPattern, Converter={StaticResource BoolToVisibilityConverter}}">
+            <tabs:TabPatternTeachView DataContext="{Binding Path=DataContext, ElementName=Root}"/>
+        </TabItem>
+        <TabItem Header="{Binding Resources.Strings[ProcessDefinition]}" Visibility="{Binding VisibilityProcessDefinition, Converter={StaticResource BoolToVisibilityConverter}}">
+            <tabs:TabProcessDefinition DataContext="{Binding Path=DataContext, ElementName=Root}"/>
+        </TabItem>
+    </TabControl>
+</KukaUI:TouchViewBase>

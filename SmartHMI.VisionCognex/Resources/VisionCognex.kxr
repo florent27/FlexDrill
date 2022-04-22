@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns="http://www.kuka.com/schemas/kxr/2009">
+  <module name="VisionCognex">
+    <uiText key="Caption">
+      <text xml:lang="en-DEV">FlexDrill - Cognex</text>
+      <text xml:lang="fr-DEV">FlexDrill - Cognex</text>
+    </uiText>
+    <uiText key="MenuDisplay">
+      <text xml:lang="en-DEV">Cognex</text>
+      <text xml:lang="fr-DEV">Cognex</text>
+    </uiText>
+    <uiText key="btManualAcquire">
+      <text xml:lang="en-DEV">New image</text>
+      <text xml:lang="fr-DEV">Nouvelle image</text>
+    </uiText>
+    <uiText key="btSkip">
+      <text xml:lang="en-DEV">Skip</text>
+      <text xml:lang="fr-DEV">Passer</text>
+    </uiText>
+    <uiText key="btOk">
+      <text xml:lang="en-DEV">OK</text>
+      <text xml:lang="fr-DEV">OK</text>
+    </uiText>
+    <uiText key="btNok">
+      <text xml:lang="en-DEV">NOK</text>
+      <text xml:lang="fr-DEV">NOK</text>
+    </uiText>
+    <uiText key="lblOnLine">
+      <text xml:lang="en-DEV">Online</text>
+      <text xml:lang="fr-DEV">En ligne</text>
+    </uiText>
+    <uiText key="gbPixel">
+      <text xml:lang="en-DEV">Moving reticle (pixel)</text>
+      <text xml:lang="fr-DEV">Déplacement réticule (pixel)</text>
+    </uiText>
+    <uiText key="pixelValueNotOk">
+      <text xml:lang="en-DEV">The entered value is not valid.  Minimum {0} - Maximum {1}.</text>
+      <text xml:lang="fr-DEV">La valeur renseignée n'est pas valide. Minimum {0} - Maximum {1}.</text>
+    </uiText>
+    <uiText key="btconnection">
+      <text xml:lang="en-DEV">Connect</text>
+      <text xml:lang="fr-DEV">Connexion</text>
+    </uiText>
+    <uiText key="btdisconnection">
+      <text xml:lang="en-DEV">Disconnect</text>
+      <text xml:lang="fr-DEV">Déconnexion</text>
+    </uiText>    
+    <uiText key="tabCamera">
+      <text xml:lang="en-DEV">Camera</text>
+      <text xml:lang="fr-DEV">Caméra</text>
+    </uiText>
+    <uiText key="tabCameraCalibration">
+      <text xml:lang="en-DEV">Calibration</text>
+      <text xml:lang="fr-DEV">Calibration</text>
+    </uiText>
+    <uiText key="CalibrateVision">
+      <text xml:lang="en-DEV">Calibrate Vision</text>
+      <text xml:lang="fr-DEV">Calibration de la vision</text>
+    </uiText>
+    <uiText key="CalibrateNormality">
+      <text xml:lang="en-DEV">Calibrate Vision Normality</text>
+      <text xml:lang="fr-DEV">Calibration Normalité</text>
+    </uiText>
+    <uiText key="btCalibrate">
+      <text xml:lang="en-DEV">Calibrate</text>
+      <text xml:lang="fr-DEV">Calibration</text>
+    </uiText>
+  </module>
+</resources>

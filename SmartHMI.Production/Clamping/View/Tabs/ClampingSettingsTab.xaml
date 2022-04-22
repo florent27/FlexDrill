@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="Kuka.FlexDrill.SmartHMI.Production.Clamping.View.Tabs.ClampingSettingsTab"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   mc:Ignorable="d"
+   d:DesignHeight="300" d:DesignWidth="300">
+   <UserControl.Resources>
+      <ResourceDictionary>
+         <ResourceDictionary.MergedDictionaries>
+            <!--KUKA default-->
+            <ResourceDictionary
+               Source="/KukaRoboter.SmartHMI.UIFrameworkServices;component/Resources/DefaultStyles.xaml" />
+         </ResourceDictionary.MergedDictionaries>
+         <Style TargetType="TextBox" BasedOn="{StaticResource KukaTextBoxStyle}">
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Width" Value="80" />
+            <Setter Property="Tag" Value="NumericUFloat" />
+            <Setter Property="Margin" Value="10,5,10,5" />
+            <Setter Property="TextAlignment" Value="Right" />
+         </Style>
+         <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center" />
+         </Style>
+         <Style TargetType="Button" BasedOn="{StaticResource KukaButtonStyle}">
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+            <Setter Property="Margin" Value="10,10,0,0" />
+         </Style>
+      </ResourceDictionary>
+   </UserControl.Resources>
+
+   <StackPanel>
+      <GroupBox Header="{Binding Resources.Strings[Parameters]}" Margin="10" Padding="10,15,5,5">
+         <StackPanel>
+            <Grid>
+               <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition />
+               </Grid.ColumnDefinitions>
+               <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+               </Grid.RowDefinitions>
+
+               <!--Target force-->
+               <TextBlock Text="{Binding Resources.Strings[TargetForce]}" />
+               <TextBox Grid.Row="0" Grid.Column="1"
+                  Text="{Binding CurrentClampingParameters.TargetForce, UpdateSourceTrigger=PropertyChanged}" />
+               <TextBlock Grid.Row="0" Grid.Column="2" Text="[DaN]" />
+
+               <!--Approach speed-->
+               <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Resources.Strings[SpeedFactor]}" />
+               <TextBox Grid.Row="1" Grid.Column="1"
+                  Text="{Binding CurrentClampingParameters.SpeedFactor, UpdateSourceTrigger=PropertyChanged}" />
+
+               <!--Gain Fx-->
+               <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Resources.Strings[ClampingGainFx]}" />
+               <TextBox Grid.Row="2" Grid.Column="1"
+                  Text="{Binding CurrentClampingParameters.GainFx, UpdateSourceTrigger=PropertyChanged}" />
+
+               <!--Gain Fy-->
+               <TextBlock Grid.Row="3" Grid.Column="0" Text="{Binding Resources.Strings[ClampingGainFy]}" />
+               <TextBox Grid.Row="3" Grid.Column="1"
+                        Text="{Binding CurrentClampingParameters.GainFy, UpdateSourceTrigger=PropertyChanged}" />
+
+               <!--Gain Fz-->
+               <TextBlock Grid.Row="4" Grid.Column="0" Text="{Binding Resources.Strings[ClampingGainFz]}" />
+               <TextBox Grid.Row="4" Grid.Column="1"
+                        Text="{Binding CurrentClampingParameters.GainFz, UpdateSourceTrigger=PropertyChanged}" />
+
+               <!--Gain Tx-->
+               <TextBlock Grid.Row="5" Grid.Column="0" Text="{Binding Resources.Strings[ClampingGainTx]}" />
+               <TextBox Grid.Row="5" Grid.Column="1"
+                        Text="{Binding CurrentClampingParameters.GainTx, UpdateSourceTrigger=PropertyChanged}" />
+
+
+               <!--Gain Ty-->
+               <TextBlock Grid.Row="6" Grid.Column="0" Text="{Binding Resources.Strings[ClampingGainTy]}" />
+               <TextBox Grid.Row="6" Grid.Column="1"
+                        Text="{Binding CurrentClampingParameters.GainTy, UpdateSourceTrigger=PropertyChanged}" />
+                </Grid>
+
+            <DockPanel>
+               <Button DockPanel.Dock="Right" Content="{Binding Resources.Strings[Cancel]}"
+                  Command="{Binding CancelCommand}" />
+               <Button DockPanel.Dock="Right" Content="{Binding Resources.Strings[Save]}"
+                  Command="{Binding SaveCommand}" />
+            </DockPanel>
+
+         </StackPanel>
+      </GroupBox>
+   </StackPanel>
+
+</UserControl>

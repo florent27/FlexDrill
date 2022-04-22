@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<resources xml:lang="en" xmlns="http://www.kuka.com/schemas/kxr/2009">
+   <module name="FlexDrill_TcpCalibration">
+     <uiText key="StartCalibration">
+       <text>Start Calibration</text>
+     </uiText>
+     <uiText key="SaveCalib">
+       <text>Save Calibration</text>
+     </uiText>
+     <uiText key="TCPCalibrationDeltaXY">
+       <text>TCP Calibration Delta XY</text>
+     </uiText>
+     <uiText key="TCPCalibrationDeltaZ">
+       <text>TCP Calibration Delta Z</text>
+     </uiText>
+     <uiText key="TCPCalibrationDeltaRxRy">
+       <text>TCP Calibration Delta RxRy</text>
+     </uiText>
+     <uiText key="TCPCalibrationVisionXY">
+       <text>TCP Calibration Vision Delta XY</text>
+     </uiText>
+     <uiText key="AllTCPCalib">
+       <text>All TCP Calibrations</text>
+     </uiText>
+     <uiText key="TCPCalibrations">
+       <text>All TCP Calibrations</text>
+     </uiText>
+   </module>
+</resources>

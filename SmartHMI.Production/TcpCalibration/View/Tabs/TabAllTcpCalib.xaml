@@ -1,0 +1,170 @@
+﻿<UserControl
+   x:Class="Kuka.FlexDrill.SmartHMI.Production.TcpCalibration.View.Tabs.TabAllTcpCalib"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   xmlns:controls="clr-namespace:KukaRoboter.Common.Controls;assembly=KukaRoboter.Common.Controls"
+   mc:Ignorable="d"
+   d:DesignHeight="700" d:DesignWidth="500">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="TcpCalibrationStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <ScrollViewer>
+        <DockPanel x:Name="Root" Margin="10,0,10,0" LastChildFill="True">
+            <!--TCP Delta XY-->
+            <GroupBox Header="{Binding Resources.Strings[TCPCalibrationDeltaXY]}" DockPanel.Dock="Top">
+                <StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="20" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <!--Dx-->
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Resources.Strings[Dx]}" Style="{StaticResource TextValueStyle}" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding TCPXYDx}" />
+
+                        <!--Dy-->
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Resources.Strings[Dy]}"  Style="{StaticResource TextValueStyle}" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding TCPXYDy}"  />
+
+                        <!--Score-->
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Resources.Strings[Score]}"  Style="{StaticResource TextValueStyle}"/>
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding TCPXYScore}" />
+                    </Grid>
+
+                    <!--Start Calib-->
+                    <Button Content="{Binding Resources.Strings[StartCalibration]}" Command="{Binding TCPCalibXYCommand}" HorizontalAlignment="Right" />
+                    <!--Save Calib-->
+                    <Button Content="{Binding Resources.Strings[SaveCalib]}" Command="{Binding SaveCalibXYCommand}" HorizontalAlignment="Right" />
+                </StackPanel>
+            </GroupBox>
+
+            <!--TCP Delta Z-->
+            <GroupBox Header="{Binding Resources.Strings[TCPCalibrationDeltaZ]}" DockPanel.Dock="Top">
+                <StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="20" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <!--Dz-->
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Resources.Strings[Dz]}"  Style="{StaticResource TextValueStyle}"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding TCPZDz}" />
+
+                        <!--Score-->
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Resources.Strings[Score]}"  Style="{StaticResource TextValueStyle}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding TCPZScore}"/>
+                    </Grid>
+
+                    <!--Start Calib-->
+                    <Button Content="{Binding Resources.Strings[StartCalibration]}" Command="{Binding TCPCalibZCommand}" HorizontalAlignment="Right" />
+                    <!--Save Calib-->
+                    <Button Content="{Binding Resources.Strings[SaveCalib]}" Command="{Binding SaveCalibZCommand}" HorizontalAlignment="Right" />
+                </StackPanel>
+            </GroupBox>
+
+            <!--TCP Delta RxRy-->
+            <GroupBox Header="{Binding Resources.Strings[TCPCalibrationDeltaRxRy]}" DockPanel.Dock="Top">
+                <StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="20" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <!--DRx-->
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Resources.Strings[DRx]}"  Style="{StaticResource TextValueStyle}"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding TCPRxRyDRx}" />
+
+                        <!--DRy-->
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Resources.Strings[DRy]}"  Style="{StaticResource TextValueStyle}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding TCPRxRyDRy}" />
+
+                        <!--Score-->
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Resources.Strings[Score]}" Style="{StaticResource TextValueStyle}" />
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding TCPRxRyScore}" />
+                    </Grid>
+
+                    <!--Start Calib-->
+                    <Button Content="{Binding Resources.Strings[StartCalibration]}" Command="{Binding TCPCalibRxRyCommand}" HorizontalAlignment="Right" />
+                    <!--Save Calib-->
+                    <Button Content="{Binding Resources.Strings[SaveCalib]}" Command="{Binding SaveCalibRxRyCommand}" HorizontalAlignment="Right" />
+                </StackPanel>
+            </GroupBox>
+
+            <!--TCP Vision XY-->
+            <GroupBox Header="{Binding Resources.Strings[TCPCalibrationVisionXY]}" DockPanel.Dock="Top">
+                <StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="20" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <!--Dx-->
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Resources.Strings[Dx]}"  Style="{StaticResource TextValueStyle}"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding TCPVisionDx}" />
+
+                        <!--Dy-->
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Resources.Strings[Dy]}"  Style="{StaticResource TextValueStyle}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding TCPVisionDy}" />
+
+                        <!--DRx-->
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Resources.Strings[DRx]}"  Style="{StaticResource TextValueStyle}"/>
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding TCPVisionDRx}" />
+
+                        <!--DRy-->
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="{Binding Resources.Strings[DRy]}"  Style="{StaticResource TextValueStyle}"/>
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding TCPVisionDRy}" />
+
+
+                    </Grid>
+
+                    <!--Start Calib-->
+                    <Button Content="{Binding Resources.Strings[StartCalibration]}" Command="{Binding TCPCalibVisionCommand}" HorizontalAlignment="Right" />
+                    <!--Save Calib-->
+                    <Button Content="{Binding Resources.Strings[SaveCalib]}" Command="{Binding SaveCalibVisionCommand}" HorizontalAlignment="Right" />
+                </StackPanel>
+            </GroupBox>
+
+            <!--All Calib-->
+            <GroupBox Header="{Binding Resources.Strings[AllTCPCalib]}" DockPanel.Dock="Top">
+                <StackPanel>
+                    <!--Start Calib-->
+                    <Button Content="{Binding Resources.Strings[StartCalibration]}" Command="{Binding TCPCalibAllCommand}" HorizontalAlignment="Right" />
+                    <!--Save Calib-->
+                    <Button Content="{Binding Resources.Strings[SaveCalib]}" Command="{Binding SaveAllCalibCommand}" HorizontalAlignment="Right" />
+                </StackPanel>
+            </GroupBox>
+
+        </DockPanel>
+    </ScrollViewer>
+</UserControl>    

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<resources xml:lang="en" xmlns="http://www.kuka.com/schemas/kxr/2009">
+   <module name="FlexDrill_HeadManagement">
+      <uiText key="HeadManagement">
+         <text>Head management</text>
+      </uiText>
+      <uiText key="HeadDetails">
+         <text>Head details</text>
+      </uiText>
+      <uiText key="Slot">
+         <text>Slot</text>
+      </uiText> 
+      <uiText key="ActiveHead">
+         <text>Active head</text>
+      </uiText>
+      <uiText key="HeadName">
+         <text>Name: </text>
+      </uiText>
+      <uiText key="HeadType">
+         <text>Type: </text>
+      </uiText>
+      <uiText key="HeadTypeHeader">
+         <text>Head type</text>
+      </uiText>
+      <uiText key="Slots">
+         <text>Slots</text>
+      </uiText>
+      <uiText key="HeadNameHeader">
+         <text>Head name</text>
+      </uiText>
+      <uiText key="HeadUid">
+         <text>Head UID: </text>
+      </uiText>
+      <uiText key="Grasp">
+         <text>Grasp</text>
+      </uiText>
+      <uiText key="Drop">
+         <text>Drop</text>
+      </uiText> 
+      <uiText key="Vacuum">
+         <text>Vacuum</text>
+      </uiText>
+      <uiText key="VacuumOn">
+         <text>On</text>
+      </uiText> 
+      <uiText key="HeadUniqueId">
+         <text>Unique id: </text>
+      </uiText>
+      <uiText key="HeadOscillation">
+         <text>MicroPeck oscillation: </text>
+      </uiText> 
+      <uiText key="HeadAmplitude">
+         <text>MicroPeck amplitude: </text>
+      </uiText> 
+      <uiText key="HeadGearBoxFeed">
+         <text>Gear box feed: </text>
+      </uiText> 
+      <uiText key="HeadGearBoxSpeed">
+         <text>Gear box speed: </text>
+      </uiText> 
+      <uiText key="HeadCustomerInfo">
+         <text>Customer information: </text>
+      </uiText> 
+      <uiText key="HeadDetailedInformation">
+         <text>Detailed information</text>
+      </uiText> 
+      <uiText key="HeadSelection">
+         <text>Head selection</text>
+      </uiText> 
+      <uiText key="InitializeHead">
+         <text>Initialize</text>
+      </uiText>
+      <uiText key="HeadProcess">
+         <text>Process</text>
+      </uiText>
+      <uiText key="RunHeadProcess">
+         <text>Run</text>
+      </uiText> 
+      <uiText key="EnableVacuum">
+         <text>Turn on/off vacuum</text>
+      </uiText> 
+      <uiText key="Occupied">
+         <text>Occupied</text>
+      </uiText>
+     <uiText key="HeadChange">
+       <text>Head Change</text>
+     </uiText>
+     <uiText key="HeadToDrop">
+       <text>Head to drop:</text>
+     </uiText>
+     <uiText key="HeadToGrasp">
+       <text>Head to grasp:</text>
+     </uiText>
+     <uiText key="Start">
+       <text>Start</text>
+     </uiText>
+   </module>
+</resources>

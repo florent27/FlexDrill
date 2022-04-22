@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<resources xml:lang="en" xmlns="http://www.kuka.com/schemas/kxr/2009">
+   <module name="FlexDrill_SetiTecInfo">
+
+      <uiText key="Initialization">
+         <text>Initialization</text>
+      </uiText>  
+      <uiText key="InitializationDone">
+         <text>Initialization done</text>
+      </uiText>
+      <uiText key="PsetLoaded">
+         <text>Pset loaded</text>
+      </uiText>
+      <uiText key="Motor">
+         <text>Motor</text>
+      </uiText> 
+      <uiText key="MotorConnected">
+         <text>Motor connected</text>
+      </uiText> 
+      <uiText key="NoMotorConnected">
+         <text>No motor connected</text>
+      </uiText> 
+      <uiText key="Machining">
+         <text>Machining</text>
+      </uiText> 
+      <uiText key="MachineOk">
+         <text>Machine Ok</text>
+      </uiText> 
+      <uiText key="MachineNotOk">
+         <text>Machine not Ok</text>
+      </uiText> 
+      <uiText key="Cycle">
+         <text>Cycle</text>
+      </uiText> 
+      <uiText key="CycleCompleted">
+         <text>Cycle completed</text>
+      </uiText> 
+      <uiText key="CycleStop">
+         <text>Cycle stop</text>
+      </uiText> 
+      <uiText key="CycleAbort">
+         <text>Cycle abort</text>
+      </uiText> 
+      <uiText key="Tool">
+         <text>Tool</text>
+      </uiText> 
+      <uiText key="ToolReady">
+         <text>Tool ready</text>
+      </uiText>
+      <uiText key="ToolRunning">
+         <text>Tool running</text>
+      </uiText> 
+      <uiText key="ToolLocked">
+         <text>Tool locked</text>
+      </uiText> 
+      <uiText key="ToolConnected">
+         <text>Tool connected</text>
+      </uiText>
+      <uiText key="NoToolConnected">
+         <text>No tool connected</text>
+      </uiText> 
+      <uiText key="Service">
+         <text>Service</text>
+      </uiText> 
+      <uiText key="LubTankEmpty">
+         <text>Lubrication tank empty</text>
+      </uiText> 
+      <uiText key="ServiceIndicator">
+         <text>Service indicator</text>
+      </uiText>
+     <!-- Last Cycle Data-->
+     <uiText key="TitleStepNumber">
+       <text>Step Number</text>
+     </uiText>
+     <uiText key="TitleStopCode">
+       <text>Stop Code</text>
+     </uiText>
+     <uiText key="TitleDuration">
+       <text>Duration</text>
+     </uiText>
+     <uiText key="TitleDistanceM1">
+       <text>Distance M1</text>
+     </uiText>
+     <uiText key="TitleDistanceM2">
+       <text>Distance M2</text>
+     </uiText>
+     <uiText key="TitleM1MaxAmperage">
+       <text>M1 Max Amperage</text>
+     </uiText>
+     <uiText key="TitleM2MaxAmperage">
+       <text>M2 Max Amperage</text>
+     </uiText>
+     <uiText key="TitleM1NoLoadAmperage">
+       <text>M1 No Load Amperage</text>
+     </uiText>
+     <uiText key="TitleM2NoLoadAmperage">
+       <text>M2 No Load Amperage</text>
+     </uiText>
+     <!-- Last Cycle Global Info-->
+     <uiText key="TitleBoxName">
+       <text>Box Name</text>
+     </uiText>
+     <uiText key="TitleBoxSN">
+       <text>Box SN</text>
+     </uiText>
+     <uiText key="TitleMotorName">
+       <text>Motor Name</text>
+     </uiText>
+     <uiText key="TitleMotorSN">
+       <text>Motor SN</text>
+     </uiText>
+     <uiText key="TitleHeadUID">
+       <text>Head UID</text>
+     </uiText>
+     <uiText key="TitleHeadName">
+       <text>Head Name</text>
+     </uiText>
+     <uiText key="TitleHeadType">
+       <text>Head Type</text>
+     </uiText>
+     <uiText key="TitleLocalCounter">
+       <text>Local Counter</text>
+     </uiText>
+     <uiText key="TitleGlobalCounter">
+       <text>Global Counter</text>
+     </uiText>
+     <uiText key="TitleCycleResult">
+       <text>Cycle Result</text>
+     </uiText>
+     <!-- Tabs-->
+     <uiText key="Status">
+       <text>Status</text>
+     </uiText>     
+     <uiText key="LastCycleGlobalInfo">
+       <text>Last Cycle - Global Info</text>
+     </uiText>
+     <uiText key="LastCycleData">
+       <text>Last Cycle Data</text>
+     </uiText>     
+   </module>
+</resources>

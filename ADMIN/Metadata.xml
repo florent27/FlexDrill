@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<KopFileMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:ac="http://AdditionalKopFileContents"
+   xsi:schemaLocation="http://AdditionalKopFileContents ..\ReleaseTest\Contracts\AdditionalContentsSchema.xsd"
+   xsi:noNamespaceSchemaLocation="..\ReleaseTest\Contracts\KopFileMetadata.xsd">
+   <Dependencies>
+      <Dependency>
+         <DependencyType>Application</DependencyType>
+         <Identifier>KSS</Identifier>
+         <Versions>
+            <DependencyVersion>
+               <IsSupported>true</IsSupported>
+               <Version>[8.5;8.5]</Version>
+            </DependencyVersion>
+         </Versions>
+      </Dependency>
+   </Dependencies>
+   <FileManipulations>
+      <FileManipulation TargetFile="KRC:\R1\System\sps.sub" Name="KRC:\R1\System\sps.sub" IsRecursiveSearch="false"
+         IgnoreFileHistoryOnReinstall="true" IgnoreFileHistoryOnUpdate="true">
+         <Actions>
+            <Action Name="sps_sub.add" Type="Install">
+               <ControlFile>..\Sources\FileManipulations\sps_sub.add</ControlFile>
+               <Tool>XchgFile</Tool>
+               <OldFile/>
+               <Condition>KrcVersion=V8.5</Condition>
+               <UpgradeFile/>
+               <AdditionalParameter/>
+               <Files>
+                  <File Name="sps_sub.txt" Path="..\Sources\FileManipulations\sps_sub.txt"/>
+               </Files>
+            </Action>
+            <Action Name="sps_sub.del" Type="Uninstall">
+               <ControlFile>..\Sources\FileManipulations\sps_sub.del</ControlFile>
+               <Tool>XchgFile</Tool>
+               <OldFile/>
+               <Condition>KrcVersion=V8.5</Condition>
+               <UpgradeFile/>
+               <AdditionalParameter/>
+               <Files/>
+            </Action>
+            <Action Name="sps_sub_ini.add" Type="Install">
+               <ControlFile>..\Sources\FileManipulations\sps_sub_ini.add</ControlFile>
+               <Tool>XchgFile</Tool>
+               <OldFile/>
+               <Condition>KrcVersion=V8.5</Condition>
+               <UpgradeFile/>
+               <AdditionalParameter/>
+               <Files>
+                  <File Name="sps_sub_ini.txt" Path="..\Sources\FileManipulations\sps_sub_ini.txt"/>
+               </Files>
+            </Action>
+            <Action Name="sps_sub_ini.del" Type="Uninstall">
+               <ControlFile>..\Sources\FileManipulations\sps_sub_ini.del</ControlFile>
+               <Tool>XchgFile</Tool>
+               <OldFile/>
+               <Condition>KrcVersion=V8.5</Condition>
+               <UpgradeFile/>
+               <AdditionalParameter/>
+               <Files/>
+            </Action>
+         </Actions>
+      </FileManipulation>
+   </FileManipulations>
+   <Templates/>
+   <Properties/>
+   <PlatformDependencies/>
+   <OptionInstallationType>Integrated</OptionInstallationType>
+   <FileDelete>
+      <FilePaths/>
+      <PlatformFileDeletes/>
+   </FileDelete>
+   <IOConfiguration/>
+   <FileUpdateActions/>
+   <ExternalTools/>
+   <ac:AdditionalContents/>
+</KopFileMetadata>

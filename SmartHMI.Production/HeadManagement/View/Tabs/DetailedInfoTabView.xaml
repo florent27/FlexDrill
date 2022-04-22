@@ -1,0 +1,104 @@
+﻿<UserControl x:Class="Kuka.FlexDrill.SmartHMI.Production.HeadManagement.View.Tabs.DetailedInfoTabView"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   mc:Ignorable="d"
+   d:DesignHeight="684" d:DesignWidth="520">
+   <UserControl.Resources>
+      <ResourceDictionary>
+         <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="HeadManagementStyles.xaml" />
+         </ResourceDictionary.MergedDictionaries>
+      </ResourceDictionary>
+   </UserControl.Resources>
+
+   <ScrollViewer VerticalScrollBarVisibility="Auto">
+      <StackPanel Margin="10">
+
+         <TextBlock Text="{Binding Resources.Strings[HeadSelection]}" />
+         <ComboBox x:Name="HeadComboBox" Height="40" ItemsSource="{Binding Heads}" SelectedItem="{Binding SelectedHead}"
+                   DisplayMemberPath="Name" Margin="10,10,0,15" />
+
+         <GroupBox Header="{Binding Resources.Strings[HeadDetailedInformation]}">
+            <Grid>
+               <Grid.RowDefinitions>
+                  <RowDefinition Height="20" />
+                  <RowDefinition Height="20" />
+                  <RowDefinition Height="20" />
+                  <RowDefinition Height="20" />
+                  <RowDefinition Height="20" />
+                  <RowDefinition Height="20" />
+                  <RowDefinition Height="20" />
+               </Grid.RowDefinitions>
+               <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="Auto"/>
+                  <ColumnDefinition />
+               </Grid.ColumnDefinitions>
+
+               <!--Type-->
+               <TextBlock Text="{Binding Resources.Strings[HeadType]}" Style="{StaticResource ParamNameStyle}" />
+               <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Type}"
+                  DataContext="{Binding ElementName=HeadComboBox, Path=SelectedItem}"
+                  Style="{StaticResource TextValueStyle}" />
+
+               <!--UID-->
+               <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Resources.Strings[HeadUniqueId]}"
+                  Style="{StaticResource ParamNameStyle}" />
+               <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Id}"
+                  DataContext="{Binding ElementName=HeadComboBox, Path=SelectedItem}"
+                  Style="{StaticResource TextValueStyle}" />
+
+               <!--Customer info-->
+               <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Resources.Strings[HeadCustomerInfo]}"
+                  Style="{StaticResource ParamNameStyle}" />
+               <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding CustomerInfo}"
+                  DataContext="{Binding ElementName=HeadComboBox, Path=SelectedItem}"
+                  Style="{StaticResource TextValueStyle}" />
+
+               <!--Oscillation-->
+               <TextBlock Grid.Row="3" Grid.Column="0" Text="{Binding Resources.Strings[HeadOscillation]}"
+                  Style="{StaticResource ParamNameStyle}" />
+               <TextBlock Grid.Row="3" Grid.Column="1"
+                  Text="{Binding Oscillation}"
+                  DataContext="{Binding ElementName=HeadComboBox, Path=SelectedItem}"
+                  Style="{StaticResource TextValueStyle}" HorizontalAlignment="Right" />
+
+               <!--Amplitude-->
+               <TextBlock Grid.Row="4" Grid.Column="0" Text="{Binding Resources.Strings[HeadAmplitude]}"
+                  Style="{StaticResource ParamNameStyle}" />
+               <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Amplitude}"
+                  DataContext="{Binding ElementName=HeadComboBox, Path=SelectedItem}"
+                  Style="{StaticResource TextValueStyle}" HorizontalAlignment="Right"/>
+               <TextBlock Grid.Row="4" Grid.Column="2" Text="[mm]"
+                  DataContext="{Binding ElementName=HeadComboBox, Path=SelectedItem}"
+                  Style="{StaticResource ParamNameStyle}" HorizontalAlignment="Left"/>
+
+               <!--Gear box feed-->
+               <TextBlock Grid.Row="5" Grid.Column="0" Text="{Binding Resources.Strings[HeadGearBoxFeed]}"
+                  Style="{StaticResource ParamNameStyle}" />
+               <TextBlock Grid.Row="5" Grid.Column="1"
+                  Text="{Binding GearBoxFeed}"
+                  DataContext="{Binding ElementName=HeadComboBox, Path=SelectedItem}"
+                  Style="{StaticResource TextValueStyle}" HorizontalAlignment="Right"/>
+               <TextBlock Grid.Row="5" Grid.Column="2" Text="[mm/s]"
+                  DataContext="{Binding ElementName=HeadComboBox, Path=SelectedItem}"
+                  Style="{StaticResource ParamNameStyle}" HorizontalAlignment="Left"/>
+
+               <!--Gear box speed-->
+               <TextBlock Grid.Row="6" Grid.Column="0" Text="{Binding Resources.Strings[HeadGearBoxSpeed]}"
+                  Style="{StaticResource ParamNameStyle}" />
+               <TextBlock Grid.Row="6" Grid.Column="1"
+                  Text="{Binding GearBoxSpeed}"
+                  DataContext="{Binding ElementName=HeadComboBox, Path=SelectedItem}"
+                  Style="{StaticResource TextValueStyle}" HorizontalAlignment="Right"/>
+               <TextBlock Grid.Row="6" Grid.Column="2" Text="[rpm]"
+                  DataContext="{Binding ElementName=HeadComboBox, Path=SelectedItem}"
+                  Style="{StaticResource ParamNameStyle}" HorizontalAlignment="Left"/>
+
+            </Grid>
+         </GroupBox>
+      </StackPanel>
+   </ScrollViewer>
+</UserControl>

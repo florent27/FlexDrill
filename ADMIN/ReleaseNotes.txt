@@ -1,0 +1,9 @@
+$(Header)
+
+   Functionalities:
+   =====================
+   SmartHMI Plugin for the FlexDrill production view.
+   
+   Prerequisites:
+   =====================
+   KSS 8.5

@@ -1,0 +1,55 @@
+﻿<UserControl
+   x:Class="Kuka.FlexDrill.SmartHMI.Production.Production.View.Tabs.JobListTabView"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   xmlns:KukaControls="clr-namespace:KukaRoboter.Common.Controls;assembly=KukaRoboter.Common.Controls"
+   mc:Ignorable="d"
+   d:DesignHeight="700"
+   d:DesignWidth="500">
+
+    <DockPanel x:Name="Root" Margin="10,0,10,0" LastChildFill="True">
+
+        <!--Don't remove stackPanel. It is used to auto-calculate the listView's height.-->
+        <StackPanel x:Name="topPanel" DockPanel.Dock="Top">
+            <TextBlock Text="{Binding Resources.Strings[JobList]}" Margin="0,10,0,10" />
+        </StackPanel>
+
+        <!--Don't remove stackPanel. It is used to auto-calculate the listView's height.-->
+        <WrapPanel x:Name="bottomPanel" DockPanel.Dock="Bottom" HorizontalAlignment="Right">
+            <Button Content="{Binding Resources.Strings[MoveJobUp]}" Command="{Binding MoveJobUpCommand}" Margin="0,10,10,10"
+                HorizontalAlignment="Right" Height="40" Width="100" />
+            <Button Content="{Binding Resources.Strings[MoveJobDown]}" Command="{Binding MoveJobDownCommand}" Margin="0,10,10,10"
+                HorizontalAlignment="Right" Height="40" Width="100" />
+            <Button Content="{Binding Resources.Strings[RemoveJob]}" Command="{Binding RemoveJobCommand}" Margin="0,10,0,10"
+                Height="40" Width="100" HorizontalAlignment="Right" />
+        </WrapPanel>
+
+        <!--Program list-->
+        <ListView x:Name="JobListView" DockPanel.Dock="Top"
+         ItemsSource="{Binding FlexDrillService.JobList}" SelectedItem="{Binding SelectedJob}"
+         KukaControls:ListViewLayoutManager.Enabled="true" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="{Binding Resources.Strings[Name]}" KukaControls:ProportionalColumn.Width="1">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" TextWrapping="Wrap" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="{Binding Resources.Strings[IsLoaded]}" Width="130">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <KukaControls:LEDControl IsActive="{Binding IsLoaded}"
+                           Height="40" Width="40" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+
+</UserControl>

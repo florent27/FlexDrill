@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="SonarQube - FlexDrill KUKA Industries" ToolsVersion="14.0">
+  <Include Path="..\_solution\sonarqube\com.kuka.industries.ready2use.ready2_flexdrill_ready2_flexdrillcsharp.ruleset" Action="Default" />
+</RuleSet>

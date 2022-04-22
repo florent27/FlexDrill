@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DEAB35FC-8D18-4AA4-A4C1-F59DEE03CD15}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kuka.FlexDrill.SmartHMI.VisionCognex</RootNamespace>
+    <AssemblyName>Kuka.FlexDrill.SmartHMI.VisionCognex</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>SmartHMI.VisionCognex.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>SmartHMI.VisionCognex.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\SmartHMI.Production\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisRuleSet>SmartHMI.VisionCognex.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisRuleSet>SmartHMI.VisionCognex.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ade.Components, Version=1.0.0.0, Culture=neutral, PublicKeyToken=55558f70c9068f5b, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\Ade.Components.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ade.Components.XmlSerializers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=55558f70c9068f5b, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\Ade.Components.XmlSerializers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ade.ComponentsImpl, Version=2.5.10286.0, Culture=neutral, PublicKeyToken=55558f70c9068f5b, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\Ade.ComponentsImpl.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ade.ComponentsImpl.XmlSerializers, Version=2.5.10286.0, Culture=neutral, PublicKeyToken=55558f70c9068f5b, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\Ade.ComponentsImpl.XmlSerializers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ade.ObjectStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=55558f70c9068f5b, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\Ade.ObjectStore.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Cognex.InSight, Version=4.9.101.3, Culture=neutral, PublicKeyToken=6b9774afddb09935, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Cognex.InSight.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.InSight.Controls.Display, Version=4.9.101.3, Culture=neutral, PublicKeyToken=6b9774afddb09935, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Cognex.InSight.Controls.Display.dll</HintPath>
+    </Reference>
+    <Reference Include="DirViewCtrl, Version=8.1.0.0, Culture=neutral, PublicKeyToken=eae976646d224940, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\DirViewCtrl.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Interop.CvsInSightDisplayOcx, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>Lib\Interop.CvsInSightDisplayOcx.dll</HintPath>
+    </Reference>
+    <Reference Include="KukaRoboter.Atoms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eae976646d224940, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.Atoms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.AtomsServices, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eae976646d224940, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.AtomsServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.Common.ApplicationServices, Version=8.1.0.0, Culture=neutral, PublicKeyToken=eae976646d224940, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.Common.ApplicationServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.Common.ApplicationServices.XmlSerializers, Version=8.1.0.0, Culture=neutral, PublicKeyToken=eae976646d224940, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.Common.ApplicationServices.XmlSerializers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.Common.ComponentModel, Version=8.3.0.0, Culture=neutral, PublicKeyToken=eae976646d224940, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.Common.ComponentModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.Common.Controls, Version=8.3.0.0, Culture=neutral, PublicKeyToken=eae976646d224940, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.Common.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.Common.MsTestBase, Version=8.1.0.0, Culture=neutral, PublicKeyToken=eae976646d224940, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.Common.MsTestBase.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.Common.Technology, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.Common.Technology.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.Common.Technology.XmlSerializers, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.Common.Technology.XmlSerializers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.Common.ViewModelBase, Version=8.1.0.0, Culture=neutral, PublicKeyToken=eae976646d224940, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.Common.ViewModelBase.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.Common.XmlResources, Version=8.1.4.0, Culture=neutral, PublicKeyToken=eae976646d224940, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.Common.XmlResources.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.Contracts, Version=1.1.0.0, Culture=neutral, PublicKeyToken=eae976646d224940, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.Contracts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.Controls">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.0.51\lib\KukaRoboter.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="KukaRoboter.CoreUtil, Version=1.1.3.0, Culture=neutral, PublicKeyToken=eae976646d224940, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.CoreUtil.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.CoreUtil.XmlSerializers, Version=1.1.3.0, Culture=neutral, PublicKeyToken=eae976646d224940, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.CoreUtil.XmlSerializers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.KrcEventLog, Version=8.1.0.0, Culture=neutral, PublicKeyToken=eae976646d224940, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.KrcEventLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.Krl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eae976646d224940, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.Krl.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.LegacyKrcServiceLib, Version=8.3.0.0, Culture=neutral, PublicKeyToken=eae976646d224940, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.LegacyKrcServiceLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.OnlineServicesFacade, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eae976646d224940, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.OnlineServicesFacade.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.SmartHMI.CommonResources, Version=8.3.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.SmartHMI.CommonResources.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.SmartHMI.CorePlugIns, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.SmartHMI.CorePlugIns.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.SmartHMI.LegacySupport, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.SmartHMI.LegacySupport.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.SmartHMI.UIFrameworkServices, Version=8.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.SmartHMI.UIFrameworkServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.SmartHMI.UIFrameworkServices.XmlSerializers, Version=8.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.SmartHMI.UIFrameworkServices.XmlSerializers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KukaRoboter.UnitTest.Mocks, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\KukaRoboter.UnitTest.Mocks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=eae976646d224940, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation, Version=5.0.414.0, Culture=neutral, PublicKeyToken=eae976646d224940, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\Microsoft.Practices.EnterpriseLibrary.Validation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\_Solution\packages\KRC_V85.8.5.5.347\lib\Microsoft.Practices.Unity.Interception.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config\ConfigVisionCognex.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\VisionCognexViewModel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Views\VisionCognexView.xaml.cs">
+      <DependentUpon>VisionCognexView.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="SmartHMI.exe.VisionCognex.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\VisionCognex.kxr">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SmartHMI.VisionCognex.ruleset" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Resources\VisionCognexResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VisionCognexView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ConfigVisionCognex.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\_Solution\packages\SonarAnalyzer.CSharp.7.10.0.7896\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\_Solution\packages\SonarAnalyzer.CSharp.7.10.0.7896\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\_Solution\packages\SonarAnalyzer.CSharp.7.10.0.7896\analyzers\SonarAnalyzer.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Lib\Cognex.InSight.Controls.Display.dll" />
+    <Content Include="Lib\Cognex.InSight.dll" />
+    <Content Include="Lib\Interop.CvsInSightDisplayOcx.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Process\Process.csproj">
+      <Project>{B67008AA-75BF-48A0-BCD1-17FDB6764951}</Project>
+      <Name>Process</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,193 @@
+﻿<UserControl x:Class="Kuka.FlexDrill.SmartHMI.Production.Clamping.View.Tabs.ClampingCalibrationView"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   xmlns:controls="clr-namespace:KukaRoboter.Common.Controls;assembly=KukaRoboter.Common.Controls"
+   mc:Ignorable="d"
+   d:DesignHeight="627.924" d:DesignWidth="388.152">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+               Source="/KukaRoboter.SmartHMI.UIFrameworkServices;component/Resources/DefaultStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="GroupBox" BasedOn="{StaticResource KukaCroupBoxStyle}">
+                <Setter Property="Margin" Value="5" />
+            </Style>
+
+            <Style TargetType="Grid">
+                <Setter Property="Margin" Value="5" />
+            </Style>
+
+            <Style TargetType="Button" BasedOn="{StaticResource KukaButtonStyle}">
+                <Setter Property="Height" Value="40" />
+                <Setter Property="Width" Value="100" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+            </Style>
+
+            <Style x:Key="ParamNameStyle" TargetType="TextBlock">
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Margin" Value="0 5 10 5" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+            </Style>
+
+            <Style x:Key="ParamValueStyle" TargetType="TextBlock">
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Style>
+
+            <Style x:Key="ParamUnitStyle" TargetType="TextBlock">
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="Margin" Value="5 0 0 0" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+            </Style>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <GroupBox Header="{Binding Resources.Strings[ClampingActualValues]}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!--Calibration state-->
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding Resources.Strings[IsCalibrated]}"
+                  Style="{StaticResource ParamNameStyle}" />
+                    <controls:LEDControl Grid.Column="1" Grid.Row="0" IsActive="{Binding ForceCalibrationState}" Height="40"
+                  Margin="0,5,0,10" />
+
+                    <!--Clamping force-->
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding Resources.Strings[ClampingForce]}"
+                  Style="{StaticResource ParamNameStyle}" />
+                    <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding ClampingForce, StringFormat=N2}"
+                  Style="{StaticResource ParamValueStyle}" />
+                    <TextBlock Grid.Column="2" Grid.Row="1" Text="[daN]" Style="{StaticResource ParamUnitStyle}" />
+
+                    <!--Tare button-->
+                    <Button Grid.Column="3" Grid.Row="2" Command="{Binding TareCommand}"
+                  Content="{Binding Resources.Strings[Tare]}" />
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="{Binding Resources.Strings[SlidingActualValues]}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!--Calibration state-->
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding Resources.Strings[IsCalibrated]}"
+                  Style="{StaticResource ParamNameStyle}" />
+                    <controls:LEDControl Grid.Column="1" Grid.Row="0" IsActive="{Binding SlidingCalibrationState}"
+                  Height="40" Margin="0,5,0,10" />
+
+                    <!--Sliding X-->
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding Resources.Strings[SlidingDistanceX]}"
+                  Style="{StaticResource ParamNameStyle}" />
+                    <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding SlidingDistanceX, StringFormat=N2}"
+                  Style="{StaticResource ParamValueStyle}" />
+                    <TextBlock Grid.Column="2" Grid.Row="1" Text="[mm]" Style="{StaticResource ParamUnitStyle}" />
+
+                    <!--Sliding Y-->
+                    <TextBlock Grid.Column="0" Grid.Row="2" Text="{Binding Resources.Strings[SlidingDistanceY]}"
+                  Style="{StaticResource ParamNameStyle}" />
+                    <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding SlidingDistanceY, StringFormat=N2}"
+                  Style="{StaticResource ParamValueStyle}" />
+                    <TextBlock Grid.Column="2" Grid.Row="2" Text="[mm]" Style="{StaticResource ParamUnitStyle}" />
+
+                    <Button Grid.Column="3" Grid.Row="3" Command="{Binding CalibrateSlidingCommand}"
+                  Content="{Binding Resources.Strings[Calibrate]}" />
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="{Binding Resources.Strings[NormalityActualValues]}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!--Calibration state-->
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding Resources.Strings[IsCalibrated]}"
+                  Style="{StaticResource ParamNameStyle}" />
+                    <controls:LEDControl Grid.Column="1" Grid.Row="0" IsActive="{Binding NormalityCalibrationState}"
+                  Height="40" Margin="0,5,0,10" />
+
+                    <!--Normality X-->
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding Resources.Strings[NormalityAngleX]}"
+                  Style="{StaticResource ParamNameStyle}" />
+                    <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding NormalityAngleX, StringFormat=N2}"
+                  Style="{StaticResource ParamValueStyle}" />
+                    <TextBlock Grid.Column="2" Grid.Row="1" Text="[°]" Style="{StaticResource ParamUnitStyle}" />
+
+                    <!--Normality Y-->
+                    <TextBlock Grid.Column="0" Grid.Row="2" Text="{Binding Resources.Strings[NormalityAngleY]}"
+                  Style="{StaticResource ParamNameStyle}" />
+                    <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding NormalityAngleY, StringFormat=N2}"
+                  Style="{StaticResource ParamValueStyle}" />
+                    <TextBlock Grid.Column="2" Grid.Row="2" Text="[°]" Style="{StaticResource ParamUnitStyle}" />
+
+                    <Button Grid.Column="3" Grid.Row="3" Command="{Binding CalibrateNormalityCommand}"
+                  Content="{Binding Resources.Strings[Calibrate]}" />
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Header="{Binding Resources.Strings[NoseManagement]}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!--Nose state-->
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding Resources.Strings[NoseLocked]}"
+               Style="{StaticResource ParamNameStyle}" />
+                    <controls:LEDControl Grid.Column="1" Grid.Row="0" IsActive="{Binding NoseLocked}"
+               Height="40" Margin="0,5,0,10" />
+
+                    <Button Grid.Column="2" Grid.Row="0" Command="{Binding LockNoseCommand}"
+               Content="{Binding Resources.Strings[LockNose]}" />
+                    <Button Grid.Column="3" Grid.Row="0" Command="{Binding UnlockNoseCommand}"
+                         Content="{Binding Resources.Strings[UnlockNose]}" />
+                </Grid>
+            </GroupBox>
+
+        </StackPanel>
+    </ScrollViewer>
+
+</UserControl>

@@ -1,0 +1,30 @@
+## FlexDrill Mapping File
+
+# KRL
+..\Sources\KRL\*                                                        => Option\KRC\R1\TP\FlexDrill\
+																        
+# SmartHMI.Production											        
+.\SmartHMI.Production\SmartHMI.exe.FlexDrill.config                     => SmartHMI\
+.\SmartHMI.Production\Kuka.FlexDrill.SmartHMI.Production.dll            => SmartHMI\
+																        
+# SmartHMI.VisionCognex											        
+.\SmartHMI.VisionCognex\SmartHMI.exe.VisionCognex.config                => SmartHMI\
+.\SmartHMI.VisionCognex\Kuka.FlexDrill.SmartHMI.VisionCognex.dll        => SmartHMI\
+..\Sources\SmartHMI.VisionCognex\Resources\ConfigVisionCognex.xml       => SmartHMI\
+..\Sources\SmartHMI.VisionCognex\Lib\*.dll                              => SmartHMI\
+																        
+# Process														        
+.\Process\Kuka.FlexDrill.Process.dll                                    => SmartHMI\
+																        
+# Kxr															        
+..\Sources\SmartHMI.Production\Resources\*.kxr                          => Kxr
+..\Sources\SmartHMI.Production\Clamping\Resources\*.kxr                 => Kxr
+..\Sources\SmartHMI.Production\HeadManagement\Resources\*.kxr           => Kxr
+..\Sources\SmartHMI.Production\KeyBar\Resources\*.kxr                   => Kxr
+..\Sources\SmartHMI.Production\SetiTecInfo\Resources\*.kxr              => Kxr
+..\Sources\SmartHMI.Production\Production\Resources\*.kxr               => Kxr
+																        
+..\Sources\SmartHMI.VisionCognex\Resources\*.kxr                        => Kxr
+
+# Configuration
+..\Sources\SmartHMI.Production\Production\Config\FlexDrill_Config.xml   => \SmartHMI\Config\

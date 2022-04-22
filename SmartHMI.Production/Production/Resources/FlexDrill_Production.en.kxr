@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<resources xml:lang="en" xmlns="http://www.kuka.com/schemas/kxr/2009">
+   <module name="FlexDrill_Production">
+      <uiText key="Programs">
+         <text>Programs</text>
+      </uiText>
+      <uiText key="Operations">
+         <text>Operations</text>
+      </uiText>
+      <uiText key="WorkPoints">
+         <text>Work points</text>
+      </uiText>
+      <uiText key="AvailablePrograms">
+         <text>Available programs:</text>
+      </uiText>
+      <uiText key="Load">
+         <text>Load</text>
+      </uiText>
+      <uiText key="Name">
+         <text>Name</text>
+      </uiText>
+      <uiText key="IsLoaded">
+         <text>Is loaded</text>
+      </uiText>
+      <uiText key="OperationSelection">
+         <text>Operations:</text>
+      </uiText>
+      <uiText key="WorkingPointsSelection">
+         <text>Working points:</text>
+      </uiText>
+      <uiText key="State">
+         <text>State</text>
+      </uiText>
+      <uiText key="LoadedProgramName">
+         <text>Loaded program:</text>
+      </uiText>
+      <uiText key="SelectedOperation">
+         <text>Selected operation:</text>
+      </uiText>
+      <uiText key="None">
+         <text>none</text>
+      </uiText>
+      <uiText key="Save">
+         <text>Save</text>
+      </uiText>
+      <uiText key="Mode">
+         <text>Mode</text>
+      </uiText>
+      <uiText key="Reset">
+         <text>Reset</text>
+      </uiText>
+      <uiText key="RunAll">
+         <text>Run all</text>
+      </uiText>
+      <uiText key="SkipAll">
+         <text>Skip all</text>
+      </uiText>
+      <uiText key="RunAndHaltAll">
+         <text>Run and halt all</text>
+      </uiText>
+      <uiText key="HaltAndRunAll">
+         <text>Halt and run all</text>
+      </uiText>
+     <uiText key="ResetAll">
+       <text>Reset all</text>
+     </uiText>
+     <uiText key="Process">
+       <text>Process</text>
+     </uiText>
+     <uiText key="Unload">
+       <text>Unload</text>
+     </uiText>
+     <uiText key="JobList">
+       <text>Job List</text>
+     </uiText>
+     <uiText key="AddToJobList">
+       <text>Add To Job List</text>
+     </uiText>
+     <uiText key="MoveJobUp">
+       <text>Move Job Up</text>
+     </uiText>
+     <uiText key="MoveJobDown">
+       <text>Move Job Down</text>
+     </uiText>
+     <uiText key="RemoveJob">
+       <text>Remove Job</text>
+     </uiText>
+      
+      <!--Operation modes-->
+      <uiText key="OperationMode_Skip">
+         <text>Skip</text>
+      </uiText>
+      <uiText key="OperationMode_Run">
+         <text>Run</text>
+      </uiText>
+      <uiText key="OperationMode_HaltAndProcess">
+         <text>Halt and run</text>
+      </uiText>
+      <uiText key="OperationMode_ProcessAndHalt">
+         <text>Run and halt</text>
+      </uiText>
+      
+      <!--Operation states-->
+      <uiText key="OperationState_InProgress">
+         <text>In progress</text>
+      </uiText>
+      <uiText key="OperationState_Done">
+         <text>Done</text>
+      </uiText>
+      <uiText key="OperationState_DoneWithError">
+         <text>Done with errors</text>
+      </uiText>
+      <uiText key="OperationState_Idle">
+         <text>Idle</text>
+      </uiText>
+      
+      <!--Point modes-->
+      <uiText key="PointMode_Skip">
+         <text>Skip</text>
+      </uiText>
+      <uiText key="PointMode_Run">
+         <text>Run</text>
+      </uiText>
+      <uiText key="PointMode_HaltAndProcess">
+         <text>Halt and run</text>
+      </uiText>
+      <uiText key="PointMode_ProcessAndHalt">
+         <text>Run and halt</text>
+      </uiText>
+      
+      <!--Point states-->
+      <uiText key="PointState_Idle">
+         <text>Idle</text>
+      </uiText>
+      <uiText key="PointState_PositionReached">
+         <text>Position reached</text>
+      </uiText>
+      <uiText key="PointState_InProgress">
+         <text>In progress</text>
+      </uiText>
+      <uiText key="PointState_Done">
+         <text>Done</text>
+      </uiText>
+      <uiText key="PointState_Error">
+         <text>Error</text>
+      </uiText>
+      <uiText key="PointState_AssyStarted">
+         <text>Assembly started</text>
+      </uiText>
+      <uiText key="PointState_AssyDone">
+         <text>Assembly done</text>
+      </uiText>
+      <uiText key="PointState_AssyError">
+         <text>Assembly error</text>
+      </uiText>
+      <uiText key="PointState_AssyError">
+         <text>Assembly error</text>
+      </uiText>
+   </module>
+</resources>
