@@ -4,119 +4,113 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System;
-
 using Ade.Components;
-
 using Kuka.FlexDrill.SmartHMI.Production.Exceptions;
 using Kuka.FlexDrill.SmartHMI.Production.Helper;
 using Kuka.FlexDrill.SmartHMI.Production.Log;
-
 using KukaRoboter.Common.ApplicationServices.ViewManager;
-
 using KUKARoboter.KRCModel.Robot;
+using System;
 
 namespace Kuka.FlexDrill.SmartHMI.Production.Service
 {
-   public class HmiDisplayService : AdeComponent, IHmiDisplayService
-   {
-      #region Constants and Fields
+    public class HmiDisplayService : AdeComponent, IHmiDisplayService
+    {
+        #region Constants and Fields
 
-      private IViewManager viewManager;
+        private IViewManager viewManager;
 
-      private IRobot Robot;
-      #endregion
+        private IRobot Robot;
 
-      #region Constructors and Destructor
+        #endregion Constants and Fields
 
-      public HmiDisplayService()
-      {
-         try
-         {
-            InitFlexDrillService();
-         }
-         catch (KrlVarNotDefinedException ex)
-         {
-            Log.WriteException(ex);
-         }
-      }
-      public IViewManager ViewManager
-      {
-         get
-         {
-            if (viewManager == null)
+        #region Constructors and Destructor
+
+        public HmiDisplayService()
+        {
+            try
             {
-               viewManager = (GetService(typeof(IViewManager)) as IViewManager);
+                InitFlexDrillService();
             }
-            return viewManager;
-         }
-      }
-
-      #endregion
-
-      #region IHmiDisplayService Members
-
-      public Logger Log { get; }
-
-      public void DoDisplayView(string viewToDisplay, bool displayView)
-      {
-         if ((ViewManager != null) && (viewToDisplay != ""))
-         {
-            if (ViewManager.IsViewKnown(viewToDisplay))
+            catch (KrlVarNotDefinedException ex)
             {
-               if (displayView)
-               {
-                  if (!ViewManager.IsViewOpen(viewToDisplay))
-                  {
-                     ViewManager.OpenView(viewToDisplay);
-                  }
-               }
-               else
-               {
-                  if (ViewManager.IsViewOpen(viewToDisplay))
-                  {
-                     ViewManager.CloseView(viewToDisplay);
-                  }
-               }
+                Log.WriteException(ex);
             }
-         }
-      }
+        }
 
-      #endregion
+        public IViewManager ViewManager
+        {
+            get
+            {
+                if (viewManager == null)
+                {
+                    viewManager = (GetService(typeof(IViewManager)) as IViewManager);
+                }
+                return viewManager;
+            }
+        }
 
+        #endregion Constructors and Destructor
 
+        #region IHmiDisplayService Members
 
-      #region Methods
+        public Logger Log { get; }
 
-      private void InitFlexDrillService()
-      {
-         Robot = RobotImpl.Instance;
-         try
-         {
-            Robot.KRLVariables[KrlVariableNames.DisplayView].Changed += DisplayViewChanged;
-         }
-         catch (KrlVarNotDefinedException)
-         {
-            throw new KrlVarNotDefinedException(KrlVariableNames.DisplayView);
-         }
-      }
+        public void DoDisplayView(string viewToDisplay, bool displayView)
+        {
+            if ((ViewManager != null) && (viewToDisplay != ""))
+            {
+                if (ViewManager.IsViewKnown(viewToDisplay))
+                {
+                    if (displayView)
+                    {
+                        if (!ViewManager.IsViewOpen(viewToDisplay))
+                        {
+                            ViewManager.OpenView(viewToDisplay);
+                        }
+                    }
+                    else
+                    {
+                        if (ViewManager.IsViewOpen(viewToDisplay))
+                        {
+                            ViewManager.CloseView(viewToDisplay);
+                        }
+                    }
+                }
+            }
+        }
 
-      private void DisplayViewChanged(object sender, EventArgs e)
-      {
-         try
-         {
-            bool DisplayView = KrlVarHandler.ReadBoolVariable(KrlVariableNames.DisplayView, Robot);
-            string ViewToDisplay = KrlVarHandler.ReadCharVariable(KrlVariableNames.ViewToDisplay, Robot);
-            DoDisplayView(ViewToDisplay, DisplayView);
-         }
-         catch (KrlVarNotDefinedException ex)
-         {
-            throw new KrlVarNotDefinedException(ex.VariableName);
-         }
+        #endregion IHmiDisplayService Members
 
-      }
+        #region Methods
 
-      #endregion
-   }
+        private void InitFlexDrillService()
+        {
+            Robot = RobotImpl.Instance;
+            try
+            {
+                Robot.KRLVariables[KrlVariableNames.DisplayView].Changed += DisplayViewChanged;
+            }
+            catch (KrlVarNotDefinedException)
+            {
+                throw new KrlVarNotDefinedException(KrlVariableNames.DisplayView);
+            }
+        }
+
+        private void DisplayViewChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                bool DisplayView = KrlVarHandler.ReadBoolVariable(KrlVariableNames.DisplayView, Robot);
+                string ViewToDisplay = KrlVarHandler.ReadCharVariable(KrlVariableNames.ViewToDisplay, Robot);
+                DoDisplayView(ViewToDisplay, DisplayView);
+            }
+            catch (KrlVarNotDefinedException ex)
+            {
+                throw new KrlVarNotDefinedException(ex.VariableName);
+            }
+        }
+
+        #endregion Methods
+    }
 }
- 

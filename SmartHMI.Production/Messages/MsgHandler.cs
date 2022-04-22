@@ -4,131 +4,130 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System;
-using System.Globalization;
-using JetBrains.Annotations;
 using KukaRoboter.Common.ApplicationServices.Dialogs;
 using KukaRoboter.Common.ResourceAccess;
 using KukaRoboter.SmartHMI.LegacySupport;
-
 using KUKARoboter.KRCModel.Messages;
+using System;
+using System.Globalization;
 
 namespace Kuka.FlexDrill.SmartHMI.Production.Messages
 {
-   /// <summary>The messages handler.</summary>
-   public class MsgHandler
-   {
-      #region Constants and Fields
+    /// <summary>The messages handler.</summary>
+    public class MsgHandler
+    {
+        #region Constants and Fields
 
-      private const string ModuleName = "FlexDrill";
+        private const string ModuleName = "FlexDrill";
 
-      private readonly IDialogService dialogService;
+        private readonly IDialogService dialogService;
 
-      private readonly ILegacyKRCInterface legacyKrcInterface;
+        private readonly ILegacyKRCInterface legacyKrcInterface;
 
-      private readonly IIndexedResourceAccessor resources;
+        private readonly IIndexedResourceAccessor resources;
 
-      #endregion
+        #endregion Constants and Fields
 
-      #region Constructors and Destructor
+        #region Constructors and Destructor
 
-      /// <summary>Initializes a new instance of the <see cref="MsgHandler" /> class.</summary>
-      /// <param name="legacyKrcInterface">The legacy KRC interface.</param>
-      /// <param name="dialogService">The dialog service.</param>
-      /// <param name="resources">The resources.</param>
-      public MsgHandler(ILegacyKRCInterface legacyKrcInterface, IDialogService dialogService,
-         IIndexedResourceAccessor resources)
-      {
-         this.legacyKrcInterface = legacyKrcInterface;
-         this.dialogService = dialogService;
-         this.resources = resources;
-      }
+        /// <summary>Initializes a new instance of the <see cref="MsgHandler" /> class.</summary>
+        /// <param name="legacyKrcInterface">The legacy KRC interface.</param>
+        /// <param name="dialogService">The dialog service.</param>
+        /// <param name="resources">The resources.</param>
+        public MsgHandler(ILegacyKRCInterface legacyKrcInterface, IDialogService dialogService,
+           IIndexedResourceAccessor resources)
+        {
+            this.legacyKrcInterface = legacyKrcInterface;
+            this.dialogService = dialogService;
+            this.resources = resources;
+        }
 
-      #endregion
+        #endregion Constructors and Destructor
 
-      #region Interface
+        #region Interface
 
-      public MessageBoxButtons AskForSaving()
-      {
-         string caption = ModuleName;
+        public MessageBoxButtons AskForSaving()
+        {
+            string caption = ModuleName;
 
-         // Ask if changes should be saved before closing
-         return dialogService.ModalMessageBox(
-            resources,
-            caption,
-            MessageBoxSymbol.Question,
-            MessageBoxButtons.Yes | MessageBoxButtons.No | MessageBoxButtons.Cancel,
-            $"{ModuleName}#SaveChangesQuestion");
-      }
+            // Ask if changes should be saved before closing
+            return dialogService.ModalMessageBox(
+               resources,
+               caption,
+               MessageBoxSymbol.Question,
+               MessageBoxButtons.Yes | MessageBoxButtons.No | MessageBoxButtons.Cancel,
+               $"{ModuleName}#SaveChangesQuestion");
+        }
 
-      public void ShowErrorMessage(FlexDrillMessages message, string[] parameters)
-      {
-         int messageIndex = (int)message;
-         string messageKey = Convert.ToString(message, CultureInfo.CurrentUICulture);
+        public void ShowErrorMessage(FlexDrillMessages message, string[] parameters)
+        {
+            int messageIndex = (int)message;
+            string messageKey = Convert.ToString(message, CultureInfo.CurrentUICulture);
 
-         MessageData messageData = KrcMessages.CreateMessage(
-            MessageData.MessageTypes.Quitt,
-            ModuleName,
-            messageIndex,
-            ModuleName,
-            messageKey,
-            parameters);
+            MessageData messageData = KrcMessages.CreateMessage(
+               MessageData.MessageTypes.Quitt,
+               ModuleName,
+               messageIndex,
+               ModuleName,
+               messageKey,
+               parameters);
 
-         KrcMessages.Add(messageData);
-      }
+            KrcMessages.Add(messageData);
+        }
 
-      public void ShowInfoMessage(FlexDrillMessages message, string[] parameters)
-      {
-         int messageIndex = (int)message;
-         string messageKey = Convert.ToString(message, CultureInfo.CurrentUICulture);
+        public void ShowInfoMessage(FlexDrillMessages message, string[] parameters)
+        {
+            int messageIndex = (int)message;
+            string messageKey = Convert.ToString(message, CultureInfo.CurrentUICulture);
 
-         MessageData messageData = KrcMessages.CreateMessage(
-            MessageData.MessageTypes.Info,
-            ModuleName,
-            messageIndex,
-            ModuleName,
-            messageKey,
-            parameters);
-         KrcMessages.Add(messageData);
-         messageData.Remove();
-      }
+            MessageData messageData = KrcMessages.CreateMessage(
+               MessageData.MessageTypes.Info,
+               ModuleName,
+               messageIndex,
+               ModuleName,
+               messageKey,
+               parameters);
+            KrcMessages.Add(messageData);
+            messageData.Remove();
+        }
 
-      public void ConfirmAllMessage()
-      {
-         KrcMessages.Consumer.ConfirmAll();
-      }
+        public void ConfirmAllMessage()
+        {
+            KrcMessages.Consumer.ConfirmAll();
+        }
 
-      public MessageBoxButtons ShowWarningMessage(string AMessage)
-      {
-         string caption = ModuleName;
+        public MessageBoxButtons ShowWarningMessage(string AMessage)
+        {
+            string caption = ModuleName;
 
-         // Ask if changes should be saved before closing
-         return dialogService.ModalMessageBox(
-            resources,
-            caption,
-            MessageBoxSymbol.Warning,
-            MessageBoxButtons.Yes | MessageBoxButtons.No,
-            AMessage);
-      }
+            // Ask if changes should be saved before closing
+            return dialogService.ModalMessageBox(
+               resources,
+               caption,
+               MessageBoxSymbol.Warning,
+               MessageBoxButtons.Yes | MessageBoxButtons.No,
+               AMessage);
+        }
 
-      public MessageBoxButtons ShowWarningMessageAck(string AMessage)
-      {
-         string caption = ModuleName;
+        public MessageBoxButtons ShowWarningMessageAck(string AMessage)
+        {
+            string caption = ModuleName;
 
-         // Ask if changes should be saved before closing
-         return dialogService.ModalMessageBox(
-            resources,
-            caption,
-            MessageBoxSymbol.Warning,
-            MessageBoxButtons.Ok,
-            AMessage);
-      }
-      #endregion
+            // Ask if changes should be saved before closing
+            return dialogService.ModalMessageBox(
+               resources,
+               caption,
+               MessageBoxSymbol.Warning,
+               MessageBoxButtons.Ok,
+               AMessage);
+        }
 
-      #region Properties
+        #endregion Interface
 
-      private IMessage KrcMessages => legacyKrcInterface.KRCModel.Messages;
+        #region Properties
 
-      #endregion
-   }
+        private IMessage KrcMessages => legacyKrcInterface.KRCModel.Messages;
+
+        #endregion Properties
+    }
 }

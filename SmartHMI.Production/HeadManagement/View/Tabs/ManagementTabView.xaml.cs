@@ -6,18 +6,18 @@
 
 namespace Kuka.FlexDrill.SmartHMI.Production.HeadManagement.View.Tabs
 {
-   /// <summary>
-   /// Interaction logic for ManagementTabView.xaml
-   /// </summary>
-   public partial class ManagementTabView
-   {
-      #region Constructors and Destructor
+    /// <summary>
+    /// Interaction logic for ManagementTabView.xaml
+    /// </summary>
+    public partial class ManagementTabView
+    {
+        #region Constructors and Destructor
 
-      public ManagementTabView()
-      {
-         InitializeComponent();
-      }
+        public ManagementTabView()
+        {
+            InitializeComponent();
+        }
 
-      #endregion
-   }
+        #endregion Constructors and Destructor
+    }
 }

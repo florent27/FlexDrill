@@ -1,22 +1,8 @@
-using KukaRoboter.Common.Attributes;
 using Kuka.FlexDrill.SmartHMI.VisionCognex.ViewModels;
+using KukaRoboter.Common.Attributes;
 using KukaRoboter.SmartHMI.UIFramework.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-using Cognex.InSight;
 
 namespace Kuka.FlexDrill.SmartHMI.VisionCognex.Views
 {
@@ -31,6 +17,7 @@ namespace Kuka.FlexDrill.SmartHMI.VisionCognex.Views
         {
             InitializeComponent();
         }
+
         protected override void OnConnected(string viewSystemName, object connectionArgument)
         {
             base.OnConnected(viewSystemName, connectionArgument);
@@ -55,7 +42,7 @@ namespace Kuka.FlexDrill.SmartHMI.VisionCognex.Views
         {
             base.OnRenderSizeChanged(sizeInfo);
 
-            if (root.ActualHeight==368)
+            if (root.ActualHeight == 368)
             {
                 stckZoomGridGraph.Visibility = Visibility.Collapsed;
                 stckConnectionAction.Visibility = Visibility.Collapsed;
@@ -107,7 +94,6 @@ namespace Kuka.FlexDrill.SmartHMI.VisionCognex.Views
                 btConnection.Margin = new Thickness(interSpace, 10, interSpace / 2, 10);
                 btDeconnection.Margin = new Thickness(interSpace / 2, 10, interSpace / 2, 10);
             }
-
         }
 
         /// <summary>
@@ -117,7 +103,7 @@ namespace Kuka.FlexDrill.SmartHMI.VisionCognex.Views
         {
             get { return ConnectedViewModel as VisionCognexViewModel; }
         }
-        
+
         private void chkShowGrid_Checked(object sender, RoutedEventArgs e)
         {
             cvsInSightDisp.ShowCustomView = (!ViewModel.DisplayFullTab);
@@ -132,15 +118,17 @@ namespace Kuka.FlexDrill.SmartHMI.VisionCognex.Views
             cvsInSightDisp.ShowGrid = chkShowGrid.IsChecked.Value;
             cvsInSightDisp.ScrollMode = Cognex.InSight.Controls.Display.CvsDisplayScrollMode.Image;
         }
+
         private void chkShoxGraph_Checked(object sender, RoutedEventArgs e)
         {
             cvsInSightDisp.ShowGraphics = chkShoxGraph.IsChecked.Value;
         }
+
         private void chkShoxGraph_Unchecked(object sender, RoutedEventArgs e)
         {
             cvsInSightDisp.ShowGraphics = chkShoxGraph.IsChecked.Value;
         }
-                
+
         private void btZoomPlus_Click(object sender, RoutedEventArgs e)
         {
             cvsInSightDisp.ImageZoomMode = Cognex.InSight.Controls.Display.CvsDisplayZoom.None;
@@ -162,16 +150,12 @@ namespace Kuka.FlexDrill.SmartHMI.VisionCognex.Views
         {
             if (txtPixel.Text.Contains("."))
             {
-                if (txtPixel.Text.Length>5)
+                if (txtPixel.Text.Length > 5)
                 {
                     txtPixel.Text = txtPixel.Text.Remove(5);
                     txtPixel.Select(txtPixel.Text.Length, 0);
                 }
             }
         }
-
     }
-
-
-
 }

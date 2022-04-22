@@ -4,93 +4,92 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
+using Kuka.FlexDrill.SmartHMI.Production.Helper;
+using KukaRoboter.Common.Tracing;
 using System;
 using System.Diagnostics;
 using System.IO;
-using Kuka.FlexDrill.SmartHMI.Production.Helper;
-
-using KukaRoboter.Common.Tracing;
 
 namespace Kuka.FlexDrill.SmartHMI.Production.Log
 {
-   /// <summary>The logger.</summary>
-   public class Logger
-   {
-      #region Constants and Fields
+    /// <summary>The logger.</summary>
+    public class Logger
+    {
+        #region Constants and Fields
 
-      private const SourceLevels LogWriterLevel = SourceLevels.All;
+        private const SourceLevels LogWriterLevel = SourceLevels.All;
 
-      private static readonly PrettyTraceSource LogSource = TraceSourceFactory.GetSource("FlexDrill");
+        private static readonly PrettyTraceSource LogSource = TraceSourceFactory.GetSource("FlexDrill");
 
-      #endregion
+        #endregion Constants and Fields
 
-      #region Constructors and Destructor
+        #region Constructors and Destructor
 
-      /// <summary>Initializes a new instance of the <see cref="Logger" /> class.</summary>
-      public Logger()
-      {
-         InitLogging();
-      }
+        /// <summary>Initializes a new instance of the <see cref="Logger" /> class.</summary>
+        public Logger()
+        {
+            InitLogging();
+        }
 
-      #endregion
+        #endregion Constructors and Destructor
 
-      #region Interface
+        #region Interface
 
-      /// <summary>The write exception in log file.</summary>
-      public void WriteException(Exception e)
-      {
-         LogSource.WriteException(e, true);
-      }
+        /// <summary>The write exception in log file.</summary>
+        public void WriteException(Exception e)
+        {
+            LogSource.WriteException(e, true);
+        }
 
-      /// <summary>The write message in log file.</summary>
-      public void WriteMessage(TraceEventType type, string text, string stackTrace)
-      {
-         if (string.IsNullOrEmpty(stackTrace))
-         {
-            LogSource.TraceEvent(type, 4, text);
-         }
-         else
-         {
-            LogSource.TraceEvent(type, 4, text + "\n" + stackTrace);
-         }
-      }
+        /// <summary>The write message in log file.</summary>
+        public void WriteMessage(TraceEventType type, string text, string stackTrace)
+        {
+            if (string.IsNullOrEmpty(stackTrace))
+            {
+                LogSource.TraceEvent(type, 4, text);
+            }
+            else
+            {
+                LogSource.TraceEvent(type, 4, text + "\n" + stackTrace);
+            }
+        }
 
-      /// <summary>Close the logging source.</summary>
-      public void Close()
-      {
-         if (LogSource != null)
-         {
-            WriteMessage(TraceEventType.Stop, "LogSource closing...", string.Empty);
-            LogSource.Close();
-         }
-      }
+        /// <summary>Close the logging source.</summary>
+        public void Close()
+        {
+            if (LogSource != null)
+            {
+                WriteMessage(TraceEventType.Stop, "LogSource closing...", string.Empty);
+                LogSource.Close();
+            }
+        }
 
-      #endregion
+        #endregion Interface
 
-      #region Methods
+        #region Methods
 
-      private void InitLogging()
-      {
-         Trace.AutoFlush = true;
+        private void InitLogging()
+        {
+            Trace.AutoFlush = true;
 
-         string LogFilePath = Path.Combine(Constants.LogFileFolder, Constants.LogFileName);
-         FileInfo logFileInfo = new FileInfo(LogFilePath);
-         DirectoryInfo logDirInfo = new DirectoryInfo(logFileInfo.DirectoryName);
+            string LogFilePath = Path.Combine(Constants.LogFileFolder, Constants.LogFileName);
+            FileInfo logFileInfo = new FileInfo(LogFilePath);
+            DirectoryInfo logDirInfo = new DirectoryInfo(logFileInfo.DirectoryName);
 
-         //! Create Directory if not exists
-         if (!logDirInfo.Exists)
-         {
-            logDirInfo.Create();
-         }
-    
-         RollingLogFileTraceListener textTraceWriter = new RollingLogFileTraceListener(LogFilePath);
+            //! Create Directory if not exists
+            if (!logDirInfo.Exists)
+            {
+                logDirInfo.Create();
+            }
 
-         LogSource.Switch.Level = LogWriterLevel;
-         LogSource.Listeners.Add(textTraceWriter);
+            RollingLogFileTraceListener textTraceWriter = new RollingLogFileTraceListener(LogFilePath);
 
-         WriteMessage(TraceEventType.Start, "Logging started", string.Empty);
-      }
+            LogSource.Switch.Level = LogWriterLevel;
+            LogSource.Listeners.Add(textTraceWriter);
 
-      #endregion
-   }
+            WriteMessage(TraceEventType.Start, "Logging started", string.Empty);
+        }
+
+        #endregion Methods
+    }
 }

@@ -9,7 +9,7 @@
    mc:Ignorable="d"
    d:DesignHeight="700"
    d:DesignWidth="500">
-    
+
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -81,7 +81,7 @@
                     </TextBlock>
                 </WrapPanel>
             </Border>
-            
+
             <!--Choice -->
             <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
                 <StackPanel Margin="0,15,0,10">
@@ -99,12 +99,12 @@
                         <StackPanel>
                             <TextBlock Text="{Binding Resources.Strings[DistanceToFirstTarget]}" Style="{StaticResource TitleStyle}" />
                             <TextBox HorizontalAlignment="Left" Style="{StaticResource TextBoxFloat}"
-                                Text="{Binding DistanceToTarget}" Margin="10,5,0,5" Width="130"/>
+                                Text="{Binding DistanceToTarget}" Margin="10,5,0,5" Width="130" />
                         </StackPanel>
                         <StackPanel>
                             <TextBlock Text="{Binding Resources.Strings[DistanceBetweenPoints]}" Style="{StaticResource TitleStyle}" />
                             <TextBox HorizontalAlignment="Left" Style="{StaticResource TextBoxFloat}"
-                                Text="{Binding DistanceBetweenPoints}" Margin="10,5,0,5" Width="130"/>
+                                Text="{Binding DistanceBetweenPoints}" Margin="10,5,0,5" Width="130" />
                         </StackPanel>
                     </WrapPanel>
                 </StackPanel>
@@ -115,7 +115,7 @@
                 <StackPanel>
                     <TextBlock Text="{Binding Resources.Strings[NumberOfPointsBetweenTargets]}" Style="{StaticResource TitleStyle}" />
                     <TextBox HorizontalAlignment="Left" Style="{StaticResource TextBoxInt}"
-                        Text="{Binding NumberOfPoints, UpdateSourceTrigger=PropertyChanged}" Margin="10,5,0,5" Width="130"/>
+                        Text="{Binding NumberOfPoints, UpdateSourceTrigger=PropertyChanged}" Margin="10,5,0,5" Width="130" />
                 </StackPanel>
             </Border>
         </Grid>

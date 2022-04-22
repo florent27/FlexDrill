@@ -78,7 +78,7 @@
         <!--Slots-->
         <StackPanel DockPanel.Dock="Top">
             <ListView x:Name="SlotListView" ItemsSource="{Binding Slots}"
-                  SelectedItem="{Binding SelectedSlot}" 
+                  SelectedItem="{Binding SelectedSlot}"
                   controls:ListViewLayoutManager.Enabled="true">
                     <ListView.View>
                     <GridView>
@@ -127,10 +127,8 @@
             <!--WrapPanel HorizontalAlignment="Right">
                     <Button Content="{Binding Resources.Strings[Grasp]}" Command="{Binding GraspCommand}" />
                     <Button Content="{Binding Resources.Strings[Drop]}" Command="{Binding DropCommand}" />
-
                 </-->
         </StackPanel>
-
 
         <GroupBox Header="{Binding Resources.Strings[HeadChange]}"  DockPanel.Dock="Top" Margin="0,10,0,30">
 
@@ -174,8 +172,7 @@
                         </TextBlock>
                     </WrapPanel>
 
-                    <Button Content="{Binding Resources.Strings[Start]}" Command="{Binding HeadChangeCommand}" HorizontalAlignment="Right"/>
-
+                    <Button Content="{Binding Resources.Strings[Start]}" Command="{Binding HeadChangeCommand}" HorizontalAlignment="Right" />
                 </Grid>
             </StackPanel>
         </GroupBox>

@@ -8,17 +8,17 @@ using System;
 
 namespace Kuka.FlexDrill.Process.Exceptions
 {
-   public class SrcGenerationException : Exception
-   {
-      #region Constructors and Destructor
+    public class SrcGenerationException : Exception
+    {
+        #region Constructors and Destructor
 
-      /// <summary>Initializes a new instance of the <see cref="SrcGenerationException" /> class.</summary>
-      /// <param name="message">The message.</param>
-      public SrcGenerationException(string message)
-         : base(message)
-      {
-      }
+        /// <summary>Initializes a new instance of the <see cref="SrcGenerationException" /> class.</summary>
+        /// <param name="message">The message.</param>
+        public SrcGenerationException(string message)
+           : base(message)
+        {
+        }
 
-      #endregion
-   }
+        #endregion Constructors and Destructor
+    }
 }

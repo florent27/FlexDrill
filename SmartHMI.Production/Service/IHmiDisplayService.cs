@@ -8,14 +8,14 @@ using Kuka.FlexDrill.SmartHMI.Production.Log;
 
 namespace Kuka.FlexDrill.SmartHMI.Production.Service
 {
-   public interface IHmiDisplayService
-   {
-      #region Interface
+    public interface IHmiDisplayService
+    {
+        #region Interface
 
-      void DoDisplayView(string viewToDisplay, bool displayView);
+        void DoDisplayView(string viewToDisplay, bool displayView);
 
-      Logger Log { get; }
+        Logger Log { get; }
 
-      #endregion
-   }
+        #endregion Interface
+    }
 }

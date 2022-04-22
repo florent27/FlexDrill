@@ -4,65 +4,63 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System.Windows;
-
 using Kuka.FlexDrill.SmartHMI.Production.HeadManagement.ViewModel;
-
 using KukaRoboter.Common.Attributes;
+using System.Windows;
 
 namespace Kuka.FlexDrill.SmartHMI.Production.HeadManagement.View
 {
-   /// <inheritdoc cref="HeadManagementView" />
-   [ViewModelType(typeof(HeadManagementViewModel))]
-   public partial class HeadManagementView
-   {
-      #region Constants and Fields
+    /// <inheritdoc cref="HeadManagementView" />
+    [ViewModelType(typeof(HeadManagementViewModel))]
+    public partial class HeadManagementView
+    {
+        #region Constants and Fields
 
-      private HeadManagementViewModel viewModel;
+        private HeadManagementViewModel viewModel;
 
-      #endregion
+        #endregion Constants and Fields
 
-      #region Constructors and Destructor
+        #region Constructors and Destructor
 
-      public HeadManagementView()
-      {
-         InitializeComponent();
-         Loaded += OnLoaded;
-      }
+        public HeadManagementView()
+        {
+            InitializeComponent();
+            Loaded += OnLoaded;
+        }
 
-      #endregion
+        #endregion Constructors and Destructor
 
-      #region Interface
+        #region Interface
 
-      /// <inheritdoc />
-      public override void RequestClose()
-      {
-         ViewModel.ReleaseEvents();
-         base.RequestClose();
-      }
+        /// <inheritdoc />
+        public override void RequestClose()
+        {
+            ViewModel.ReleaseEvents();
+            base.RequestClose();
+        }
 
-      public HeadManagementViewModel ViewModel
-      {
-         get
-         {
-            if (viewModel == null)
+        public HeadManagementViewModel ViewModel
+        {
+            get
             {
-               viewModel = DataContext as HeadManagementViewModel;
+                if (viewModel == null)
+                {
+                    viewModel = DataContext as HeadManagementViewModel;
+                }
+
+                return viewModel;
             }
+        }
 
-            return viewModel;
-         }
-      }
+        #endregion Interface
 
-      #endregion
+        #region Methods
 
-      #region Methods
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            ViewModel.InitializePlugin();
+        }
 
-      private void OnLoaded(object sender, RoutedEventArgs e)
-      {
-         ViewModel.InitializePlugin();
-      }
-
-      #endregion
-   }
+        #endregion Methods
+    }
 }

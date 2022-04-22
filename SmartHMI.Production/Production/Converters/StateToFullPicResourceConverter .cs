@@ -4,108 +4,106 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
+using Kuka.FlexDrill.Process.OLPParser;
+using Kuka.FlexDrill.SmartHMI.Production.Helper;
 using System;
 using System.Globalization;
 using System.Windows.Data;
 
-using Kuka.FlexDrill.Process.OLPParser;
-using Kuka.FlexDrill.SmartHMI.Production.Helper;
-
 namespace Kuka.FlexDrill.SmartHMI.Production.Production.Converters
 {
-   public class StateToFullPicResourceConverter : IValueConverter
-   {
-      #region IValueConverter Members
+    public class StateToFullPicResourceConverter : IValueConverter
+    {
+        #region IValueConverter Members
 
-      // Converts operation or robot point states into a user friendly text
-      public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-      {
-         if (value == null)
-         {
+        // Converts operation or robot point states into a user friendly text
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value == null)
+            {
+                return string.Empty;
+            }
+
+            // Convert the operation work mode to a full text
+            if (value is OperationWorkStatus)
+            {
+                return ConvertOperationMode((OperationWorkStatus)value);
+            }
+
+            // Convert the robot point mode to a full text
+            if (value is RobotPointWorkStatus)
+            {
+                return ConvertPointModes((RobotPointWorkStatus)value);
+            }
+
             return string.Empty;
-         }
+        }
 
+        /// <inheritdoc />
+        public object ConvertBack(object value, Type targetTypes, object parameter, CultureInfo culture)
+        {
+            // Return a default value because the function is not needed
+            return new object();
+        }
 
-         // Convert the operation work mode to a full text
-         if (value is OperationWorkStatus)
-         {
-            return ConvertOperationMode((OperationWorkStatus)value);
-         }
+        #endregion IValueConverter Members
 
-         // Convert the robot point mode to a full text
-         if (value is RobotPointWorkStatus)
-         {
-            return ConvertPointModes((RobotPointWorkStatus)value);
-         }
+        #region Methods
 
-         return string.Empty;
-      }
+        private Uri ConvertPointModes(RobotPointWorkStatus robotPointMode)
+        {
+            switch (robotPointMode)
+            {
+                case RobotPointWorkStatus.AssyDone:
+                    return IconPaths.AssemblyDone;
 
-      /// <inheritdoc />
-      public object ConvertBack(object value, Type targetTypes, object parameter, CultureInfo culture)
-      {
-         // Return a default value because the function is not needed
-         return new object();
-      }
+                case RobotPointWorkStatus.AssyInError:
+                    return IconPaths.AssemblyError;
 
-      #endregion
+                case RobotPointWorkStatus.AssyStarted:
+                    return IconPaths.AssemblyInProgress;
 
-      #region Methods
+                case RobotPointWorkStatus.Done:
+                    return IconPaths.AnalysisDone;
 
-      private Uri ConvertPointModes(RobotPointWorkStatus robotPointMode)
-      {
-         switch (robotPointMode)
-         {
-         case RobotPointWorkStatus.AssyDone:
-            return IconPaths.AssemblyDone;
+                case RobotPointWorkStatus.InError:
+                    return IconPaths.AnalysisError;
 
-         case RobotPointWorkStatus.AssyInError:
-            return IconPaths.AssemblyError;
+                case RobotPointWorkStatus.InProgress:
+                    return IconPaths.AnalysisInProgress;
 
-         case RobotPointWorkStatus.AssyStarted:
-            return IconPaths.AssemblyInProgress;
+                case RobotPointWorkStatus.PositionReached:
+                    return IconPaths.AnalysisPosition;
 
-         case RobotPointWorkStatus.Done:
-            return IconPaths.AnalysisDone;
+                case RobotPointWorkStatus.Idle:
+                    return IconPaths.OperationIdle;
 
-         case RobotPointWorkStatus.InError:
-            return IconPaths.AnalysisError;
+                default:
+                    return IconPaths.OperationIdle;
+            }
+        }
 
-         case RobotPointWorkStatus.InProgress:
-            return IconPaths.AnalysisInProgress;
+        private Uri ConvertOperationMode(OperationWorkStatus operationMode)
+        {
+            switch (operationMode)
+            {
+                case OperationWorkStatus.Done:
+                    return IconPaths.OperationDone;
 
-         case RobotPointWorkStatus.PositionReached:
-            return IconPaths.AnalysisPosition;
+                case OperationWorkStatus.DoneWithError:
+                    return IconPaths.OperationError;
 
-         case RobotPointWorkStatus.Idle:
-            return IconPaths.OperationIdle;
+                case OperationWorkStatus.InProgress:
+                    return IconPaths.OperationInProgress;
 
-         default:
-            return IconPaths.OperationIdle;
-         }
-      }
+                case OperationWorkStatus.Idle:
+                    return IconPaths.OperationIdle;
 
-      private Uri ConvertOperationMode(OperationWorkStatus operationMode)
-      {
-         switch (operationMode)
-         {
-         case OperationWorkStatus.Done:
-            return IconPaths.OperationDone;
+                default:
+                    return IconPaths.OperationIdle;
+            }
+        }
 
-         case OperationWorkStatus.DoneWithError:
-            return IconPaths.OperationError;
-
-         case OperationWorkStatus.InProgress:
-            return IconPaths.OperationInProgress;
-
-         case OperationWorkStatus.Idle:
-            return IconPaths.OperationIdle;
-
-         default:
-            return IconPaths.OperationIdle;
-         }
-      }
-
-      #endregion
-   }
+        #endregion Methods
+    }
 }

@@ -14,7 +14,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    
+
     <ScrollViewer>
         <DockPanel x:Name="Root" Margin="10,0,10,0" LastChildFill="True">
             <!--TCP Delta XY-->
@@ -37,10 +37,10 @@
 
                         <!--Dy-->
                         <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Resources.Strings[Dy]}"  Style="{StaticResource TextValueStyle}" />
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding TCPXYDy}"  />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding TCPXYDy}" />
 
                         <!--Score-->
-                        <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Resources.Strings[Score]}"  Style="{StaticResource TextValueStyle}"/>
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Resources.Strings[Score]}"  Style="{StaticResource TextValueStyle}" />
                         <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding TCPXYScore}" />
                     </Grid>
 
@@ -65,12 +65,12 @@
                         </Grid.ColumnDefinitions>
 
                         <!--Dz-->
-                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Resources.Strings[Dz]}"  Style="{StaticResource TextValueStyle}"/>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Resources.Strings[Dz]}"  Style="{StaticResource TextValueStyle}" />
                         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding TCPZDz}" />
 
                         <!--Score-->
-                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Resources.Strings[Score]}"  Style="{StaticResource TextValueStyle}"/>
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding TCPZScore}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Resources.Strings[Score]}"  Style="{StaticResource TextValueStyle}" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding TCPZScore}" />
                     </Grid>
 
                     <!--Start Calib-->
@@ -95,11 +95,11 @@
                         </Grid.ColumnDefinitions>
 
                         <!--DRx-->
-                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Resources.Strings[DRx]}"  Style="{StaticResource TextValueStyle}"/>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Resources.Strings[DRx]}"  Style="{StaticResource TextValueStyle}" />
                         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding TCPRxRyDRx}" />
 
                         <!--DRy-->
-                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Resources.Strings[DRy]}"  Style="{StaticResource TextValueStyle}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Resources.Strings[DRy]}"  Style="{StaticResource TextValueStyle}" />
                         <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding TCPRxRyDRy}" />
 
                         <!--Score-->
@@ -130,22 +130,20 @@
                         </Grid.ColumnDefinitions>
 
                         <!--Dx-->
-                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Resources.Strings[Dx]}"  Style="{StaticResource TextValueStyle}"/>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Resources.Strings[Dx]}"  Style="{StaticResource TextValueStyle}" />
                         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding TCPVisionDx}" />
 
                         <!--Dy-->
-                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Resources.Strings[Dy]}"  Style="{StaticResource TextValueStyle}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Resources.Strings[Dy]}"  Style="{StaticResource TextValueStyle}" />
                         <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding TCPVisionDy}" />
 
                         <!--DRx-->
-                        <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Resources.Strings[DRx]}"  Style="{StaticResource TextValueStyle}"/>
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Resources.Strings[DRx]}"  Style="{StaticResource TextValueStyle}" />
                         <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding TCPVisionDRx}" />
 
                         <!--DRy-->
-                        <TextBlock Grid.Row="3" Grid.Column="0" Text="{Binding Resources.Strings[DRy]}"  Style="{StaticResource TextValueStyle}"/>
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="{Binding Resources.Strings[DRy]}"  Style="{StaticResource TextValueStyle}" />
                         <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding TCPVisionDRy}" />
-
-
                     </Grid>
 
                     <!--Start Calib-->
@@ -164,7 +162,6 @@
                     <Button Content="{Binding Resources.Strings[SaveCalib]}" Command="{Binding SaveAllCalibCommand}" HorizontalAlignment="Right" />
                 </StackPanel>
             </GroupBox>
-
         </DockPanel>
     </ScrollViewer>
 </UserControl>    

@@ -593,7 +593,6 @@
                     <TextBlock Text="{Binding SetiTeclastCycleData.LastCycleDataSteps[9].M2NoLoadAmperage}" Style="{StaticResource ParamStyle}" />
                 </StackPanel>
             </Border>
-
         </Grid>
     </ScrollViewer>
 </UserControl>

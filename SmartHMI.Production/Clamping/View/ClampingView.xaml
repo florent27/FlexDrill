@@ -18,6 +18,5 @@
       <TabItem Header="{Binding Resources.Strings[SettingsTab]}">
          <tabs:ClampingSettingsTab DataContext="{Binding Path=DataContext, ElementName=Root}" />
       </TabItem>
-
    </TabControl>
 </kukaUi:TouchViewBase>

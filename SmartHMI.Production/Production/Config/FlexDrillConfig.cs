@@ -8,14 +8,14 @@ using System.Xml.Serialization;
 
 namespace Kuka.FlexDrill.SmartHMI.Production.Production.Config
 {
-   [XmlRoot("Settings")]
-   public class FlexDrillConfig
-   {
-      #region Interface
+    [XmlRoot("Settings")]
+    public class FlexDrillConfig
+    {
+        #region Interface
 
-      [XmlAttribute("ProgramFolderPath")]
-      public string ProgramFolderPath { get; set; }
+        [XmlAttribute("ProgramFolderPath")]
+        public string ProgramFolderPath { get; set; }
 
-      #endregion
-   }
+        #endregion Interface
+    }
 }

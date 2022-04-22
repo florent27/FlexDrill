@@ -13,12 +13,12 @@
     <TabControl Style="{StaticResource KukaTabControlStyle}" SelectedIndex="{Binding SelectedTabIndex}">
         <TabControl.Resources>
             <Style TargetType="ListView" BasedOn="{StaticResource KukaListViewStyle}">
-                <Setter Property="SelectionMode" Value="Single"/>
+                <Setter Property="SelectionMode" Value="Single" />
             </Style>
         </TabControl.Resources>
 
-        <TabItem Header="{Binding Resources.Strings[TCPCalibrations]}" >
-            <tabs:TabAllTcpCalib DataContext="{Binding Path=DataContext, ElementName=Root}"/>
+        <TabItem Header="{Binding Resources.Strings[TCPCalibrations]}">
+            <tabs:TabAllTcpCalib DataContext="{Binding Path=DataContext, ElementName=Root}" />
         </TabItem>
         <!--TabItem Header="{Binding Resources.Strings[TCPCalibrationSettings]}">
             <tabs:TabTcpCalibSettings DataContext="{Binding Path=DataContext, ElementName=Root}"/-->

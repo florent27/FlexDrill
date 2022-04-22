@@ -8,18 +8,18 @@ using System;
 
 namespace Kuka.FlexDrill.SmartHMI.Production.Exceptions
 {
-   /// <summary>This exception will be thrown when an error in the XML syntax has been detected</summary>
-   public class InvalidXmlSyntaxException : Exception
-   {
-      #region Constructors and Destructor
+    /// <summary>This exception will be thrown when an error in the XML syntax has been detected</summary>
+    public class InvalidXmlSyntaxException : Exception
+    {
+        #region Constructors and Destructor
 
-      /// <summary>Initializes a new instance of the <see cref="InvalidXmlSyntaxException" /> class.</summary>
-      /// <param name="message">The message.</param>
-      public InvalidXmlSyntaxException(string message)
-         : base(message)
-      {
-      }
+        /// <summary>Initializes a new instance of the <see cref="InvalidXmlSyntaxException" /> class.</summary>
+        /// <param name="message">The message.</param>
+        public InvalidXmlSyntaxException(string message)
+           : base(message)
+        {
+        }
 
-      #endregion
-   }
+        #endregion Constructors and Destructor
+    }
 }

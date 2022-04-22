@@ -8,70 +8,70 @@ using Kuka.FlexDrill.Process.OLPParser;
 
 namespace Kuka.FlexDrill.Process.CustomClasses
 {
-   public class RobotPoint : RobotPointXSD
-   {
-      #region Constants and Fields
+    public class RobotPoint : RobotPointXSD
+    {
+        #region Constants and Fields
 
-      private RobotPointWorkMode workMode = RobotPointWorkMode.Run;
+        private RobotPointWorkMode workMode = RobotPointWorkMode.Run;
 
-      private RobotPointWorkStatus workStatus = RobotPointWorkStatus.Idle;
+        private RobotPointWorkStatus workStatus = RobotPointWorkStatus.Idle;
 
-      private float zEscapeValue=50;
+        private float zEscapeValue = 50;
 
-      #endregion
+        #endregion Constants and Fields
 
-      #region Interface
+        #region Interface
 
-      /// <remarks />
-      public RobotPointWorkMode WorkMode
-      {
-         get
-         {
-            return workMode;
-         }
-         set
-         {
-            workMode = value;
-            RaisePropertyChanged("WorkMode");
-         }
-      }
+        /// <remarks />
+        public RobotPointWorkMode WorkMode
+        {
+            get
+            {
+                return workMode;
+            }
+            set
+            {
+                workMode = value;
+                RaisePropertyChanged("WorkMode");
+            }
+        }
 
-      /// <remarks />
-      public RobotPointWorkStatus WorkStatus
-      {
-         get
-         {
-            return workStatus;
-         }
-         set
-         {
-            workStatus = value;
-            RaisePropertyChanged("WorkStatus");
-         }
-      }
+        /// <remarks />
+        public RobotPointWorkStatus WorkStatus
+        {
+            get
+            {
+                return workStatus;
+            }
+            set
+            {
+                workStatus = value;
+                RaisePropertyChanged("WorkStatus");
+            }
+        }
 
-      public float ZEscapeValue
-      {
-         get
-         {
-            return zEscapeValue;
-         }
-         set
-         {
-            zEscapeValue = value;
-            RaisePropertyChanged("ZEscapeValue");
-         }
-      }
+        public float ZEscapeValue
+        {
+            get
+            {
+                return zEscapeValue;
+            }
+            set
+            {
+                zEscapeValue = value;
+                RaisePropertyChanged("ZEscapeValue");
+            }
+        }
 
-      #endregion
+        #endregion Interface
 
-      #region Methods
+        #region Methods
 
-      internal void ResetStatus()
-      {
-         WorkStatus = RobotPointWorkStatus.Idle;
-      }
+        internal void ResetStatus()
+        {
+            WorkStatus = RobotPointWorkStatus.Idle;
+        }
 
-      #endregion
-   }
+        #endregion Methods
+    }
 }

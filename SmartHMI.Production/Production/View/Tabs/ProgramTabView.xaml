@@ -25,7 +25,7 @@
         <!--Program list-->
         <ListView x:Name="progListView" DockPanel.Dock="Top"
          ItemsSource="{Binding FlexDrillService.Process.Programs}" SelectedItem="{Binding SelectedProgram}"
-         KukaControls:ListViewLayoutManager.Enabled="true" >
+         KukaControls:ListViewLayoutManager.Enabled="true">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="{Binding Resources.Strings[Name]}" KukaControls:ProportionalColumn.Width="1">
@@ -39,5 +39,4 @@
             </ListView.View>
         </ListView>
     </DockPanel>
-
 </UserControl>

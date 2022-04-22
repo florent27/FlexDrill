@@ -4,63 +4,61 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System.Windows;
-
 using Kuka.FlexDrill.SmartHMI.Production.SetiTecInfo.ViewModel;
-
 using KukaRoboter.Common.Attributes;
+using System.Windows;
 
 namespace Kuka.FlexDrill.SmartHMI.Production.SetiTecInfo.View
 {
-   [ViewModelType(typeof(SetiTecInfoViewModel))]
-   public partial class SetiTecInfoView
-   {
-      #region Constants and Fields
+    [ViewModelType(typeof(SetiTecInfoViewModel))]
+    public partial class SetiTecInfoView
+    {
+        #region Constants and Fields
 
-      private SetiTecInfoViewModel viewModel;
+        private SetiTecInfoViewModel viewModel;
 
-      #endregion
+        #endregion Constants and Fields
 
-      #region Constructors and Destructor
+        #region Constructors and Destructor
 
-      public SetiTecInfoView() : base(true)
-      {
-         InitializeComponent();
-         Loaded += OnLoaded;
-      }
+        public SetiTecInfoView() : base(true)
+        {
+            InitializeComponent();
+            Loaded += OnLoaded;
+        }
 
-      #endregion
+        #endregion Constructors and Destructor
 
-      #region Interface
+        #region Interface
 
-      public override void RequestClose()
-      {
-         ViewModel.DoStopTimer();
-         base.RequestClose();
-      }
+        public override void RequestClose()
+        {
+            ViewModel.DoStopTimer();
+            base.RequestClose();
+        }
 
-      public SetiTecInfoViewModel ViewModel
-      {
-         get
-         {
-            if (viewModel == null)
+        public SetiTecInfoViewModel ViewModel
+        {
+            get
             {
-               viewModel = DataContext as SetiTecInfoViewModel;
+                if (viewModel == null)
+                {
+                    viewModel = DataContext as SetiTecInfoViewModel;
+                }
+
+                return viewModel;
             }
+        }
 
-            return viewModel;
-         }
-      }
+        #endregion Interface
 
-      #endregion
+        #region Methods
 
-      #region Methods
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            ViewModel.InitializePlugin();
+        }
 
-      private void OnLoaded(object sender, RoutedEventArgs e)
-      {
-         ViewModel.InitializePlugin();
-      }
-
-      #endregion
-   }
+        #endregion Methods
+    }
 }

@@ -44,7 +44,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            
+
             <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
                 <WrapPanel Margin="0,15,0,10">
                     <TextBlock Text="{Binding Resources.Strings[SelectedOp]}" />
@@ -63,7 +63,6 @@
                 </WrapPanel>
             </Border>
 
-
             <!--First Target Point-->
             <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
                 <StackPanel>
@@ -76,11 +75,10 @@
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
                         <Button Grid.Row="1" Command="{Binding TeachFirstVisionTargetCommand}" Content="{Binding Resources.Strings[Teach]}" />
@@ -112,11 +110,10 @@
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
                         <Button Grid.Row="1" Command="{Binding TeachSecondVisionTargetCommand}" Content="{Binding Resources.Strings[Teach]}" />
@@ -153,8 +150,6 @@
                     </Grid>
                 </StackPanel>
             </Border>
-            
-
         </Grid>
     </ScrollViewer>
 </UserControl>

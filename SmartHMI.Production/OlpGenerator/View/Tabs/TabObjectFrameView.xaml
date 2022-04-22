@@ -46,7 +46,6 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-
             <!--Origin-->
             <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
                 <StackPanel>
@@ -59,14 +58,13 @@
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Button Grid.Row="1" Command="{Binding TeachObjectFramePointsCommand}" Content="{Binding Resources.Strings[Teach]}" CommandParameter="0"/>
+                        <Button Grid.Row="1" Command="{Binding TeachObjectFramePointsCommand}" Content="{Binding Resources.Strings[Teach]}" CommandParameter="0" />
                         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Resources.Strings[X]}" Style="{StaticResource Coordinates}" />
                         <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding ObjectFrameOriginPoint.X}" Style="{StaticResource Coordinates}" />
                         <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Resources.Strings[Y]}" Style="{StaticResource Coordinates}" />
@@ -95,14 +93,13 @@
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Button Grid.Row="1" Command="{Binding TeachObjectFramePointsCommand}" Content="{Binding Resources.Strings[Teach]}" CommandParameter="1"/>
+                        <Button Grid.Row="1" Command="{Binding TeachObjectFramePointsCommand}" Content="{Binding Resources.Strings[Teach]}" CommandParameter="1" />
                         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Resources.Strings[X]}" Style="{StaticResource Coordinates}" />
                         <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding ObjectFrameXAxisPoint.X}" Style="{StaticResource Coordinates}" />
                         <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Resources.Strings[Y]}" Style="{StaticResource Coordinates}" />
@@ -131,14 +128,13 @@
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Button Grid.Row="1" Command="{Binding TeachObjectFramePointsCommand}" Content="{Binding Resources.Strings[Teach]}" CommandParameter="2"/>
+                        <Button Grid.Row="1" Command="{Binding TeachObjectFramePointsCommand}" Content="{Binding Resources.Strings[Teach]}" CommandParameter="2" />
                         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Resources.Strings[X]}" Style="{StaticResource Coordinates}" />
                         <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding ObjectFrameXYPlanPoint.X}" Style="{StaticResource Coordinates}" />
                         <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Resources.Strings[Y]}" Style="{StaticResource Coordinates}" />
@@ -159,7 +155,7 @@
                 <StackPanel x:Name="bottomPanel" DockPanel.Dock="Bottom" HorizontalAlignment="Right">
                     <Expander Header="Object Frame">
                         <StackPanel Margin="25,0,0,0">
-                            <TextBlock TextWrapping="Wrap" Text="{Binding GeneratedCellProgram.CellConfiguration.ConfigurationData.ObjectFrame}"/>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding GeneratedCellProgram.CellConfiguration.ConfigurationData.ObjectFrame}" />
                         </StackPanel>
                     </Expander>
                     <Grid Margin="0,10,0,0">

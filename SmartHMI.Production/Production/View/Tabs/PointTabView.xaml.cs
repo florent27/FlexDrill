@@ -6,69 +6,67 @@
 
 using Kuka.FlexDrill.Process.CustomClasses;
 using Kuka.FlexDrill.SmartHMI.Production.Production.ViewModel;
-using System;
 using System.Windows;
 
 namespace Kuka.FlexDrill.SmartHMI.Production.Production.View.Tabs
 {
-   /// <summary>Interaction logic for TextBoxTestView.xaml</summary>
-   public partial class PointTabView
-   {
+    /// <summary>Interaction logic for TextBoxTestView.xaml</summary>
+    public partial class PointTabView
+    {
+        private ProductionViewModel viewModel;
 
-      private ProductionViewModel viewModel;
-      #region Constructors and Destructor
+        #region Constructors and Destructor
 
-      public PointTabView()
+        public PointTabView()
 
-      {
-         InitializeComponent();
+        {
+            InitializeComponent();
 
-         Root.SizeChanged += WindowSizeChanged;
+            Root.SizeChanged += WindowSizeChanged;
 
-         Loaded += OnLoaded;
-      }
+            Loaded += OnLoaded;
+        }
 
-      private void OnLoaded(object sender, RoutedEventArgs e)
-      {
-         ViewModel.SelectedPointChangedEvent += SelectPointChanged;
-      }
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            ViewModel.SelectedPointChangedEvent += SelectPointChanged;
+        }
 
-      ~PointTabView()
-      {
-         Root.SizeChanged -= WindowSizeChanged;
-      }
+        ~PointTabView()
+        {
+            Root.SizeChanged -= WindowSizeChanged;
+        }
 
-      public ProductionViewModel ViewModel
-      {
-         get
-         {
-            if (viewModel == null)
+        public ProductionViewModel ViewModel
+        {
+            get
             {
-               viewModel = DataContext as ProductionViewModel;
-               
+                if (viewModel == null)
+                {
+                    viewModel = DataContext as ProductionViewModel;
+                }
+
+                return viewModel;
             }
+        }
 
-            return viewModel;
-         }
-      }
+        private void SelectPointChanged(RobotPoint RobotPoint)
+        {
+            if (RobotPoint != null)
+            {
+                WorkingPointListView.ScrollIntoView(RobotPoint);
+            }
+        }
 
-      private void SelectPointChanged(RobotPoint RobotPoint)
-      {
-         if (RobotPoint != null)
-         {
-            WorkingPointListView.ScrollIntoView(RobotPoint);
-         }
-      }
+        #endregion Constructors and Destructor
 
-      #endregion
+        #region Methods
 
-      #region Methods
+        private void WindowSizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            WorkingPointListView.Height = Root.ActualHeight - TopPanel.ActualHeight - BottomPanel.ActualHeight;
+        }
 
-      private void WindowSizeChanged(object sender, SizeChangedEventArgs e)
-      {
-         WorkingPointListView.Height = Root.ActualHeight - TopPanel.ActualHeight - BottomPanel.ActualHeight;
-      }
-
-      #endregion
-   }
+        #endregion Methods
+    }
 }

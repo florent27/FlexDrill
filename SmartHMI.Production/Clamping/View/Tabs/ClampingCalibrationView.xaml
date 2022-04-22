@@ -45,7 +45,6 @@
                 <Setter Property="Margin" Value="5 0 0 0" />
                 <Setter Property="TextWrapping" Value="Wrap" />
             </Style>
-
         </ResourceDictionary>
     </UserControl.Resources>
 
@@ -186,8 +185,6 @@
                          Content="{Binding Resources.Strings[UnlockNose]}" />
                 </Grid>
             </GroupBox>
-
         </StackPanel>
     </ScrollViewer>
-
 </UserControl>
